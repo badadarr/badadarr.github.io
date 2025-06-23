@@ -232,6 +232,24 @@ section {
     margin-bottom: 0.5rem;
 }
 
+/* Contact info brief in about section */
+.contact-info-brief {
+    background: rgba(37, 99, 235, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border-left: 4px solid #2563eb;
+}
+
+.contact-info-brief p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.contact-info-brief p:last-child {
+    margin-bottom: 0;
+}
+
 /* Experience Section */
 .experience-timeline {
     max-width: 800px;
@@ -447,6 +465,101 @@ footer {
     position: absolute;
     left: 0;
     font-size: 1.2rem;
+}
+
+/* Education Section */
+.education {
+    background: #f8fafc;
+}
+
+.education-content h3 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.education-timeline {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.certifications-title {
+    margin-top: 3rem !important;
+}
+
+/* Certifications Grid */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.cert-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.cert-item:hover {
+    transform: translateY(-4px);
+}
+
+.cert-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.cert-content h4 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.cert-content p {
+    color: #64748b;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+}
+
+.cert-link:hover {
+    color: #1d4ed8;
+}
+
+.cert-id {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+    display: block;
 }
 
 /* Responsive Design */

@@ -204,12 +204,14 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
-    position: relative;    overflow: hidden;
+    position: relative;
+    overflow: hidden;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 2px solid transparent;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     background-clip: padding-box;
+    color: white;
 }
 
 .btn-primary::before, .btn-secondary::before {

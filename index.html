@@ -52,21 +52,13 @@
       <div class="nav-container">
         <div class="nav-logo">
           <a href="#home">Badar Maulana</a>
-        </div>
-        <div class="nav-menu">
+        </div>        <div class="nav-menu">
           <a href="#about" class="nav-link">About</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#education" class="nav-link">Education</a>
           <a href="#tech-stack" class="nav-link">Tech Stack</a>
           <a href="#portfolio" class="nav-link">Portfolio</a>
-          <a href="#contact" class="nav-link">Contact</a
-          ><button
-            id="theme-toggle"
-            class="theme-toggle"
-            title="Toggle dark/light mode"
-          >
-            <i class="fas fa-moon"></i>
-          </button>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
         <div class="nav-toggle">
           <span></span>
@@ -842,9 +834,7 @@
           // Refresh AOS after initial load
           setTimeout(() => {
             AOS.refresh();
-          }, 100);
-
-          console.log("AOS initialized successfully");
+          }, 100);          console.log("AOS initialized successfully");
         } catch (error) {
           console.warn("AOS initialization failed:", error);
           // Fallback: ensure all elements are visible
@@ -855,37 +845,7 @@
           });
         }
 
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById("theme-toggle");
-        const themeIcon = themeToggle.querySelector("i");
-
-        // Check for saved theme preference or default to 'light'
-        const currentTheme = localStorage.getItem("theme") || "light";
-        document.body.classList.toggle("dark-mode", currentTheme === "dark");
-        updateThemeIcon(currentTheme);
-
-        themeToggle.addEventListener("click", function () {
-          document.body.classList.toggle("dark-mode");
-          const isDark = document.body.classList.contains("dark-mode");
-          const theme = isDark ? "dark" : "light";
-
-          localStorage.setItem("theme", theme);
-          updateThemeIcon(theme);
-
-          // Add a small animation
-          themeToggle.style.transform = "rotate(360deg)";
-          setTimeout(() => {
-            themeToggle.style.transform = "rotate(0deg)";
-          }, 300);
-        });
-
-        function updateThemeIcon(theme) {
-          if (theme === "dark") {
-            themeIcon.className = "fas fa-sun";
-          } else {
-            themeIcon.className = "fas fa-moon";
-          }
-        } // Floating animation for tech skills
+        // Floating animation for tech skills
         const floatingTech = document.querySelectorAll(".floating-tech");
         floatingTech.forEach((tech, index) => {
           tech.style.animationDelay = `${index * 0.2}s`;

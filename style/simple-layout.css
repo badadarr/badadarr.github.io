@@ -1240,17 +1240,14 @@ html {
 /* Focus states for accessibility */
 .btn-primary:focus,
 .btn-secondary:focus,
-.theme-toggle:focus,
 .back-to-top:focus {
-    outline: 3px solid rgba(102, 126, 234, 0.5);
-    outline-offset: 2px;
+    outline: 3px solid rgba(102, 126, 234, 0.5);    outline-offset: 2px;
 }
 
 /* Print styles */
 @media print {
     .navbar,
     .scroll-progress,
-    .theme-toggle,
     .back-to-top {
         display: none !important;
     }
@@ -1604,7 +1601,6 @@ section {
 @media print {
     .navbar,
     .scroll-progress,
-    .theme-toggle,
     .back-to-top {
         display: none !important;
     }

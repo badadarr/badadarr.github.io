@@ -10,10 +10,12 @@
     
     <title>Badar Maulana - Full Stack Developer</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <!-- Essential Libraries Only -->
+      <!-- Essential Libraries Only -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS for form functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
     <!-- Custom Stylesheets -->
     <link rel="stylesheet" href="style/simple-layout.css">
@@ -443,32 +445,46 @@
                             <p>github.com/badadarr</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="contact-form">
+                </div>                <div class="contact-form">
                     <h3>Send a Message</h3>
-                    <form>
+                    <!-- Method 1: Formspree (Recommended - Easy Setup) -->
+                    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <input type="text" id="subject" name="_subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary">
+                        <!-- Hidden fields for Formspree -->
+                        <input type="hidden" name="_next" value="">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <button type="submit" class="btn-primary" id="submit-btn">
                             <i class="fas fa-paper-plane"></i>
-                            Send Message
+                            <span id="btn-text">Send Message</span>
                         </button>
+                        <div id="form-status" class="form-status"></div>
                     </form>
+                    
+                    <!-- Alternative Method: Direct mailto -->
+                    <div class="alternative-contact">
+                        <p><strong>Alternative:</strong> You can also email me directly at:</p>
+                        <a href="mailto:badar.maulana.techno@gmail.com?subject=Portfolio Contact&body=Hi Badar,%0D%0A%0D%0AI found your portfolio and would like to get in touch.%0D%0A%0D%0AName: %0D%0AEmail: %0D%0AMessage: %0D%0A" 
+                           class="direct-email-btn">
+                            <i class="fas fa-envelope"></i>
+                            Send Direct Email
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -477,17 +493,18 @@
         <div class="container">
             <p>&copy; 2024 Badar Maulana. All rights reserved.</p>
         </div>
-    </footer>
-
-    <!-- Simple JavaScript for mobile menu -->
+    </footer>    <!-- Enhanced JavaScript for functionality -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile navigation
             const navToggle = document.querySelector('.nav-toggle');
             const navMenu = document.querySelector('.nav-menu');
             
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('nav-menu-active');
-            });
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('nav-menu-active');
+                });
+            }
             
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -499,9 +516,83 @@
                             behavior: 'smooth',
                             block: 'start'
                         });
+                        // Close mobile menu if open
+                        if (navMenu) {
+                            navMenu.classList.remove('nav-menu-active');
+                        }
                     }
                 });
             });
+
+            // Contact form handling
+            const contactForm = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const formStatus = document.getElementById('form-status');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    // Check if Formspree is properly configured
+                    const action = contactForm.getAttribute('action');
+                    if (!action || action.includes('YOUR_FORM_ID')) {
+                        e.preventDefault();
+                        // Fallback to mailto if Formspree not configured
+                        handleMailtoFallback();
+                        return;
+                    }
+
+                    // Show loading state for Formspree submission
+                    submitBtn.disabled = true;
+                    btnText.innerHTML = '<span class="spinner"></span> Sending...';
+                    submitBtn.classList.add('loading');
+                    formStatus.className = 'form-status loading';
+                    formStatus.innerHTML = 'Sending your message...';
+                });
+            }
+
+            function handleMailtoFallback() {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+
+                // Create mailto link with pre-filled data
+                const emailSubject = encodeURIComponent(subject || 'Message from Portfolio Website');
+                const emailBody = encodeURIComponent(
+                    `Name: ${name}\n` +
+                    `Email: ${email}\n` +
+                    `Subject: ${subject}\n\n` +
+                    `Message:\n${message}`
+                );
+                const mailtoLink = `mailto:badar.maulana.techno@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+                
+                // Open default email client
+                window.location.href = mailtoLink;
+                
+                showSuccess('Opening your email client... Please send the pre-filled email.');
+                contactForm.reset();
+            }
+
+            function showSuccess(message) {
+                submitBtn.disabled = false;
+                btnText.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                submitBtn.classList.remove('loading');
+                formStatus.className = 'form-status success';
+                formStatus.innerHTML = message;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            }
+
+            // Handle URL parameters for Formspree success/error
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                showSuccess('Message sent successfully! I\'ll get back to you soon.');
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
         });
     </script>
 </body>

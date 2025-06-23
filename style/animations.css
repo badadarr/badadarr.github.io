@@ -217,6 +217,350 @@
     animation: pulse 2s infinite;
 }
 
+/* Enhanced Animation Styles */
+
+/* Smooth transitions for all elements */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Advanced Skill Orbit Animation */
+.skill-orbit-advanced {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 3rem auto;
+}
+
+.orbit-item {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    animation: orbit 20s linear infinite;
+}
+
+.orbit-item:nth-child(1) { animation-delay: 0s; }
+.orbit-item:nth-child(2) { animation-delay: -3.33s; }
+.orbit-item:nth-child(3) { animation-delay: -6.66s; }
+.orbit-item:nth-child(4) { animation-delay: -9.99s; }
+.orbit-item:nth-child(5) { animation-delay: -13.32s; }
+.orbit-item:nth-child(6) { animation-delay: -16.65s; }
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg) translateX(160px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(160px) rotate(-360deg);
+    }
+}
+
+.orbit-item:hover {
+    transform: scale(1.3) rotate(360deg);
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+}
+
+/* Advanced Button Animations */
+.btn-glitch {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-glitch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.btn-glitch:hover::before {
+    left: 100%;
+}
+
+.btn-glitch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Morphing Background Animation */
+.morphing-bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Typewriter Effect */
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
+/* Particle System */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #667eea;
+    border-radius: 50%;
+    animation: float-particle 6s linear infinite;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 3D Card Effect */
+.card-3d {
+    perspective: 1000px;
+}
+
+.card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+/* Bounce In Animation */
+.bounce-in {
+    animation: bounceIn 1s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    } 
+}
+
+/* Slide Up Animation */
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Reveal Text Animation */
+.reveal-text {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: revealText 1.5s ease-out forwards;
+}
+
+@keyframes revealText {
+    from {
+        left: 0;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+/* Stagger Animation */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: staggerIn 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes staggerIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Optimized Animations */
+@media (max-width: 768px) {
+    .skill-orbit-advanced {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .orbit-item {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    @keyframes orbit {
+        from {
+            transform: rotate(0deg) translateX(120px) rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg) translateX(120px) rotate(-360deg);
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .orbit-item,
+    .floating-tech,
+    .morphing-bg,
+    .particle {
+        animation: none;
+    }
+    
+    .btn-glitch::before {
+        display: none;
+    }
+}
+
 /* Section spacing optimization */
 .github-stats {
     margin-bottom: 0 !important;
@@ -339,7 +683,7 @@ section {
 /* Specific section optimizations */
 .github-stats {
     padding: 2rem 0 1rem 0 !important;
-    min-height: auto !important;
+    min-height: 0 !important;
 }
 
 .github-stats .container {
@@ -391,6 +735,7 @@ section {
     padding: 1.5rem !important;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -463,6 +808,7 @@ section {
     padding: 2rem 1.5rem 1rem 1.5rem !important;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -646,7 +992,7 @@ section {
 
 /* Header optimization */
 header {
-    min-height: auto !important;
+    min-height: 0 !important;
     padding: 1rem 0 !important;
 }
 

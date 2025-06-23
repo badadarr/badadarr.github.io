@@ -8,7 +8,7 @@
 
 const EMAILJS_CONFIG = {
     USER_ID: 'YOUR_EMAILJS_USER_ID',  // Your EmailJS User ID
-    SERVICE_ID: 'YOUR_SERVICE_ID',    // Your EmailJS Service ID  
+    SERVICE_ID: 'service_j57rll4',    // Your EmailJS Service ID  
     TEMPLATE_ID: 'YOUR_TEMPLATE_ID'   // Your EmailJS Template ID
 };
 

@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Badar Maulana - Full Stack Developer specializing in Python, Flutter, Swift, Next.js, and Laravel">
+    <meta name="keywords" content="Full Stack Developer, Python, Flutter, Swift, Next.js, Laravel, Technical SEO">
+    <meta name="author" content="Badar Maulana">
+    <meta name="google-site-verification" content="9P7lBLkCpxEcZAig0uq5LQzN-YUIhlLA37V1Gj3avcg">
+    
+    <title>Badar Maulana - Full Stack Developer</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Essential Libraries Only -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="style/simple-layout.css">
+</head><body class="compact-layout">
+    <!-- Background Elements -->
+    <div id="particles-js"></div>
+    <canvas id="threejs-background"></canvas>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header Section -->
+    <header>
+        <!-- Background Graphics -->
+        <div class="left-circ">
+            <img src="images/Group 1953.svg" alt="Decorative circle">
+        </div>
+        <div class="circle-img">
+            <img src="images/Group 1951.svg" alt="Decorative circle">
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggler">
+            <div class="bar half start"></div>
+            <div class="bar"></div>
+            <div class="bar half end"></div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="top-nav">
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Achievements</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#github-stats" class="nav-link">GitHub</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Hero Content -->
+        <div class="landing-text">
+            <div class="hero-content">
+                <!-- Greeting -->
+                <div class="greeting animate__animated animate__fadeInDown" data-splitting>
+                    👋 Hey there, I'm
+                </div>
+                
+                <!-- Name -->
+                <h1 class="animate__animated animate__fadeInUp" data-splitting>
+                    Badar Maulana
+                </h1>
+                
+                <!-- Typing Animation -->
+                <h2 class="typing-text">
+                    <span id="typed-text"></span>
+                    <span class="cursor-blink">|</span>
+                </h2>
+                
+                <!-- Description -->
+                <p class="hero-description animate__animated animate__fadeInUp animate__delay-1s">
+                    Night coding enthusiast who thrives on exploring cutting-edge
+                    technologies and crafting innovative solutions. Welcome to my
+                    digital playground!
+                </p>
+
+                <!-- Interactive Skills Showcase -->
+                <div class="skills-showcase animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="skill-orbit">
+                        <div class="skill-item" data-skill="Python">🐍</div>
+                        <div class="skill-item" data-skill="Flutter">🏗️</div>
+                        <div class="skill-item" data-skill="Swift">📱</div>
+                        <div class="skill-item" data-skill="Next.js">🌐</div>
+                        <div class="skill-item" data-skill="Laravel">⚡</div>
+                        <div class="skill-item" data-skill="AI/ML">🤖</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="hero-buttons animate__animated animate__fadeInUp animate__delay-3s">
+                    <a href="#portfolio" class="btn-primary glitch-btn" data-text="View My Work">
+                        <span>View My Work</span>
+                        <i class="bx bx-code-alt"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary neon-btn">
+                        <span>Let's Connect</span>
+                        <i class="bx bx-message-dots"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Floating Code Elements -->
+            <div class="floating-code">
+                <div class="code-snippet" data-aos="fade-right" data-aos-delay="100">
+                    <span class="code-line">const developer = {</span>
+                    <span class="code-line"> name: "Badar",</span>
+                    <span class="code-line"> passion: "coding"</span>
+                    <span class="code-line">};</span>
+                </div>
+            </div>
+
+            <!-- Lottie Animation -->
+            <div class="lottie-container">
+                <lottie-player
+                    src="https://assets5.lottiefiles.com/packages/lf20_w51pcehl.json"
+                    background="transparent"
+                    speed="1"
+                    class="lottie-animation"
+                    loop
+                    autoplay>
+                </lottie-player>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scrolldown">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <!-- Profile Image -->
+            <div class="profile-img">
+                <img src="images/badarimageformal.png" 
+                     alt="Badar Maulana professional photo" 
+                     data-aos="fade-up" 
+                     data-aos-delay="300">
+            </div>
+            
+            <!-- Skills Background Image -->
+            <div class="skills-img">
+                <img src="images/blackball.svg" alt="Skills background decoration">
+            </div>
+            
+            <!-- About Content -->
+            <div class="about-details" data-aos="fade-up" data-aos-delay="300">
+                <!-- Section Header -->
+                <div class="about-heading">
+                    <h1>About</h1>
+                    <h6>The Developer Behind the Code</h6>
+                </div>
+
+                <div class="about-content">
+                    <!-- Introduction -->
+                    <h3>💻 My Digital Workshop</h3>
+                    <p class="workshop-info">
+                        I'm a passionate full-stack developer who thrives on exploring
+                        cutting-edge technologies and crafting innovative solutions.
+                        Whether it's burning the midnight oil coding or tinkering with new
+                        tools, I'm constantly evolving my craft.
+                    </p>
+
+                    <!-- Setup Information -->
+                    <div class="setup-info">
+                        <h4>🛠️ My Setup</h4>
+                        <div class="setup-grid">
+                            <div class="setup-item">
+                                <strong>💻 Primary:</strong> MacBook Pro 2012
+                            </div>
+                            <div class="setup-item">
+                                <strong>🖥️ Secondary:</strong> Windows 11
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Specialties -->
+                    <div class="specialties">
+                        <h4>🌟 What I Do</h4>
+                        <ul class="specialty-list">
+                            <li>Full-Stack Development (Python, Swift, Flutter, Laravel, Next.js)</li>
+                            <li>Technical SEO & Content Optimization</li>
+                            <li>Mobile App Development (iOS & Cross-platform)</li>
+                            <li>UI/UX Design & Prototyping</li>
+                        </ul>
+                    </div>
+
+                    <!-- Fun Facts -->
+                    <div class="fun-facts">
+                        <h4>🎯 Fun Facts</h4>
+                        <ul class="fun-list">
+                            <li>🌙 I code best when the world sleeps - midnight is my creative witching hour</li>
+                            <li>💬 My DMs are always open for exciting collaborations (or tech debates!)</li>
+                            <li>🚀 On a mission to build solutions that make life's code compile smoother</li>
+                            <li>🏸 Aspiring badminton ninja! (Warning: My backhand is still in beta)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="cta-section">
+                        <a href="https://drive.google.com/drive/u/0/my-drive" class="cta">
+                            📄 Check out my CV & Certificates
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <address>
+                    📧 Let's connect:
+                    <a href="mailto:badar.maulana.techno@gmail.com">
+                        badar.maulana.techno@gmail.com
+                    </a>
+                </address>
+
+                <!-- Location -->
+                <div class="location-section">
+                    <h4>📍 Currently Based In</h4>
+                    <iframe src="https://www.google.co.id/maps/place/Kompleks+TNI+Angkatan+Udara/@-6.3728097,106.8620492,17z/data=!3m1!4b1!4m5!3m4!1s0x2e69ec7d8193b79b:0x58924edc9631ae95!8m2!3d-6.372815!4d106.8642379"
+                            width="200"
+                            height="400"
+                            frameborder="10"
+                            allowfullscreen="true"
+                            title="Current Location Map">
+                    </iframe>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="social-media">
+                    <h4>🌐 Connect With Me</h4>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="https://www.linkedin.com/in/badadarrs" 
+                               class="icon-link" 
+                               title="LinkedIn Profile"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/badadarr" 
+                               class="icon-link" 
+                               title="GitHub Profile"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fab fa-github-square"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/bididaw" 
+                               class="icon-link" 
+                               title="Twitter Profile"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fab fa-twitter-square"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Achievements Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <!-- Background Image -->
+            <div class="services-img">
+                <img src="images/Rectangle 5651.svg" alt="Services background decoration">
+            </div>
+            
+            <!-- Section Header -->
+            <div class="section-heading">
+                <h1>Achievements</h1>
+                <h6>Multiple awards in my experience</h6>
+            </div>
+
+            <!-- Achievements List -->
+            <div class="my-skills" data-aos="fade-right" data-aos-delay="100">
+                <!-- Achievement 1: Flutter Certification -->
+                <div class="skill" 
+                     data-date="07 June 2022' BuildWithAngga" 
+                     data-aos="fade-right" 
+                     data-aos-delay="300">
+                    <h3>Mastering Flutter and Dart: Build Cozy House Apps</h3>
+                    <p>
+                        This application makes it easy for users who are looking for a
+                        comfortable, safe, peaceful, strategic place.
+                    </p>
+                    <h3>Tech in use</h3>
+                    <p>
+                        Flutter framework, networking, dart language, flutter provider,
+                        http, MVVM
+                    </p>
+                    <a href="https://drive.google.com/file/d/12xRtEz93i63cCfo0vUO96dKw_5S4_Vs8/view?usp=sharing" 
+                       class="cta"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Certificate
+                    </a>
+                </div>
+
+                <!-- Achievement 2: iOS Development -->
+                <div class="skill" 
+                     data-date="08 June 2022' BuildWithAngga" 
+                     data-aos="fade-right" 
+                     data-aos-delay="600">
+                    <h3>iOS Development Using SwiftUI</h3>
+                    <p>
+                        An application that makes it easy for climbers and adventurers to
+                        find information and make reservations.
+                    </p>
+                    <h3>Tech in use</h3>
+                    <p>SwiftUI, view, viewmodel</p>
+                    <a href="https://drive.google.com/file/d/1GeD_9KdMc1GodnudBAseiVa7JitB5io_/view?usp=sharing" 
+                       class="cta"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Certificate
+                    </a>
+                </div>
+
+                <!-- Achievement 3: Object Detection Project -->
+                <div class="skill" 
+                     data-date="Github 20' Self Project" 
+                     data-aos="fade-right" 
+                     data-aos-delay="900">
+                    <h3>Slide Object Detection</h3>
+                    <p>
+                        Control this slider in your website with your object tracking.
+                    </p>
+                    <h3>Tech in use</h3>
+                    <p>Python</p>
+                    <a href="https://github.com/badadarr/Slide-Object-Detection" 
+                       class="cta"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Project
+                    </a>
+                </div>
+
+                <!-- Achievement 4: Arduino Robotics -->
+                <div class="skill" 
+                     data-date="Technonatura 19' Depok" 
+                     data-aos="fade-right" 
+                     data-aos-delay="1200">
+                    <h3>Arduino Robotik</h3>
+                    <p>
+                        This I learn in junior high school, I create robotik system using
+                        arduino
+                    </p>
+                    <h3>Tech in use</h3>
+                    <p>C++</p>
+                    <a href="https://github.com/badadarr/Arduino-Robotik" 
+                       class="cta"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Project
+                    </a>
+                </div>
+
+                <!-- Achievement 5: Machine Learning -->
+                <div class="skill" 
+                     data-date="Mei 28' Dicoding" 
+                     data-aos="fade-right" 
+                     data-aos-delay="1500">
+                    <h3>Machine Learning Beginner</h3>
+                    <p>
+                        I Learn to detect the room are clean or dirty using machine
+                        learning
+                    </p>
+                    <h3>Tech in use</h3>
+                    <p>Python stack</p>
+                    <a href="https://drive.google.com/file/d/1qSFWF04UGEpZnY_u6enFhqS_Iocbm9kK/view?usp=sharing" 
+                       class="cta"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-heading">
+                <h1 data-splitting>Portfolio</h1>
+                <h6>Some of my recent work</h6>
+            </div>
+
+            <!-- Portfolio Carousel -->
+            <div class="swiper portfolio-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Project 1: E-Learning App -->
+                    <div class="swiper-slide">
+                        <div class="portfolio-card glass-effect">
+                            <div class="portfolio-img">
+                                <img src="images/Akademisapp ui.png" alt="E-Learning Application">
+                                <div class="portfolio-overlay">
+                                    <div class="tech-stack-mini">
+                                        <span class="tech-badge">Flutter</span>
+                                        <span class="tech-badge">Dart</span>
+                                        <span class="tech-badge">Firebase</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="category">E Learning Application</span>
+                                <h3>Grow with us</h3>
+                                <p>
+                                    Advanced e-learning platform built with Flutter, featuring
+                                    real-time collaboration and AI-powered learning paths.
+                                </p>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <i class="bx bx-user"></i>
+                                        <span>10K+ Users</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="bx bx-star"></i>
+                                        <span>4.8 Rating</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a href="#" class="btn-view">
+                                        <i class="bx bx-show"></i>
+                                        Live Demo
+                                    </a>
+                                    <a href="#" class="btn-code">
+                                        <i class="bx bx-code"></i>
+                                        Source
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Gojek Redesign -->
+                    <div class="swiper-slide">
+                        <div class="portfolio-card glass-effect">
+                            <div class="portfolio-img">
+                                <img src="images/gojekapp ui.png" alt="Gojek Redesign">
+                                <div class="portfolio-overlay">
+                                    <div class="tech-stack-mini">
+                                        <span class="tech-badge">UI/UX</span>
+                                        <span class="tech-badge">Figma</span>
+                                        <span class="tech-badge">Prototyping</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="category">UI Redesign</span>
+                                <h3>Gojek Re-Design</h3>
+                                <p>
+                                    Modern redesign concept for Gojek mobile interface with
+                                    enhanced user experience and accessibility.
+                                </p>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <i class="bx bx-like"></i>
+                                        <span>500+ Likes</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="bx bx-share"></i>
+                                        <span>200+ Shares</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a href="#" class="btn-view">
+                                        <i class="bx bx-show"></i>
+                                        View Design
+                                    </a>
+                                    <a href="#" class="btn-code">
+                                        <i class="bx bx-palette"></i>
+                                        Prototype
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Cozy House App -->
+                    <div class="swiper-slide">
+                        <div class="portfolio-card glass-effect">
+                            <div class="portfolio-img">
+                                <img src="images/cozyapp ui.png" alt="Cozy House App">
+                                <div class="portfolio-overlay">
+                                    <div class="tech-stack-mini">
+                                        <span class="tech-badge">Flutter</span>
+                                        <span class="tech-badge">Provider</span>
+                                        <span class="tech-badge">REST API</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="category">Mobile App</span>
+                                <h3>Cozy House Application</h3>
+                                <p>
+                                    Property rental app with advanced search filters, virtual
+                                    tours, and integrated payment system.
+                                </p>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <i class="bx bx-download"></i>
+                                        <span>5K+ Downloads</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="bx bx-star"></i>
+                                        <span>4.9 Rating</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a href="https://drive.google.com/drive/folders/1jWluxUbdQZbLJx7kgNUshatN-g-NOEda?usp=sharing" 
+                                       class="btn-view"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        <i class="bx bx-show"></i>
+                                        View Project
+                                    </a>
+                                    <a href="#" class="btn-code">
+                                        <i class="bx bx-code"></i>
+                                        GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Watch Shop App -->
+                    <div class="swiper-slide">
+                        <div class="portfolio-card glass-effect">
+                            <div class="portfolio-img">
+                                <img src="images/Watchapp ui.png" alt="Watch Shop App">
+                                <div class="portfolio-overlay">
+                                    <div class="tech-stack-mini">
+                                        <span class="tech-badge">SwiftUI</span>
+                                        <span class="tech-badge">Core Data</span>
+                                        <span class="tech-badge">HealthKit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="category">iOS App</span>
+                                <h3>Watch Shop Application</h3>
+                                <p>
+                                    Premium watch marketplace with AR try-on feature and
+                                    sophisticated filtering system built with SwiftUI.
+                                </p>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <i class="bx bx-shopping-bag"></i>
+                                        <span>1K+ Sales</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="bx bx-star"></i>
+                                        <span>4.7 Rating</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a href="#" class="btn-view">
+                                        <i class="bx bx-show"></i>
+                                        Coming Soon
+                                    </a>
+                                    <a href="#" class="btn-code">
+                                        <i class="bx bx-code"></i>
+                                        Preview
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Future Jobs Platform -->
+                    <div class="swiper-slide">
+                        <div class="portfolio-card glass-effect">
+                            <div class="portfolio-img">
+                                <img src="images/futurejobs ui.png" alt="Future Jobs UI">
+                                <div class="portfolio-overlay">
+                                    <div class="tech-stack-mini">
+                                        <span class="tech-badge">React</span>
+                                        <span class="tech-badge">Node.js</span>
+                                        <span class="tech-badge">GraphQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="category">Web Platform</span>
+                                <h3>Future Jobs Platform</h3>
+                                <p>
+                                    AI-powered job matching platform with mentor-mentee system
+                                    and skill assessment tools.
+                                </p>
+                                <div class="portfolio-stats">
+                                    <div class="stat">
+                                        <i class="bx bx-briefcase"></i>
+                                        <span>2K+ Jobs</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="bx bx-group"></i>
+                                        <span>500+ Matches</span>
+                                    </div>
+                                </div>
+                                <div class="portfolio-actions">
+                                    <a href="https://www.figma.com/file/6wq8zpD7I085632HJZFvZB/Future-Job?node-id=10%3A1" 
+                                       class="btn-view"
+                                       target="_blank"
+                                       rel="noopener noreferrer">
+                                        <i class="bx bx-show"></i>
+                                        View Design
+                                    </a>
+                                    <a href="#" class="btn-code">
+                                        <i class="bx bx-code"></i>
+                                        Prototype
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- Portfolio Filter -->
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+            </div>
+
+            <!-- Background Image -->
+            <div class="experience-img">
+                <img src="images/Group 1949.svg" alt="Portfolio background decoration">
+            </div>
+        </div>
+    </section>
+    <section class="experience" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <h1>Experience</h1>
+          <h6>My Professional Journey</h6>
+        </div>
+        <div class="timeline">
+          <ul>
+            <li
+              class="date"
+              data-date="2024 - Present | Full-Stack Developer"
+              data-aos="fade-up"
+              data-aos-duration="300ms"
+            >
+              <h1>🚀 Senior Full-Stack Developer & Technical SEO Specialist</h1>
+              <p>
+                Currently focusing on cutting-edge web technologies and
+                technical SEO optimization. Specializing in Python, Next.js,
+                Laravel, and Flutter for cross-platform solutions. Also
+                providing technical SEO services, including content
+                optimization, keyword research, and website performance
+                enhancement.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Laravel</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">Technical SEO</span>
+              </div>
+              <br />
+              <a href="#portfolio" class="cta">View Recent Projects</a>
+            </li>
+            <li
+              class="date"
+              data-date="2023 - 2024 | Freelance"
+              data-aos="fade-up"
+              data-aos-duration="300ms"
+            >
+              <h1>💼 Independent Developer & Consultant</h1>
+              <p>
+                Expanded expertise in modern web frameworks and mobile
+                development. Focused on delivering high-quality solutions using
+                Swift for iOS development and implementing advanced Flutter
+                applications with complex state management.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Swift</span>
+                <span class="tag">SwiftUI</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">State Management</span>
+              </div>
+              <br />
+              <a href="" class="cta">Projects Portfolio</a>
+            </li>
+            <li
+              class="date"
+              data-date="Feb 2022 - Jun 2022 | Contract"
+              data-aos="fade-up"
+              data-aos-duration="300ms"
+            >
+              <h1>📱 Flutter Developer at Merah Putih Academy</h1>
+              <p>
+                Led the development of comprehensive E-Learning applications
+                with REST API integration. Created intuitive UI/UX designs for
+                mobile applications and developed fitness tracking applications
+                with advanced Flutter features.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">REST API</span>
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">Figma</span>
+              </div>
+              <br />
+              <a href="" class="cta">Project Details</a>
+            </li>
+            <li
+              class="date"
+              data-date="Nov 2021 - Apr 2022 | Part Time"
+              data-aos="fade-up"
+              data-aos-duration="300ms"
+            >
+              <h1>🌐 Frontend Developer at GDSC Waseda</h1>
+              <p>
+                Collaborated with Google Developer Student Club to create
+                engaging web experiences. Participated in speaker sessions,
+                workshops, hackathons, and contributed to the annual Solution
+                Challenge competition.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Frontend Development</span>
+                <span class="tag">Web Technologies</span>
+                <span class="tag">Google Technologies</span>
+              </div>
+              <br />
+              <a
+                href="https://github.com/kaedejima/gdscwsd.github.io"
+                class="cta"
+                >Website Project</a
+              >
+            </li>
+            <li
+              class="date"
+              data-date="Jan 2021 - Jul 2021 | Intern"
+              data-aos="fade-up"
+              data-aos-duration="300ms"
+            >
+              <h1>💻 Software Developer at Amanah Karya Indonesia</h1>
+              <p>
+                Started my professional journey as a software developer intern,
+                contributing to innovative solutions for small to medium-sized
+                companies. Gained valuable experience in team collaboration and
+                agile development practices.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Software Development</span>
+                <span class="tag">Team Collaboration</span>
+                <span class="tag">Agile Methodology</span>
+              </div>
+              <br />
+              <a href="" class="cta">Experience Details</a>
+            </li>
+          </ul>
+          <div class="contact-img">
+            <img src="images/Group 1956.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="github-stats" id="github-stats">
+      <div class="container">
+        <div class="section-heading">
+          <h1 data-splitting>⚙️ GitHub Insights</h1>
+          <h6>A snapshot of my coding chronicles</h6>
+        </div>
+
+        <!-- Interactive Skills Chart -->
+        <div class="skills-visualization">
+          <h3>💻 Technical Skills Proficiency</h3>
+          <div class="charts-container">
+            <div class="chart-item">
+              <canvas id="skillsChart"></canvas>
+            </div>
+            <div class="chart-item">
+              <canvas id="projectsChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div
+            class="stat-card morphism"
+            data-aos="fade-up"
+            data-aos-delay="100ms"
+          >
+            <h3>📊 GitHub Stats</h3>
+            <div class="github-card">
+              <img
+                src="https://github-readme-stats.vercel.app/api?username=badadarr&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=f0c800&text_color=c9d1d9&icon_color=ff5a3d"
+                alt="Badar's GitHub Stats"
+                loading="lazy"
+              />
+              <div class="stat-overlay">
+                <div class="live-indicator">
+                  <span class="pulse"></span>
+                  Live Data
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="stat-card morphism"
+            data-aos="fade-up"
+            data-aos-delay="200ms"
+          >
+            <h3>🔥 GitHub Streak</h3>
+            <div class="github-card">
+              <img
+                src="https://github-readme-streak-stats.herokuapp.com/?user=badadarr&theme=dark&hide_border=true&background=0d1117&stroke=f0c800&ring=f0c800&fire=ff5a3d&currStreakLabel=c9d1d9"
+                alt="Badar's GitHub Streak"
+                loading="lazy"
+              />
+              <div class="streak-counter">
+                <span class="counter-number" data-count="150">0</span>
+                <span class="counter-label">Days Streak</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="stat-card morphism languages"
+            data-aos="fade-up"
+            data-aos-delay="300ms"
+          >
+            <h3>💻 Top Languages</h3>
+            <div class="github-card">
+              <img
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=badadarr&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=f0c800&text_color=c9d1d9"
+                alt="Badar's Most Used Languages"
+                loading="lazy"
+              />
+              <div class="language-progress">
+                <div class="lang-item">
+                  <span>Python</span>
+                  <div class="progress-bar">
+                    <div class="progress" data-width="85%"></div>
+                  </div>
+                </div>
+                <div class="lang-item">
+                  <span>Dart</span>
+                  <div class="progress-bar">
+                    <div class="progress" data-width="80%"></div>
+                  </div>
+                </div>
+                <div class="lang-item">
+                  <span>Swift</span>
+                  <div class="progress-bar">
+                    <div class="progress" data-width="75%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contribution Graph -->
+        <div class="contribution-section">
+          <h3>📈 Contribution Activity</h3>
+          <div class="contribution-graph">
+            <img
+              src="https://github-readme-activity-graph.vercel.app/graph?username=badadarr&theme=tokyo-night&hide_border=true&bg_color=0d1117"
+              alt="Contribution Graph"
+            />
+          </div>
+        </div>
+
+        <!-- GitHub Trophies -->
+        <div class="trophies-section">
+          <h3>🏆 GitHub Achievements</h3>
+          <div class="trophies-container">
+            <img
+              src="https://github-profile-trophy.vercel.app/?username=badadarr&theme=onedark&no-frame=true&row=1&column=6"
+              alt="GitHub Trophies"
+            />
+          </div>
+        </div>
+
+        <div class="github-activity glass-effect">
+          <h3>🌟 Recent Activity</h3>
+          <p>
+            Check out my latest commits, contributions, and open source projects
+            on GitHub!
+          </p>
+
+          <!-- Real-time commit counter -->
+          <div class="activity-stats">
+            <div class="activity-item">
+              <i class="bx bx-git-commit"></i>
+              <div>
+                <span class="counter" data-count="1250">0</span>
+                <label>Total Commits</label>
+              </div>
+            </div>
+            <div class="activity-item">
+              <i class="bx bx-git-pull-request"></i>
+              <div>
+                <span class="counter" data-count="89">0</span>
+                <label>Pull Requests</label>
+              </div>
+            </div>
+            <div class="activity-item">
+              <i class="bx bx-bug"></i>
+              <div>
+                <span class="counter" data-count="156">0</span>
+                <label>Issues Resolved</label>
+              </div>
+            </div>
+          </div>          <a href="https://github.com/badadarr"
+             class="cta neon-btn"
+             target="_blank"
+             rel="noopener noreferrer">
+            <i class="bx bx-search"></i>
+            🔍 Explore My Repositories
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h1>Let's Connect</h1>
+          <h6>
+            Ready to collaborate? Let's build something amazing together! 🚀
+          </h6>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>💬 Get In Touch</h3>
+            <p>
+              Whether you want to discuss a project, need technical SEO
+              consultation, or just want to geek out about tech - I'm always up
+              for a good conversation!
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:badar.maulana.techno@gmail.com">
+                    badar.maulana.techno@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <i class="fab fa-linkedin"></i>
+                <div>
+                  <h4>LinkedIn</h4>
+                  <a
+                    href="https://www.linkedin.com/in/badadarrs"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Connect with me professionally
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <i class="fab fa-github"></i>
+                <div>
+                  <h4>GitHub</h4>
+                  <a
+                    href="https://github.com/badadarr"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Check out my repositories
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="availability">
+              <h4>🌙 Best Time to Reach Me</h4>
+              <p>
+                I'm most responsive during my "midnight coding hours" - but feel
+                free to message anytime! I'll get back to you as soon as I
+                compile my next idea.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <form action="#" class="modern-form">
+              <h3>📝 Send Me a Message</h3>
+              <div class="input-group">
+                <div class="input-box">
+                  <input type="text" placeholder="Your Name" required />
+                  <label>Name</label>
+                </div>
+                <div class="input-box">
+                  <input
+                    type="email"
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                  <label>Email</label>
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="text" placeholder="Project Subject" required />
+                <label>Subject</label>
+              </div>
+              <div class="input-box message-box">
+                <textarea
+                  placeholder="Tell me about your project or just say hi!"
+                  required
+                ></textarea>
+                <label>Message</label>
+              </div>
+              <div class="button">
+                <button type="submit">
+                  <span>Send Message</span>
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="fun-cta">
+          <p>
+            Thanks for stopping by! May your code always compile on the first
+            try 🚀
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="copyright">
+      <div class="up" id="up">
+        <i class="fas fa-chevron-up"></i>
+      </div>
+      <p>&copy; 2025 Badar Maulana | Built with ❤️ and ☕</p>
+    </footer>    <!-- Core JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script/main.js"></script>
+    
+    <!-- Initialize Libraries -->
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Particles.js Configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                color: { value: "#f0c800" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#f0c800",
+                    opacity: 0.4,
+                    width: 1,
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                },
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true,
+                },
+            },
+            retina_detect: true,
+        });
+
+        // Typed.js Configuration
+        new Typed("#typed-text", {
+            strings: [
+                "Full-Stack Developer",
+                "Mobile App Developer",
+                "UI/UX Designer",
+                "Technical SEO Expert",
+                "Python Enthusiast",
+                "Flutter Expert",
+                "Swift Developer",
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true,
+            showCursor: false,
+        });
+
+        // Custom Cursor Implementation
+        const cursor = document.querySelector(".cursor");
+        const follower = document.querySelector(".cursor-follower");
+
+        if (cursor && follower) {
+            document.addEventListener("mousemove", (e) => {
+                cursor.style.left = e.clientX + "px";
+                cursor.style.top = e.clientY + "px";
+
+                setTimeout(() => {
+                    follower.style.left = e.clientX + "px";
+                    follower.style.top = e.clientY + "px";
+                }, 100);
+            });
+        }
+
+        // Portfolio Swiper Configuration
+        const portfolioSwiper = new Swiper(".portfolio-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+        });
+
+        // Skills Chart with Chart.js
+        const skillsCtx = document.getElementById("skillsChart");
+        if (skillsCtx) {
+            new Chart(skillsCtx, {
+                type: "radar",
+                data: {
+                    labels: ["Python", "Flutter", "Swift", "Next.js", "Laravel", "UI/UX"],
+                    datasets: [{
+                        label: "Skill Level",
+                        data: [90, 85, 80, 85, 80, 88],
+                        backgroundColor: "rgba(240, 200, 0, 0.2)",
+                        borderColor: "#f0c800",
+                        borderWidth: 2,
+                        pointBackgroundColor: "#ff5a3d",
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { color: "#c9d1d9" },
+                            grid: { color: "#30363d" },
+                            pointLabels: { color: "#f0c800" },
+                        },
+                    },
+                },
+            });
+        }
+
+        // Projects Chart
+        const projectsCtx = document.getElementById("projectsChart");
+        if (projectsCtx) {
+            new Chart(projectsCtx, {
+                type: "doughnut",
+                data: {
+                    labels: ["Mobile Apps", "Web Apps", "UI/UX Design", "Backend API"],
+                    datasets: [{
+                        data: [35, 30, 20, 15],
+                        backgroundColor: ["#f0c800", "#ff5a3d", "#00d4ff", "#7c3aed"],
+                        borderWidth: 0,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: { color: "#c9d1d9" },
+                        },
+                    },
+                },
+            });
+        }
+
+        // Animated Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll(".counter, .counter-number");
+            counters.forEach((counter) => {
+                const target = parseInt(counter.getAttribute("data-count"));
+                const increment = target / 200;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Progress Bars Animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll(".progress");
+            progressBars.forEach((bar) => {
+                const width = bar.getAttribute("data-width");
+                bar.style.width = width;
+            });
+        }
+
+        // GSAP Animations
+        gsap.timeline()
+            .from(".hero-content", { duration: 1, y: 50, opacity: 0 })
+            .from(".floating-code", { duration: 1, x: -100, opacity: 0 }, "-=0.5")
+            .from(".lottie-container", { duration: 1, scale: 0, opacity: 0 }, "-=0.5");
+
+        // Skill Orbit Animation
+        gsap.to(".skill-item", {
+            rotation: 360,
+            duration: 20,
+            repeat: -1,
+            ease: "none",
+            transformOrigin: "50% 150px",
+        });
+
+        // Text Splitting Animation
+        if (typeof Splitting !== 'undefined') {
+            Splitting();
+        }
+
+        // ScrollTrigger Animations
+        gsap.utils.toArray(".stat-card").forEach((card) => {
+            gsap.from(card, {
+                scrollTrigger: card,
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+            });
+        });
+
+        // Intersection Observer for counters
+        const observerOptions = { threshold: 0.5 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains("github-stats")) {
+                        animateCounters();
+                        animateProgressBars();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll(".github-stats").forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Three.js Background Implementation
+        const canvas = document.getElementById("threejs-background");
+        if (canvas && typeof THREE !== 'undefined') {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+
+            // Create floating geometries
+            const geometry = new THREE.SphereGeometry(1, 8, 6);
+            const material = new THREE.MeshBasicMaterial({
+                color: 0xf0c800,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.1,
+            });
+
+            const spheres = [];
+            for (let i = 0; i < 20; i++) {
+                const sphere = new THREE.Mesh(geometry, material);
+                sphere.position.set(
+                    (Math.random() - 0.5) * 50,
+                    (Math.random() - 0.5) * 50,
+                    (Math.random() - 0.5) * 50
+                );
+                spheres.push(sphere);
+                scene.add(sphere);
+            }
+
+            camera.position.z = 30;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                spheres.forEach((sphere) => {
+                    sphere.rotation.x += 0.01;
+                    sphere.rotation.y += 0.01;
+                });
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Portfolio Filter
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const portfolioCards = document.querySelectorAll(".swiper-slide");
+
+        filterBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                filterBtns.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                const filter = btn.getAttribute("data-filter");
+                portfolioCards.forEach((card) => {
+                    if (filter === "all" || card.classList.contains(filter)) {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -360,7 +360,8 @@
           </div>
         </div>
       </div>
-    </section>    <!-- Education Section -->
+    </section>
+    <!-- Education Section -->
     <section id="education" class="education">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
@@ -372,7 +373,11 @@
         <div class="education-content">
           <h3 data-aos="fade-up" data-aos-delay="100">Education</h3>
           <div class="education-timeline">
-            <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+            <div
+              class="timeline-item"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
               <div class="timeline-dot">
                 <i class="fas fa-university"></i>
               </div>
@@ -388,7 +393,11 @@
               </div>
             </div>
 
-            <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
+            <div
+              class="timeline-item"
+              data-aos="fade-left"
+              data-aos-delay="300"
+            >
               <div class="timeline-dot">
                 <i class="fas fa-school"></i>
               </div>
@@ -407,7 +416,13 @@
           </div>
 
           <!-- Certifications -->
-          <h3 class="certifications-title" data-aos="fade-up" data-aos-delay="400">Professional Certifications</h3>
+          <h3
+            class="certifications-title"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            Professional Certifications
+          </h3>
           <div class="certifications-grid">
             <div class="cert-item" data-aos="flip-up" data-aos-delay="500">
               <div class="cert-icon">
@@ -552,20 +567,6 @@
             <h4>Laravel</h4>
             <p>PHP Framework</p>
           </div>
-          <div class="tech-item" data-aos="flip-left" data-aos-delay="700">
-            <div class="tech-icon">
-              <i class="fab fa-aws"></i>
-            </div>
-            <h4>AWS</h4>
-            <p>Cloud Services</p>
-          </div>
-          <div class="tech-item" data-aos="flip-left" data-aos-delay="800">
-            <div class="tech-icon">
-              <i class="fab fa-docker"></i>
-            </div>
-            <h4>Docker</h4>
-            <p>Containerization</p>
-          </div>
         </div>
 
         <!-- GitHub Stats Widget -->
@@ -690,7 +691,8 @@
           </div>
         </div>
       </div>
-    </section>    <!-- Contact Section -->
+    </section>
+    <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
@@ -817,7 +819,8 @@
       <i class="fas fa-arrow-up"></i></button
     ><!-- Enhanced JavaScript for functionality -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script src="script/enhanced-animations.js"></script>    <script>
+    <script src="script/enhanced-animations.js"></script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Initialize AOS with better error handling
         try {
@@ -830,25 +833,25 @@
             delay: 0,
             debounceDelay: 50,
             throttleDelay: 99,
-            disable: function() {
+            disable: function () {
               // Disable AOS on very small screens
               return window.innerWidth < 768 && window.innerHeight < 600;
-            }
+            },
           });
-          
+
           // Refresh AOS after initial load
           setTimeout(() => {
             AOS.refresh();
           }, 100);
-          
+
           console.log("AOS initialized successfully");
         } catch (error) {
           console.warn("AOS initialization failed:", error);
           // Fallback: ensure all elements are visible
-          document.querySelectorAll('[data-aos]').forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'none';
-            el.style.visibility = 'visible';
+          document.querySelectorAll("[data-aos]").forEach((el) => {
+            el.style.opacity = "1";
+            el.style.transform = "none";
+            el.style.visibility = "visible";
           });
         }
 
@@ -882,7 +885,7 @@
           } else {
             themeIcon.className = "fas fa-moon";
           }
-        }        // Floating animation for tech skills
+        } // Floating animation for tech skills
         const floatingTech = document.querySelectorAll(".floating-tech");
         floatingTech.forEach((tech, index) => {
           tech.style.animationDelay = `${index * 0.2}s`;
@@ -892,22 +895,25 @@
         // Fallback visibility checker
         function ensureVisibility() {
           const criticalElements = [
-            '.about-content',
-            '.tech-grid',
-            '.tech-item',
-            '.skills-grid', 
-            '.skill-item',
-            '.github-stats',
-            '.section-title'
+            ".about-content",
+            ".tech-grid",
+            ".tech-item",
+            ".skills-grid",
+            ".skill-item",
+            ".github-stats",
+            ".section-title",
           ];
-          
-          criticalElements.forEach(selector => {
+
+          criticalElements.forEach((selector) => {
             const elements = document.querySelectorAll(selector);
-            elements.forEach(el => {
-              if (el.style.opacity === '0' || el.style.visibility === 'hidden') {
-                el.style.opacity = '1';
-                el.style.visibility = 'visible';
-                el.style.transform = 'none';
+            elements.forEach((el) => {
+              if (
+                el.style.opacity === "0" ||
+                el.style.visibility === "hidden"
+              ) {
+                el.style.opacity = "1";
+                el.style.visibility = "visible";
+                el.style.transform = "none";
               }
             });
           });
@@ -918,16 +924,17 @@
         setTimeout(ensureVisibility, 2000);
 
         // Check for images loading in GitHub stats
-        const githubStatsImages = document.querySelectorAll('.github-stats img');
-        githubStatsImages.forEach(img => {
-          img.addEventListener('error', function() {
-            console.warn('GitHub stats image failed to load:', this.src);
-            this.style.display = 'none';
+        const githubStatsImages =
+          document.querySelectorAll(".github-stats img");
+        githubStatsImages.forEach((img) => {
+          img.addEventListener("error", function () {
+            console.warn("GitHub stats image failed to load:", this.src);
+            this.style.display = "none";
           });
-          
-          img.addEventListener('load', function() {
-            this.style.opacity = '1';
-            this.style.visibility = 'visible';
+
+          img.addEventListener("load", function () {
+            this.style.opacity = "1";
+            this.style.visibility = "visible";
           });
         });
 
@@ -981,7 +988,7 @@
               target.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
-              });              // Close mobile menu if open
+              }); // Close mobile menu if open
               if (navMenu) {
                 navMenu.classList.remove("nav-menu-active");
                 navToggle.classList.remove("active");

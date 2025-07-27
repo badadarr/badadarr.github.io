@@ -3,73 +3,1124 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Badar Maulana - Portfolio</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-
-    <!-- External CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./style/main.css" />
-    <link rel="stylesheet" href="./style/animations.css" />
-    <link rel="stylesheet" href="./style/modular.css" />
-
-    <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Badar Maulana - UI/UX Designer & Frontend Developer. Creating beautiful and functional digital experiences."
+      content="Badar Maulana - Full Stack Developer specializing in Python, Flutter, Swift, Next.js, and Laravel"
     />
     <meta
       name="keywords"
-      content="UI/UX Designer, Frontend Developer, Web Design, Mobile App Design, Portfolio"
+      content="Full Stack Developer, Python, Flutter, Swift, Next.js, Laravel, Technical SEO"
     />
     <meta name="author" content="Badar Maulana" />
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Badar Maulana - Portfolio" />
     <meta
-      property="og:description"
-      content="UI/UX Designer & Frontend Developer creating beautiful digital experiences"
+      name="google-site-verification"
+      content="9P7lBLkCpxEcZAig0uq5LQzN-YUIhlLA37V1Gj3avcg"
     />
-    <meta property="og:image" content="./images/badarimageformal.png" />
-    <meta property="og:url" content="https://badadarr.github.io" />
-    <meta property="og:type" content="website" />
+
+    <title>Badar Maulana - Full Stack Developer</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Essential Libraries Only -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Animation Libraries -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- EmailJS for form functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="style/simple-layout.css" />
+    <link rel="stylesheet" href="style/animations.css" />
   </head>
   <body>
-    <!-- App Container -->
-    <div id="app">
-      <!-- Content will be rendered here by JavaScript -->
-      <div class="loading-screen">
-        <div class="loader">
-          <div class="loader-spinner"></div>
-          <p>Loading Portfolio...</p>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#home">Badar Maulana</a>
+        </div>
+        <div class="nav-menu">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#education" class="nav-link">Education</a>
+          <a href="#tech-stack" class="nav-link">Tech Stack</a>
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
-    </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-animation">
+            <lottie-player
+              src="https://assets1.lottiefiles.com/packages/lf20_qp1q7mct.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+              class="lottie-animation"
+            >
+            </lottie-player>
+          </div>
+          <h1 data-aos="fade-up">Badar Maulana</h1>
+          <h2 data-aos="fade-up" data-aos-delay="200">
+            Junior Full Stack Developer
+          </h2>
+          <p data-aos="fade-up" data-aos-delay="400">
+            Enthusiastic developer learning and growing with Python, Flutter,
+            Swift, Next.js, and Laravel. Eager to contribute to meaningful
+            projects and continuously improve my skills in modern web
+            technologies.
+          </p>
+          <div class="hero-buttons" data-aos="fade-up" data-aos-delay="600">
+            <a href="#portfolio" class="btn-primary">
+              <i class="fas fa-code"></i>
+              View My Work
+            </a>
+            <a href="#contact" class="btn-secondary">
+              <i class="fas fa-envelope"></i>
+              Get In Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>About Me</h2>
+          <p>Get to know more about my background and expertise</p>
+        </div>
+        <div class="about-content">
+          <div class="about-image" data-aos="fade-right">
+            <img src="images/imagesbadar.jpg" alt="Badar Maulana" />
+          </div>
+          <div class="about-text" data-aos="fade-left">
+            <h3>Hello! I'm Badar Maulana</h3>
+            <p>
+              A passionate IT student specializing in Internet of Things (IoT)
+              at President University. I have experience as an Android and web
+              developer, with skills in creating cross-platform applications and
+              implementing UI/UX designs.
+            </p>
+            <p>
+              My journey includes internships at government institutions and
+              private companies, where I've learned about analytics, research,
+              and product development. I enjoy communicating with clients and
+              contributing to products from conception to completion.
+            </p>
+            <p>
+              I'm always eager to learn new technologies and collaborate on
+              exciting projects that challenge my skills and creativity.
+            </p>
 
-    <!-- External JavaScript -->
+            <div class="contact-info-brief">
+              <p><strong>📧 Email:</strong> badar.maulana.techno@gmail.com</p>
+              <p><strong>📱 Phone:</strong> 087788997971</p>
+            </div>
+
+            <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
+              <div
+                class="skill-item floating-tech"
+                data-aos="zoom-in"
+                data-aos-delay="300"
+              >
+                <i class="fab fa-python"></i>
+                <div>Python</div>
+              </div>
+              <div
+                class="skill-item floating-tech"
+                data-aos="zoom-in"
+                data-aos-delay="400"
+              >
+                <i class="fas fa-mobile-alt"></i>
+                <div>Flutter</div>
+              </div>
+              <div
+                class="skill-item floating-tech"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
+                <i class="fab fa-swift"></i>
+                <div>Swift</div>
+              </div>
+              <div
+                class="skill-item floating-tech"
+                data-aos="zoom-in"
+                data-aos-delay="600"
+              >
+                <i class="fab fa-react"></i>
+                <div>Next.js</div>
+              </div>
+              <div
+                class="skill-item floating-tech"
+                data-aos="zoom-in"
+                data-aos-delay="700"
+              >
+                <i class="fab fa-laravel"></i>
+                <div>Laravel</div>
+              </div>
+              <div
+                class="skill-item floating-tech"
+                data-aos="zoom-in"
+                data-aos-delay="800"
+              >
+                <i class="fas fa-brain"></i>
+                <div>AI/ML</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Professional Experience</h2>
+          <p>My career journey and key achievements</p>
+        </div>
+        <div class="experience-timeline">
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="timeline-dot">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Software Developer (SEO)</h3>
+              <div class="company">KapanLagi Youniverse</div>
+              <div class="duration">Februari 2025 - May 2025</div>
+              <span class="badge in-progress">✅ Completed</span>
+              <p>
+                Developed comprehensive SEO tools and content management systems
+                while implementing automated trend analysis solutions for
+                digital content optimization.
+              </p>
+              <ul>
+                <li>
+                  <strong>Lyrics Management System:</strong> Built full-stack
+                  application using Laravel frontend and Express.js backend for
+                  automated lyrics scraping and content management
+                </li>
+                <li>
+                  <strong>Google Trends Analytics:</strong> Developed Express.js
+                  system for real-time trend monitoring with Google Sheets
+                  integration, automated ratio calculations, and WhatsApp
+                  notifications for trending content alerts
+                </li>
+                <li>
+                  <strong>Website Performance Audit:</strong> Conducted
+                  comprehensive SEO audits using Screaming Frog and Google
+                  PageSpeed Insights to optimize internal website performance
+                  and search rankings
+                </li>
+                <li>
+                  <strong>SEO Optimization:</strong> Implemented data-driven SEO
+                  strategies and automated content analysis tools to improve
+                  organic search visibility
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+            <div class="timeline-dot">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Intern Web Developer</h3>
+              <div class="company">Kementerian Dalam Negeri</div>
+              <div class="duration">September 2024 - Januari 2025</div>
+              <span class="badge in-progress">✅ Completed</span>
+              <p>
+                Internship focused on analytics and research before developing
+                application products. Maintained communication with clients
+                about products until completion.
+              </p>
+              <ul>
+                <li>
+                  <strong>Analytics & Research:</strong> Learned comprehensive
+                  analytics and research methodology for effective product
+                  development and data-driven decision making
+                </li>
+                <li>
+                  <strong>Client Communication:</strong> Maintained professional
+                  relationships with clients throughout the entire product
+                  lifecycle from conception to completion
+                </li>
+                <li>
+                  <strong>Application Development:</strong> Applied research
+                  findings to create efficient and user-focused application
+                  solutions
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="timeline-dot">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Vice Chairperson</h3>
+              <div class="company">President University Badminton Club</div>
+              <div class="duration">Juli 2023 - Juli 2024</div>
+              <span class="badge completed">✅ Completed</span>
+              <p>
+                Collaborated with the Chairman to develop long-term strategies
+                for club growth and improvement. Demonstrated enthusiasm for
+                badminton and commitment to club objectives.
+              </p>
+              <ul>
+                <li>
+                  <strong>Strategic Planning:</strong> Developed comprehensive
+                  long-term strategic plans for club growth, member engagement,
+                  and organizational enhancement
+                </li>
+                <li>
+                  <strong>Event Management:</strong> Successfully organized and
+                  managed tournaments, training sessions, and social events to
+                  build community engagement
+                </li>
+                <li>
+                  <strong>Leadership Development:</strong> Fostered team spirit
+                  and commitment among club members while promoting badminton
+                  excellence
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+            <div class="timeline-dot">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Student Tech Hub Ambassador</h3>
+              <div class="company">Tokopedia</div>
+              <div class="duration">Juni 2023 - Januari 2024</div>
+              <span class="badge completed">✅ Completed</span>
+              <p>
+                Facilitated learning circles and networking events to connect
+                students with technology professionals and foster deeper
+                learning in tech fields.
+              </p>
+              <ul>
+                <li>
+                  <strong>Learning Facilitation:</strong> Formed and managed
+                  small study groups and learning circles to facilitate in-depth
+                  technology learning and peer collaboration
+                </li>
+                <li>
+                  <strong>Networking Events:</strong> Planned and executed
+                  networking events connecting students with technology
+                  professionals, industry experts, and alumni
+                </li>
+                <li>
+                  <strong>Community Building:</strong> Built and nurtured a
+                  strong community among students interested in technology
+                  careers and professional development
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="500">
+            <div class="timeline-dot">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Software Developer</h3>
+              <div class="company">Merah Putih Academy</div>
+              <div class="duration">Februari 2022 - Juli 2022</div>
+              <span class="badge completed">✅ Completed</span>
+              <p>
+                Designed and coded applications from layout to functionality
+                according to client specifications. Maintained communication
+                with clients to discuss project requirements and workflows.
+              </p>
+              <ul>
+                <li>
+                  <strong>Full-Stack Development:</strong> Designed and
+                  developed complete applications from initial concept through
+                  final deployment, ensuring quality and functionality
+                </li>
+                <li>
+                  <strong>Client Collaboration:</strong> Worked closely with
+                  clients to understand project requirements, workflows, and
+                  business objectives for optimal solutions
+                </li>
+                <li>
+                  <strong>Solution Delivery:</strong> Successfully delivered
+                  high-quality solutions that met and exceeded client
+                  specifications and expectations
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-left" data-aos-delay="600">
+            <div class="timeline-dot">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>Software Developer Intern</h3>
+              <div class="company">PT Amanah Karya Indonesia</div>
+              <div class="duration">Januari 2021 - Agustus 2021</div>
+              <span class="badge completed">✅ Completed</span>
+              <p>
+                Learned about internal systems development, installation, and
+                configuration. Developed user interfaces for internal
+                applications.
+              </p>
+              <ul>
+                <li>
+                  <strong>System Development:</strong> Studied and implemented
+                  internal application development, installation, and
+                  configuration processes for enterprise systems
+                </li>
+                <li>
+                  <strong>UI Development:</strong> Designed and developed
+                  user-friendly interfaces for internal company applications
+                  with focus on usability and efficiency
+                </li>
+                <li>
+                  <strong>SDLC Foundation:</strong> Gained comprehensive
+                  foundational experience in software development lifecycle,
+                  testing, and deployment methodologies
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Education Section -->
+    <section id="education" class="education">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Education & Certifications</h2>
+          <p>My academic background and professional certifications</p>
+        </div>
+
+        <!-- Education -->
+        <div class="education-content">
+          <h3 data-aos="fade-up" data-aos-delay="100">Education</h3>
+          <div class="education-timeline">
+            <div
+              class="timeline-item"
+              data-aos="fade-right"
+              data-aos-delay="200"
+            >
+              <div class="timeline-dot">
+                <i class="fas fa-university"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>S1 - Computer Science</h3>
+                <div class="company">Universitas Presiden</div>
+                <div class="duration">Final Semester | GPA: 3.33</div>
+                <p>
+                  Specializing in Internet of Things (IoT). Currently in final
+                  semester with focus on IoT systems, cross-platform application
+                  development, and modern web technologies.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="timeline-item"
+              data-aos="fade-left"
+              data-aos-delay="300"
+            >
+              <div class="timeline-dot">
+                <i class="fas fa-school"></i>
+              </div>
+              <div class="timeline-content">
+                <h3>Rekayasa Perangkat Lunak</h3>
+                <div class="company">SMK MADINATULQURAN</div>
+                <div class="duration">
+                  Graduated July 2022 | Average Score: 8.5
+                </div>
+                <p>
+                  Vocational education in Software Engineering with strong
+                  foundation in programming and software development.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <h3
+            class="certifications-title"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            Professional Certifications
+          </h3>
+          <div class="certifications-grid">
+            <div class="cert-item" data-aos="flip-up" data-aos-delay="500">
+              <div class="cert-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Flutter Development for Beginners</h4>
+                <p><strong>Dicoding</strong> - January 2022</p>
+                <p>
+                  Completed with creating simple applications with elegant UI
+                  design
+                </p>
+                <a
+                  href="https://dicoding.com/certificates/53XE0NNOVXRN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="cert-item" data-aos="flip-up" data-aos-delay="600">
+              <div class="cert-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Machine Learning for Beginners</h4>
+                <p><strong>Dicoding</strong> - January 2021</p>
+                <p>
+                  Created rock-paper-scissors classifier with data visualization
+                  using machine learning
+                </p>
+                <a
+                  href="https://www.dicoding.com/certificates/72ZD2NER6ZYW"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="cert-item" data-aos="flip-up" data-aos-delay="700">
+              <div class="cert-icon">
+                <i class="fab fa-android"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Android Development for Beginners</h4>
+                <p><strong>Dicoding</strong> - January 2019</p>
+                <p>
+                  Created simple book purchasing application using dummy data
+                </p>
+                <a
+                  href="https://www.dicoding.com/users/573369/academies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-link"
+                >
+                  <i class="fas fa-external-link-alt"></i> View Certificate
+                </a>
+              </div>
+            </div>
+
+            <div class="cert-item" data-aos="flip-up" data-aos-delay="800">
+              <div class="cert-icon">
+                <i class="fab fa-html5"></i>
+              </div>
+              <div class="cert-content">
+                <h4>HTML Fundamental Course</h4>
+                <p><strong>SoloLearn</strong> - October 2019</p>
+                <p>Learned HTML fundamentals and basic layout creation</p>
+                <span class="cert-id">Certificate ID: 1014-16060515</span>
+              </div>
+            </div>
+
+            <div class="cert-item" data-aos="flip-up" data-aos-delay="900">
+              <div class="cert-icon">
+                <i class="fab fa-java"></i>
+              </div>
+              <div class="cert-content">
+                <h4>Java Tutorial Course</h4>
+                <p><strong>SoloLearn</strong> - October 2019</p>
+                <p>Basic learning about Java programming fundamentals</p>
+                <span class="cert-id">Certificate ID: 1068-16060515</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech-stack" class="tech-stack">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Tech Stack I Love</h2>
+          <p>Technologies and tools I'm passionate about</p>
+        </div>
+        <div class="tech-grid" data-aos="fade-up" data-aos-delay="200">
+          <div class="tech-item" data-aos="flip-left" data-aos-delay="100">
+            <div class="tech-icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <h4>Node.js</h4>
+            <p>Runtime Environment</p>
+          </div>
+          <div class="tech-item" data-aos="flip-left" data-aos-delay="200">
+            <div class="tech-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <h4>Python</h4>
+            <p>Backend & AI/ML</p>
+          </div>
+          <div class="tech-item" data-aos="flip-left" data-aos-delay="300">
+            <div class="tech-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h4>Flutter</h4>
+            <p>Cross-platform Mobile</p>
+          </div>
+          <div class="tech-item" data-aos="flip-left" data-aos-delay="400">
+            <div class="tech-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <h4>React/Next.js</h4>
+            <p>Frontend Framework</p>
+          </div>
+          <div class="tech-item" data-aos="flip-left" data-aos-delay="500">
+            <div class="tech-icon">
+              <i class="fab fa-swift"></i>
+            </div>
+            <h4>Swift</h4>
+            <p>iOS Development</p>
+          </div>
+          <div class="tech-item" data-aos="flip-left" data-aos-delay="600">
+            <div class="tech-icon">
+              <i class="fab fa-laravel"></i>
+            </div>
+            <h4>Laravel</h4>
+            <p>PHP Framework</p>
+          </div>
+        </div>
+
+        <!-- GitHub Stats Widget -->
+        <div class="github-stats" data-aos="fade-up" data-aos-delay="400">
+          <h3>GitHub Activity</h3>
+          <div class="stats-grid">
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=badadarr&show_icons=true&theme=tokyonight&hide_border=true"
+              alt="GitHub Stats"
+            />
+            <img
+              src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=badadarr&layout=compact&langs_count=8&theme=algolia&hide_border=true"
+              alt="GitHub Streak"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Featured Projects</h2>
+          <p>Some of my recent work and achievements</p>
+        </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
+            <img src="images/Akademisapp ui.png" alt="Akademis App" />
+            <div class="portfolio-content">
+              <h3>Akademis App</h3>
+              <p>
+                Educational mobile application built with Flutter, featuring
+                student management and course tracking capabilities.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Firebase</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+            <img src="images/cozyapp ui.png" alt="Cozy App" />
+            <div class="portfolio-content">
+              <h3>Cozy App</h3>
+              <p>
+                Real estate mobile application with property search, virtual
+                tours, and booking functionality.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">REST API</span>
+                <span class="tag">Maps</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
+            <img src="images/futurejobs ui.png" alt="Future Jobs" />
+            <div class="portfolio-content">
+              <h3>Future Jobs</h3>
+              <p>
+                Mobile job search platform with AI-powered matching, built with
+                Flutter and BLoC for state management.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">BLoC</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400">
+            <img src="images/gojekapp ui.png" alt="Gojek Clone" />
+            <div class="portfolio-content">
+              <h3>Multi-Service App</h3>
+              <p>
+                UI/UX design for a multi-service mobile application, created by
+                slicing a Dribbble design into Figma.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">Slicing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="500">
+            <img src="images/Watchapp ui.png" alt="Watch App" />
+            <div class="portfolio-content">
+              <h3>Watch App</h3>
+              <p>
+                Smartwatch companion app with health tracking and notification
+                management.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Swift</span>
+                <span class="tag">WatchOS</span>
+                <span class="tag">HealthKit</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="600">
+            <img src="images/profileui design.png" alt="Profile UI" />
+            <div class="portfolio-content">
+              <h3>Profile UI Design</h3>
+              <p>
+                A modern user profile UI/UX design, created by slicing a
+                Dribbble concept into Figma.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">Slicing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Get In Touch</h2>
+          <p>Let's discuss your next project</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info" data-aos="fade-right">
+            <h3>Contact Information</h3>
+            <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <p>badar.maulana.techno@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Phone</strong>
+                <p>087788997971</p>
+              </div>
+            </div>
+            <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+              <i class="fab fa-linkedin"></i>
+              <div>
+                <strong>LinkedIn</strong>
+                <p>
+                  <a
+                    href="https://www.linkedin.com/in/badadarrs/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >linkedin.com/in/badadarrs</a
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
+              <i class="fab fa-github"></i>
+              <div>
+                <strong>GitHub</strong>
+                <p>
+                  <a
+                    href="https://github.com/badadarr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >github.com/badadarr</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form" data-aos="fade-left">
+            <h3>Send a Message</h3>
+            <!-- Method 1: Formspree (Recommended - Easy Setup) -->
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+            >
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="_replyto"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="_subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <!-- Hidden fields for Formspree -->
+              <input type="hidden" name="_next" value="" />
+              <input type="hidden" name="_captcha" value="false" />
+
+              <button type="submit" class="btn-primary" id="submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                <span id="btn-text">Send Message</span>
+              </button>
+              <div id="form-status" class="form-status"></div>
+            </form>
+
+            <!-- Alternative Method: Direct mailto -->
+            <div class="alternative-contact">
+              <p>
+                <strong>Alternative:</strong> You can also email me directly at:
+              </p>
+              <a
+                href="mailto:badar.maulana.techno@gmail.com?subject=Portfolio%20Inquiry%20-%20Let's%20Connect&body=Hi%20Badar,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20I'm%20impressed%20with%20your%20work.%20I'd%20love%20to%20discuss%20potential%20opportunities.%0D%0A%0D%0AName:%20%0D%0ACompany/Organization:%20%0D%0AEmail:%20%0D%0AProject/Opportunity:%20%0D%0A%0D%0ABest%20regards"
+                class="direct-email-btn"
+              >
+                <i class="fas fa-envelope"></i>
+                Send Direct Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Badar Maulana. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" title="Back to top">
+      <i class="fas fa-arrow-up"></i></button
+    ><!-- Enhanced JavaScript for functionality -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script src="script/enhanced-animations.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize AOS with better error handling
+        try {
+          AOS.init({
+            duration: 800,
+            easing: "ease-in-out",
+            once: true,
+            mirror: false,
+            offset: 100,
+            delay: 0,
+            debounceDelay: 50,
+            throttleDelay: 99,
+            disable: function () {
+              // Disable AOS on very small screens
+              return window.innerWidth < 768 && window.innerHeight < 600;
+            },
+          });
 
-    <!-- Configuration -->
-    <script src="./config/config.js"></script>
+          // Refresh AOS after initial load
+          setTimeout(() => {
+            AOS.refresh();
+          }, 100);
+          console.log("AOS initialized successfully");
+        } catch (error) {
+          console.warn("AOS initialization failed:", error);
+          // Fallback: ensure all elements are visible
+          document.querySelectorAll("[data-aos]").forEach((el) => {
+            el.style.opacity = "1";
+            el.style.transform = "none";
+            el.style.visibility = "visible";
+          });
+        }
 
-    <!-- Components -->
-    <script src="./components/header.js"></script>
-    <script src="./components/hero.js"></script>
-    <script src="./components/skills.js"></script>
-    <script src="./components/projects.js"></script>
-    <script src="./components/contact.js"></script>
+        // Floating animation for tech skills
+        const floatingTech = document.querySelectorAll(".floating-tech");
+        floatingTech.forEach((tech, index) => {
+          tech.style.animationDelay = `${index * 0.2}s`;
+          tech.classList.add("floating");
+        });
 
-    <!-- Main Application -->
-    <script src="./app.js"></script>
+        // Fallback visibility checker
+        function ensureVisibility() {
+          const criticalElements = [
+            ".about-content",
+            ".tech-grid",
+            ".tech-item",
+            ".skills-grid",
+            ".skill-item",
+            ".github-stats",
+            ".section-title",
+          ];
+
+          criticalElements.forEach((selector) => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((el) => {
+              if (
+                el.style.opacity === "0" ||
+                el.style.visibility === "hidden"
+              ) {
+                el.style.opacity = "1";
+                el.style.visibility = "visible";
+                el.style.transform = "none";
+              }
+            });
+          });
+        }
+
+        // Run visibility check after a delay
+        setTimeout(ensureVisibility, 500);
+        setTimeout(ensureVisibility, 2000);
+
+        // Check for images loading in GitHub stats
+        const githubStatsImages =
+          document.querySelectorAll(".github-stats img");
+        githubStatsImages.forEach((img) => {
+          img.addEventListener("error", function () {
+            console.warn("GitHub stats image failed to load:", this.src);
+            this.style.display = "none";
+          });
+
+          img.addEventListener("load", function () {
+            this.style.opacity = "1";
+            this.style.visibility = "visible";
+          });
+        });
+
+        // Mobile navigation toggle
+        const navToggle = document.querySelector(".nav-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+
+        if (navToggle && navMenu) {
+          navToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("nav-menu-active");
+            navToggle.classList.toggle("active");
+          });
+        }
+
+        // Scroll Progress Bar
+        const scrollProgress = document.querySelector(".scroll-progress");
+        function updateScrollProgress() {
+          const scrollPercent =
+            (window.scrollY /
+              (document.documentElement.scrollHeight - window.innerHeight)) *
+            100;
+          scrollProgress.style.width = scrollPercent + "%";
+        }
+        window.addEventListener("scroll", updateScrollProgress);
+
+        // Back to Top Button
+        const backToTop = document.querySelector(".back-to-top");
+        function toggleBackToTop() {
+          if (window.scrollY > 300) {
+            backToTop.classList.add("visible");
+          } else {
+            backToTop.classList.remove("visible");
+          }
+        }
+
+        window.addEventListener("scroll", toggleBackToTop);
+
+        backToTop.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              }); // Close mobile menu if open
+              if (navMenu) {
+                navMenu.classList.remove("nav-menu-active");
+                navToggle.classList.remove("active");
+              }
+            }
+          });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener("scroll", function () {
+          const scrolled = window.pageYOffset;
+          const heroSection = document.querySelector(".hero");
+          if (heroSection) {
+            heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
+          }
+        });
+
+        // Contact form handling
+        const contactForm = document.getElementById("contact-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const btnText = document.getElementById("btn-text");
+        const formStatus = document.getElementById("form-status");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            // Check if Formspree is properly configured
+            const action = contactForm.getAttribute("action");
+            if (!action || action.includes("YOUR_FORM_ID")) {
+              e.preventDefault();
+              // Fallback to mailto if Formspree not configured
+              handleMailtoFallback();
+              return;
+            }
+
+            // Show loading state for Formspree submission
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<span class="spinner"></span> Sending...';
+            submitBtn.classList.add("loading");
+            formStatus.className = "form-status loading";
+            formStatus.innerHTML = "Sending your message...";
+          });
+        }
+
+        function handleMailtoFallback() {
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const subject = document.getElementById("subject").value;
+          const message = document.getElementById("message").value;
+
+          // Create mailto link with pre-filled data
+          const emailSubject = encodeURIComponent(
+            subject || "Message from Portfolio Website"
+          );
+          const emailBody = encodeURIComponent(
+            `Name: ${name}\n` +
+              `Email: ${email}\n` +
+              `Subject: ${subject}\n\n` +
+              `Message:\n${message}`
+          );
+          const mailtoLink = `mailto:badar.maulana.techno@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+
+          // Open default email client
+          window.location.href = mailtoLink;
+
+          showSuccess(
+            "Opening your email client... Please send the pre-filled email."
+          );
+          contactForm.reset();
+        }
+
+        function showSuccess(message) {
+          submitBtn.disabled = false;
+          btnText.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          submitBtn.classList.remove("loading");
+          formStatus.className = "form-status success";
+          formStatus.innerHTML = message;
+
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            formStatus.style.display = "none";
+          }, 5000);
+        }
+
+        // Handle URL parameters for Formspree success/error
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("success") === "true") {
+          showSuccess("Message sent successfully! I'll get back to you soon.");
+          // Clean URL
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname
+          );
+        }
+      });
+    </script>
   </body>
 </html>

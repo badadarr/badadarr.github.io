@@ -1,0 +1,11 @@
+# Redirect rules for single-page application
+# Keep all requests to index.html for SPA routing
+
+# Redirect from old domain (if applicable)
+# https://olddomain.com/* https://badadarr.github.io/:splat 301!
+
+# Redirect root with trailing slash
+/index.html / 200
+
+# All other routes fall back to index.html
+/* /index.html 200

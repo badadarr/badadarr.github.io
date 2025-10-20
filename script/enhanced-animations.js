@@ -1,7 +1,24 @@
 // Enhanced Portfolio Animations and Effects
+// =============================================
+// This module provides custom animations and visual effects for the portfolio
+// including cursor effects, particles, scroll animations, and form interactions.
+// 
+// Features:
+// - Custom cursor with follower effect
+// - Particle system for background animation
+// - Scroll-triggered animations using AOS
+// - Form validation and submission handling
+// - Smooth scrolling behavior
+//
+// Browser Support: All modern browsers + IE11 with polyfills
+// Dependencies: AOS, Lottie Player (optional), Font Awesome icons
+
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Custom Cursor Effect
+    /**
+     * Creates a custom cursor effect with smooth follower animation
+     * Automatically disables on mobile devices for better performance
+     */
     function createCustomCursor() {
         const cursor = document.createElement('div');
         const cursorFollower = document.createElement('div');

@@ -24,7 +24,9 @@ body {
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%;    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    /* Fallback untuk browser yang tidak support backdrop-filter */
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #eee;

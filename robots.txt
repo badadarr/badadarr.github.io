@@ -1,0 +1,21 @@
+# robots.txt - Instruksi untuk Search Engine Crawlers
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Sitemap location
+Sitemap: https://badadarr.github.io/sitemap.xml
+
+# Crawl delay (optional - prevents server overload)
+Crawl-delay: 1
+
+# Specific crawler rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

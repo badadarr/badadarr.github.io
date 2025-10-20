@@ -12,13 +12,68 @@
       content="Full Stack Developer, Python, Flutter, Swift, Next.js, Laravel, Technical SEO"
     />
     <meta name="author" content="Badar Maulana" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
     <meta
       name="google-site-verification"
       content="9P7lBLkCpxEcZAig0uq5LQzN-YUIhlLA37V1Gj3avcg"
     />
 
+    <!-- Additional SEO Meta Tags -->
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Preconnect to external resources for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Canonical and Sitemap -->
+    <link rel="canonical" href="https://badadarr.github.io/" />
+    <link rel="sitemap" type="application/xml" href="https://badadarr.github.io/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Badar Maulana Blog Feed" href="https://badadarr.github.io/feed.xml" />
+
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://badadarr.github.io/" />
+    <meta property="og:title" content="Badar Maulana - Full Stack Developer" />
+    <meta property="og:description" content="Full Stack Developer specializing in Python, Flutter, Swift, Next.js, and Laravel" />
+    <meta property="og:image" content="https://badadarr.github.io/images/badarimageformal.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://badadarr.github.io/" />
+    <meta name="twitter:title" content="Badar Maulana - Full Stack Developer" />
+    <meta name="twitter:description" content="Full Stack Developer specializing in Python, Flutter, Swift, Next.js, and Laravel" />
+    <meta name="twitter:image" content="https://badadarr.github.io/images/badarimageformal.png" />
+
     <title>Badar Maulana - Full Stack Developer</title>
+    <link rel="canonical" href="https://badadarr.github.io/" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Badar Maulana",
+      "url": "https://badadarr.github.io/",
+      "image": "https://badadarr.github.io/images/badarimageformal.png",
+      "description": "Full Stack Developer specializing in Python, Flutter, Swift, Next.js, and Laravel",
+      "jobTitle": "Full Stack Developer",
+      "sameAs": [
+        "https://github.com/badadarr",
+        "https://linkedin.com/in/badarmaulana"
+      ]
+    }
+    </script>
+
     <!-- Essential Libraries Only -->
     <link
       rel="stylesheet"
@@ -36,6 +91,9 @@
     />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
+    <!-- Polyfills for Browser Compatibility -->
+    <script src="script/polyfills.js"></script>
+
     <!-- EmailJS for form functionality -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
@@ -48,12 +106,12 @@
     <div class="scroll-progress"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
       <div class="nav-container">
         <div class="nav-logo">
-          <a href="#home">Badar Maulana</a>
+          <a href="#home" aria-label="Badar Maulana - Home">Badar Maulana</a>
         </div>
-        <div class="nav-menu">
+        <div class="nav-menu" role="navigation" aria-label="Main menu">
           <a href="#about" class="nav-link">About</a>
           <a href="#experience" class="nav-link">Experience</a>
           <a href="#education" class="nav-link">Education</a>
@@ -61,11 +119,11 @@
           <a href="#portfolio" class="nav-link">Portfolio</a>
           <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <div class="nav-toggle">
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </nav>
     <!-- Hero Section -->
@@ -115,7 +173,7 @@
         </div>
         <div class="about-content">
           <div class="about-image" data-aos="fade-right">
-            <img src="images/imagesbadar.jpg" alt="Badar Maulana" />
+            <img src="images/imagesbadar.jpg" alt="Badar Maulana" loading="lazy" />
           </div>
           <div class="about-text" data-aos="fade-left">
             <h3>Hello! I'm Badar Maulana</h3>
@@ -650,7 +708,7 @@
         </div>
         <div class="portfolio-grid">
           <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
-            <img src="images/Akademisapp ui.png" alt="Akademis App" />
+            <img src="images/Akademisapp ui.png" alt="Akademis App" loading="lazy" />
             <div class="portfolio-content">
               <h3>Akademis App</h3>
               <p>
@@ -666,7 +724,7 @@
           </div>
 
           <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
-            <img src="images/cozyapp ui.png" alt="Cozy App" />
+            <img src="images/cozyapp ui.png" alt="Cozy App" loading="lazy" />
             <div class="portfolio-content">
               <h3>Cozy App</h3>
               <p>
@@ -682,7 +740,7 @@
           </div>
 
           <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
-            <img src="images/futurejobs ui.png" alt="Future Jobs" />
+            <img src="images/futurejobs ui.png" alt="Future Jobs" loading="lazy" />
             <div class="portfolio-content">
               <h3>Future Jobs</h3>
               <p>
@@ -697,7 +755,7 @@
           </div>
 
           <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400">
-            <img src="images/gojekapp ui.png" alt="Gojek Clone" />
+            <img src="images/gojekapp ui.png" alt="Gojek Clone" loading="lazy" />
             <div class="portfolio-content">
               <h3>Multi-Service App</h3>
               <p>
@@ -713,7 +771,7 @@
           </div>
 
           <div class="portfolio-item" data-aos="fade-up" data-aos-delay="500">
-            <img src="images/Watchapp ui.png" alt="Watch App" />
+            <img src="images/Watchapp ui.png" alt="Watch App" loading="lazy" />
             <div class="portfolio-content">
               <h3>Watch App</h3>
               <p>
@@ -729,7 +787,7 @@
           </div>
 
           <div class="portfolio-item" data-aos="fade-up" data-aos-delay="600">
-            <img src="images/profileui design.png" alt="Profile UI" />
+            <img src="images/profileui design.png" alt="Profile UI" loading="lazy" />
             <div class="portfolio-content">
               <h3>Profile UI Design</h3>
               <p>
@@ -779,6 +837,7 @@
                     href="https://www.linkedin.com/in/badadarrs/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Visit LinkedIn profile"
                     >linkedin.com/in/badadarrs</a
                   >
                 </p>
@@ -793,6 +852,7 @@
                     href="https://github.com/badadarr"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Visit GitHub profile"
                     >github.com/badadarr</a
                   >
                 </p>
@@ -851,11 +911,11 @@
               <input type="hidden" name="_next" value="" />
               <input type="hidden" name="_captcha" value="false" />
 
-              <button type="submit" class="btn-primary" id="submit-btn">
+              <button type="submit" class="btn-primary" id="submit-btn" aria-label="Submit contact form">
                 <i class="fas fa-paper-plane"></i>
                 <span id="btn-text">Send Message</span>
               </button>
-              <div id="form-status" class="form-status"></div>
+              <div id="form-status" class="form-status" role="alert" aria-live="polite" aria-atomic="true"></div>
             </form>
 
             <!-- Alternative Method: Direct mailto -->
@@ -1122,5 +1182,8 @@
         }
       });
     </script>
+
+    <!-- Performance Monitoring -->
+    <script src="script/performance.js"></script>
   </body>
 </html>

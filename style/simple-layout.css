@@ -327,15 +327,6 @@ section {
     line-height: 1.7;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-    position: relative;
-    z-index: 5;
-}
-
 .skill-item {
     background: rgba(255, 255, 255, 0.9);
     -webkit-backdrop-filter: blur(10px);
@@ -1321,11 +1312,6 @@ html {
         margin: 0 auto;
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 1rem;
-    }
-
     .skill-item {
         padding: 1rem;
     }
@@ -1427,7 +1413,6 @@ html {
 .about-content,
 .tech-grid,
 .tech-item,
-.skills-grid,
 .skill-item,
 .github-stats {
     opacity: 1 !important;

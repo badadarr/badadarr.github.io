@@ -91,10 +91,6 @@ body {
     z-index: 1;
 }
 
-.dark-mode .hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-}
-
 .hero::before {
     content: '';
     position: absolute;
@@ -105,10 +101,6 @@ body {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
     z-index: 1;
     pointer-events: none;
-}
-
-.dark-mode .hero::before {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
 }
 
 .hero-content {
@@ -151,13 +143,6 @@ body {
     z-index: 5;
 }
 
-.dark-mode .hero h1 {
-    background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
 .hero h2 {
     font-size: 1.5rem;
     color: #64748b;
@@ -166,10 +151,6 @@ body {
     animation: fadeInUp 1s ease-out 0.7s both;
     position: relative;
     z-index: 5;
-}
-
-.dark-mode .hero h2 {
-    color: #94a3b8;
 }
 
 .hero p {
@@ -183,10 +164,6 @@ body {
     line-height: 1.6;
     position: relative;
     z-index: 5;
-}
-
-.dark-mode .hero p {
-    color: #94a3b8;
 }
 
 .hero-buttons {
@@ -275,17 +252,6 @@ section .container {
     margin: 0 auto;
 }
 
-.dark-mode .section-title h2 {
-    background: linear-gradient(135deg, #60a5fa 0%, #f59e0b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.dark-mode .section-title p {
-    color: #94a3b8;
-}
-
 /* Sections */
 section {
     padding: 5rem 0;
@@ -315,10 +281,6 @@ section {
     position: relative;
     z-index: 10;
     padding: 5rem 0;
-}
-
-.dark-mode .about {
-    background: #0f172a;
 }
 
 .about-content {
@@ -359,18 +321,10 @@ section {
     margin-bottom: 1.5rem;
 }
 
-.dark-mode .about-text h3 {
-    color: #f1f5f9;
-}
-
 .about-text p {
     margin-bottom: 1.5rem;
     color: #64748b;
     line-height: 1.7;
-}
-
-.dark-mode .about-text p {
-    color: #94a3b8;
 }
 
 .skills-grid {
@@ -394,11 +348,6 @@ section {
     position: relative;
     z-index: 5;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.dark-mode .skill-item {
-    background: rgba(30, 41, 59, 0.9);
-    border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
 .skill-item::before {
@@ -425,10 +374,6 @@ section {
     background: rgba(255, 255, 255, 0.95);
 }
 
-.dark-mode .skill-item:hover {
-    background: rgba(30, 41, 59, 0.95);
-}
-
 .skill-item i {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -436,27 +381,15 @@ section {
     transition: all 0.3s ease;
 }
 
-.dark-mode .skill-item i {
-    color: #60a5fa;
-}
-
 .skill-item:hover i {
     transform: scale(1.2) rotate(5deg);
     color: #764ba2;
-}
-
-.dark-mode .skill-item:hover i {
-    color: #f59e0b;
 }
 
 .skill-item div {
     font-weight: 500;
     color: #1e293b;
     font-size: 0.9rem;
-}
-
-.dark-mode .skill-item div {
-    color: #f1f5f9;
 }
 
 /* Contact info brief in about section */
@@ -1001,10 +934,6 @@ footer {
     z-index: 10;
 }
 
-.dark-mode .tech-stack {
-    background: #0f172a;
-}
-
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1031,12 +960,6 @@ footer {
     transform: translateY(0);
 }
 
-.dark-mode .tech-item {
-    background: #1e293b;
-    color: #e2e8f0;
-    border: 1px solid rgba(148, 163, 184, 0.2);
-}
-
 .tech-item::before {
     content: '';
     position: absolute;
@@ -1059,11 +982,6 @@ footer {
     background: rgba(255, 255, 255, 0.95);
 }
 
-.dark-mode .tech-item:hover {
-    background: rgba(30, 41, 59, 0.95);
-    box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
-}
-
 .tech-icon {
     font-size: 3rem;
     color: #667eea;
@@ -1073,17 +991,9 @@ footer {
     z-index: 3;
 }
 
-.dark-mode .tech-icon {
-    color: #60a5fa;
-}
-
 .tech-item:hover .tech-icon {
     transform: scale(1.2) rotate(5deg);
     color: #764ba2;
-}
-
-.dark-mode .tech-item:hover .tech-icon {
-    color: #f59e0b;
 }
 
 .tech-item h4 {
@@ -1096,20 +1006,12 @@ footer {
     z-index: 3;
 }
 
-.dark-mode .tech-item h4 {
-    color: #f1f5f9;
-}
-
 .tech-item p {
     color: #6b7280;
     font-size: 0.9rem;
     transition: all 0.3s ease;
     position: relative;
     z-index: 3;
-}
-
-.dark-mode .tech-item p {
-    color: #94a3b8;
 }
 
 .tech-item::after {
@@ -1146,24 +1048,12 @@ footer {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.dark-mode .github-stats {
-    background: rgba(30, 41, 59, 0.7);
-    border: 1px solid rgba(148, 163, 184, 0.2);
-}
-
 .github-stats h3 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 2rem;
     color: #1e293b;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.dark-mode .github-stats h3 {
-    background: linear-gradient(135deg, #60a5fa 0%, #f59e0b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1194,38 +1084,7 @@ footer {
 }
 
 /* Dark mode for new elements */
-.dark-mode .cert-item {
-    background: rgba(30, 41, 59, 0.9);
-    border: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-.dark-mode .contact-item {
-    background: rgba(30, 41, 59, 0.5);
-    border: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-.dark-mode .contact-item:hover {
-    background: rgba(30, 41, 59, 0.8);
-}
-
-.dark-mode .form-group label {
-    color: #e2e8f0;
-}
-
-.dark-mode .form-group input,
-.dark-mode .form-group textarea {
-    background: rgba(30, 41, 59, 0.8);
-    border-color: #475569;
-    color: #e2e8f0;
-}
-
-.dark-mode .form-group input:focus,
-.dark-mode .form-group textarea:focus {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
-}
-
-/* Performance optimizations */
+.cert-item {
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -1418,10 +1277,6 @@ html {
         display: flex;
         gap: 1rem;
         z-index: 999;
-    }
-
-    .dark-mode .nav-menu {
-        background: #1e293b;
     }
 
     .nav-menu-active {
@@ -1644,11 +1499,5 @@ section {
     .skill-item {
         border: 2px solid currentColor !important;
         background: white !important;
-    }
-    
-    .dark-mode .tech-item,
-    .dark-mode .skill-item {
-        background: black !important;
-        color: white !important;
     }
 }

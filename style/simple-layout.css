@@ -1024,51 +1024,6 @@ footer {
     height: 200px;
 }
 
-/* GitHub Stats */
-.github-stats {
-    margin-top: 4rem;
-    text-align: center;
-    padding: 3rem 2rem;
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 20px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    position: relative;
-    z-index: 5;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.github-stats h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: #1e293b;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.stats-grid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 5;
-}
-
-.stats-grid img {
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    max-width: 100%;
-    height: auto;
-    opacity: 1;
-    visibility: visible;
-}
-
 .stats-grid img:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
@@ -1333,11 +1288,6 @@ html {
         font-size: 2.5rem;
     }
 
-    .github-stats {
-        padding: 2rem 1rem;
-        margin-top: 2rem;
-    }
-
     .stats-grid {
         flex-direction: column;
         align-items: center;
@@ -1413,8 +1363,7 @@ html {
 .about-content,
 .tech-grid,
 .tech-item,
-.skill-item,
-.github-stats {
+.skill-item {
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) !important;

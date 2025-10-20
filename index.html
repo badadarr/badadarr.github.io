@@ -656,20 +656,6 @@
           </div>
         </div>
 
-        <!-- GitHub Stats Widget -->
-        <div class="github-stats" data-aos="fade-up" data-aos-delay="400">
-          <h3>GitHub Activity</h3>
-          <div class="stats-grid">
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=badadarr&show_icons=true&theme=tokyonight&hide_border=true"
-              alt="GitHub Stats"
-            />
-            <img
-              src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=badadarr&layout=compact&langs_count=8&theme=algolia&hide_border=true"
-              alt="GitHub Streak"
-            />
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1032,7 +1018,6 @@
             ".tech-grid",
             ".tech-item",
             ".skill-item",
-            ".github-stats",
             ".section-title",
           ];
 
@@ -1054,21 +1039,6 @@
         // Run visibility check after a delay
         setTimeout(ensureVisibility, 500);
         setTimeout(ensureVisibility, 2000);
-
-        // Check for images loading in GitHub stats
-        const githubStatsImages =
-          document.querySelectorAll(".github-stats img");
-        githubStatsImages.forEach((img) => {
-          img.addEventListener("error", function () {
-            console.warn("GitHub stats image failed to load:", this.src);
-            this.style.display = "none";
-          });
-
-          img.addEventListener("load", function () {
-            this.style.opacity = "1";
-            this.style.visibility = "visible";
-          });
-        });
 
         // Mobile navigation toggle
         const navToggle = document.querySelector(".nav-toggle");

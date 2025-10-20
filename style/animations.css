@@ -2,1026 +2,1165 @@
 
 /* Lottie Animation Container */
 .lottie-animation {
-    width: 200px;
-    height: 200px;
+  width: 200px;
+  height: 200px;
 }
 
 /* Responsive Lottie Animation */
 @media (max-width: 768px) {
-    .lottie-animation {
-        width: 150px;
-        height: 150px;
-    }
+  .lottie-animation {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 @media (max-width: 480px) {
-    .lottie-animation {
-        width: 120px;
-        height: 120px;
-    }
+  .lottie-animation {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 /* Custom cursor animations */
 .cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: #f0c800;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: #f0c800;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
 }
 
 .cursor-follower {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    border: 2px solid rgba(240, 200, 0, 0.3);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transition: all 0.3s ease;
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(240, 200, 0, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.3s ease;
 }
 
 /* Skill orbit animations */
 .skill-orbit {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 2rem auto;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 2rem auto;
 }
 
 .skill-item {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    background: rgba(240, 200, 0, 0.1);
-    border: 2px solid #f0c800;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(240, 200, 0, 0.1);
+  border: 2px solid #f0c800;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: scale(1.2);
-    background: rgba(240, 200, 0, 0.3);
+  transform: scale(1.2);
+  background: rgba(240, 200, 0, 0.3);
 }
 
 /* Progress bar animations */
 .progress-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: 0.5rem;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
 }
 
 .progress {
-    height: 100%;
-    background: linear-gradient(90deg, #f0c800, #ff5a3d);
-    border-radius: 4px;
-    transition: width 2s ease-in-out;
-    width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #f0c800, #ff5a3d);
+  border-radius: 4px;
+  transition: width 2s ease-in-out;
+  width: 0;
 }
 
 /* Glitch button effects */
 .glitch-btn {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .glitch-btn::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    color: #ff5a3d;
-    clip: rect(0, 900px, 0, 0);
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  color: #ff5a3d;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
 }
 
 .glitch-btn::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    color: #00d4ff;
-    clip: rect(0, 900px, 0, 0);
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  color: #00d4ff;
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }
 
 @keyframes glitch-anim-1 {
-    0% { clip: rect(42px, 9999px, 44px, 0); }
-    5% { clip: rect(12px, 9999px, 59px, 0); }
-    10% { clip: rect(48px, 9999px, 29px, 0); }
-    15% { clip: rect(42px, 9999px, 73px, 0); }
-    20% { clip: rect(63px, 9999px, 27px, 0); }
-    25% { clip: rect(34px, 9999px, 55px, 0); }
-    30% { clip: rect(86px, 9999px, 73px, 0); }
-    35% { clip: rect(20px, 9999px, 20px, 0); }
-    40% { clip: rect(26px, 9999px, 60px, 0); }
-    45% { clip: rect(25px, 9999px, 85px, 0); }
-    50% { clip: rect(57px, 9999px, 32px, 0); }
-    55% { clip: rect(5px, 9999px, 46px, 0); }
-    60% { clip: rect(82px, 9999px, 31px, 0); }
-    65% { clip: rect(54px, 9999px, 27px, 0); }
-    70% { clip: rect(28px, 9999px, 99px, 0); }
-    75% { clip: rect(45px, 9999px, 69px, 0); }
-    80% { clip: rect(23px, 9999px, 85px, 0); }
-    85% { clip: rect(54px, 9999px, 84px, 0); }
-    90% { clip: rect(45px, 9999px, 47px, 0); }
-    95% { clip: rect(37px, 9999px, 20px, 0); }
-    100% { clip: rect(4px, 9999px, 91px, 0); }
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  10% {
+    clip: rect(48px, 9999px, 29px, 0);
+  }
+  15% {
+    clip: rect(42px, 9999px, 73px, 0);
+  }
+  20% {
+    clip: rect(63px, 9999px, 27px, 0);
+  }
+  25% {
+    clip: rect(34px, 9999px, 55px, 0);
+  }
+  30% {
+    clip: rect(86px, 9999px, 73px, 0);
+  }
+  35% {
+    clip: rect(20px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(26px, 9999px, 60px, 0);
+  }
+  45% {
+    clip: rect(25px, 9999px, 85px, 0);
+  }
+  50% {
+    clip: rect(57px, 9999px, 32px, 0);
+  }
+  55% {
+    clip: rect(5px, 9999px, 46px, 0);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  65% {
+    clip: rect(54px, 9999px, 27px, 0);
+  }
+  70% {
+    clip: rect(28px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(45px, 9999px, 69px, 0);
+  }
+  80% {
+    clip: rect(23px, 9999px, 85px, 0);
+  }
+  85% {
+    clip: rect(54px, 9999px, 84px, 0);
+  }
+  90% {
+    clip: rect(45px, 9999px, 47px, 0);
+  }
+  95% {
+    clip: rect(37px, 9999px, 20px, 0);
+  }
+  100% {
+    clip: rect(4px, 9999px, 91px, 0);
+  }
 }
 
 @keyframes glitch-anim-2 {
-    0% { clip: rect(65px, 9999px, 119px, 0); }
-    5% { clip: rect(52px, 9999px, 74px, 0); }
-    10% { clip: rect(79px, 9999px, 85px, 0); }
-    15% { clip: rect(75px, 9999px, 5px, 0); }
-    20% { clip: rect(67px, 9999px, 61px, 0); }
-    25% { clip: rect(14px, 9999px, 79px, 0); }
-    30% { clip: rect(1px, 9999px, 66px, 0); }
-    35% { clip: rect(86px, 9999px, 30px, 0); }
-    40% { clip: rect(23px, 9999px, 98px, 0); }
-    45% { clip: rect(85px, 9999px, 82px, 0); }
-    50% { clip: rect(66px, 9999px, 46px, 0); }
-    55% { clip: rect(95px, 9999px, 48px, 0); }
-    60% { clip: rect(54px, 9999px, 27px, 0); }
-    65% { clip: rect(13px, 9999px, 85px, 0); }
-    70% { clip: rect(34px, 9999px, 100px, 0); }
-    75% { clip: rect(53px, 9999px, 72px, 0); }
-    80% { clip: rect(69px, 9999px, 64px, 0); }
-    85% { clip: rect(47px, 9999px, 47px, 0); }
-    90% { clip: rect(82px, 9999px, 81px, 0); }
-    95% { clip: rect(56px, 9999px, 41px, 0); }
-    100% { clip: rect(2px, 9999px, 34px, 0); }
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+  }
+  5% {
+    clip: rect(52px, 9999px, 74px, 0);
+  }
+  10% {
+    clip: rect(79px, 9999px, 85px, 0);
+  }
+  15% {
+    clip: rect(75px, 9999px, 5px, 0);
+  }
+  20% {
+    clip: rect(67px, 9999px, 61px, 0);
+  }
+  25% {
+    clip: rect(14px, 9999px, 79px, 0);
+  }
+  30% {
+    clip: rect(1px, 9999px, 66px, 0);
+  }
+  35% {
+    clip: rect(86px, 9999px, 30px, 0);
+  }
+  40% {
+    clip: rect(23px, 9999px, 98px, 0);
+  }
+  45% {
+    clip: rect(85px, 9999px, 82px, 0);
+  }
+  50% {
+    clip: rect(66px, 9999px, 46px, 0);
+  }
+  55% {
+    clip: rect(95px, 9999px, 48px, 0);
+  }
+  60% {
+    clip: rect(54px, 9999px, 27px, 0);
+  }
+  65% {
+    clip: rect(13px, 9999px, 85px, 0);
+  }
+  70% {
+    clip: rect(34px, 9999px, 100px, 0);
+  }
+  75% {
+    clip: rect(53px, 9999px, 72px, 0);
+  }
+  80% {
+    clip: rect(69px, 9999px, 64px, 0);
+  }
+  85% {
+    clip: rect(47px, 9999px, 47px, 0);
+  }
+  90% {
+    clip: rect(82px, 9999px, 81px, 0);
+  }
+  95% {
+    clip: rect(56px, 9999px, 41px, 0);
+  }
+  100% {
+    clip: rect(2px, 9999px, 34px, 0);
+  }
 }
 
 /* Neon button effects */
 .neon-btn {
-    position: relative;
-    border: 2px solid #f0c800;
-    background: transparent;
-    color: #f0c800;
-    text-shadow: 0 0 10px #f0c800;
-    box-shadow: 0 0 20px rgba(240, 200, 0, 0.3);
-    transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid #f0c800;
+  background: transparent;
+  color: #f0c800;
+  text-shadow: 0 0 10px #f0c800;
+  box-shadow: 0 0 20px rgba(240, 200, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .neon-btn:hover {
-    box-shadow: 0 0 30px rgba(240, 200, 0, 0.6),
-                inset 0 0 30px rgba(240, 200, 0, 0.1);
-    text-shadow: 0 0 20px #f0c800;
+  box-shadow: 0 0 30px rgba(240, 200, 0, 0.6),
+    inset 0 0 30px rgba(240, 200, 0, 0.1);
+  text-shadow: 0 0 20px #f0c800;
 }
 
 /* Floating animations */
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .floating-code {
-    animation: float 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Pulse animation for live indicators */
 @keyframes pulse {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(240, 200, 0, 0.7);
-    }
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(240, 200, 0, 0);
-    }
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(240, 200, 0, 0);
-    }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(240, 200, 0, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(240, 200, 0, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(240, 200, 0, 0);
+  }
 }
 
 .pulse {
-    animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
 }
 
 /* Enhanced Animation Styles */
 
 /* Smooth transitions for all elements */
 * {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* Advanced Skill Orbit Animation */
 .skill-orbit-advanced {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    margin: 3rem auto;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 3rem auto;
 }
 
 .orbit-item {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    animation: orbit 20s linear infinite;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: orbit 20s linear infinite;
 }
 
-.orbit-item:nth-child(1) { animation-delay: 0s; }
-.orbit-item:nth-child(2) { animation-delay: -3.33s; }
-.orbit-item:nth-child(3) { animation-delay: -6.66s; }
-.orbit-item:nth-child(4) { animation-delay: -9.99s; }
-.orbit-item:nth-child(5) { animation-delay: -13.32s; }
-.orbit-item:nth-child(6) { animation-delay: -16.65s; }
+.orbit-item:nth-child(1) {
+  animation-delay: 0s;
+}
+.orbit-item:nth-child(2) {
+  animation-delay: -3.33s;
+}
+.orbit-item:nth-child(3) {
+  animation-delay: -6.66s;
+}
+.orbit-item:nth-child(4) {
+  animation-delay: -9.99s;
+}
+.orbit-item:nth-child(5) {
+  animation-delay: -13.32s;
+}
+.orbit-item:nth-child(6) {
+  animation-delay: -16.65s;
+}
 
 @keyframes orbit {
-    from {
-        transform: rotate(0deg) translateX(160px) rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg) translateX(160px) rotate(-360deg);
-    }
+  from {
+    transform: rotate(0deg) translateX(160px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(160px) rotate(-360deg);
+  }
 }
 
 .orbit-item:hover {
-    transform: scale(1.3) rotate(360deg);
-    box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+  transform: scale(1.3) rotate(360deg);
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
 }
 
 /* Advanced Button Animations */
 .btn-glitch {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-glitch::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
 }
 
 .btn-glitch:hover::before {
-    left: 100%;
+  left: 100%;
 }
 
 .btn-glitch:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Morphing Background Animation */
 .morphing-bg {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Typewriter Effect */
 .typewriter {
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  overflow: hidden;
+  border-right: 0.15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
 }
 
 /* Particle System */
 .particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
 }
 
 .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #667eea;
-    border-radius: 50%;
-    animation: float-particle 6s linear infinite;
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: float-particle 6s linear infinite;
 }
 
 @keyframes float-particle {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-    }
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* 3D Card Effect */
 .card-3d {
-    perspective: 1000px;
+  perspective: 1000px;
 }
 
 .card-inner {
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
 .card-3d:hover .card-inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    padding: 2rem;
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 2rem;
 }
 
 .card-back {
-    transform: rotateY(180deg);
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  transform: rotateY(180deg);
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Loading Spinner */
 .spinner {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Pulse Animation */
 .pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: .5;
-    }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* Bounce In Animation */
 .bounce-in {
-    animation: bounceIn 1s ease-out;
+  animation: bounceIn 1s ease-out;
 }
 
 @keyframes bounceIn {
-    0% {
-        opacity: 0;
-        transform: scale3d(0.3, 0.3, 0.3);
-    }
-    20% {
-        transform: scale3d(1.1, 1.1, 1.1);
-    }
-    40% {
-        transform: scale3d(0.9, 0.9, 0.9);
-    }
-    60% {
-        opacity: 1;
-        transform: scale3d(1.03, 1.03, 1.03);
-    }
-    80% {
-        transform: scale3d(0.97, 0.97, 0.97);
-    }
-    100% {
-        opacity: 1;
-        transform: scale3d(1, 1, 1);
-    } 
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
 }
 
 /* Slide Up Animation */
 .slide-up {
-    animation: slideUp 0.8s ease-out;
+  animation: slideUp 0.8s ease-out;
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Reveal Text Animation */
 .reveal-text {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .reveal-text::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    animation: revealText 1.5s ease-out forwards;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: revealText 1.5s ease-out forwards;
 }
 
 @keyframes revealText {
-    from {
-        left: 0;
-    }
-    to {
-        left: 100%;
-    }
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
 }
 
 /* Stagger Animation */
 .stagger-item {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: staggerIn 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerIn 0.6s ease-out forwards;
 }
 
-.stagger-item:nth-child(1) { animation-delay: 0.1s; }
-.stagger-item:nth-child(2) { animation-delay: 0.2s; }
-.stagger-item:nth-child(3) { animation-delay: 0.3s; }
-.stagger-item:nth-child(4) { animation-delay: 0.4s; }
-.stagger-item:nth-child(5) { animation-delay: 0.5s; }
-.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+.stagger-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.stagger-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.stagger-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 @keyframes staggerIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Mobile Optimized Animations */
 @media (max-width: 768px) {
-    .skill-orbit-advanced {
-        width: 300px;
-        height: 300px;
+  .skill-orbit-advanced {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orbit-item {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
     }
-    
-    .orbit-item {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
+    to {
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
     }
-    
-    @keyframes orbit {
-        from {
-            transform: rotate(0deg) translateX(120px) rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg) translateX(120px) rotate(-360deg);
-        }
-    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .orbit-item,
-    .floating-tech,
-    .morphing-bg,
-    .particle {
-        animation: none;
-    }
-    
-    .btn-glitch::before {
-        display: none;
-    }
+  .orbit-item,
+  .floating-tech,
+  .morphing-bg,
+  .particle {
+    animation: none;
+  }
+
+  .btn-glitch::before {
+    display: none;
+  }
 }
 
 /* Section spacing optimization */
 .github-stats {
-    margin-bottom: 0 !important;
-    padding-bottom: 2rem !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 2rem !important;
 }
 
 .contact {
-    margin-top: 0 !important;
-    padding-top: 3rem !important;
+  margin-top: 0 !important;
+  padding-top: 3rem !important;
 }
 
 /* Remove excessive spacing between sections */
 section + section {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 /* Specific spacing control for github-stats to contact transition */
 #github-stats + #contact {
-    margin-top: 0;
-    padding-top: 2rem;
+  margin-top: 0;
+  padding-top: 2rem;
 }
 
 /* Container spacing optimization */
 .github-stats .container {
-    margin-bottom: 0;
-    padding-bottom: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
 }
 
 .contact .container {
-    margin-top: 0;
-    padding-top: 2rem;
+  margin-top: 0;
+  padding-top: 2rem;
 }
 
 /* GitHub activity section spacing */
 .github-activity {
-    margin-bottom: 0 !important;
-    padding-bottom: 1rem !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 1rem !important;
 }
 
 /* Ensure no extra spacing from glass-effect */
 .glass-effect {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Override any default section margins */
 section {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 /* Specific padding control for better visual flow */
 .github-stats {
-    padding: 4rem 0 1rem 0 !important;
+  padding: 4rem 0 1rem 0 !important;
 }
 
 .contact {
-    padding: 2rem 0 4rem 0 !important;
+  padding: 2rem 0 4rem 0 !important;
 }
 
 /* Fix specific gap issue between GitHub Stats and Contact sections */
 .github-stats {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .github-stats .container {
-    position: relative;
+  position: relative;
 }
 
 .github-stats .github-activity {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .github-stats .github-activity .cta {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Ensure Contact section starts immediately after GitHub Stats */
 .contact {
-    position: relative;
-    z-index: 2;
-    transform: translateY(-1px); /* Slight overlap to remove any browser rendering gaps */
+  position: relative;
+  z-index: 2;
+  transform: translateY(
+    -1px
+  ); /* Slight overlap to remove any browser rendering gaps */
 }
 
 /* Remove any potential margin/padding conflicts */
 .github-stats + .contact {
-    margin-top: -1px !important;
+  margin-top: -1px !important;
 }
 
 /* Responsive gap fixes */
 @media (max-width: 768px) {
-    .github-stats {
-        padding-bottom: 0.5rem !important;
-    }
-    
-    .contact {
-        padding-top: 1.5rem !important;
-        transform: translateY(-2px);
-    }
+  .github-stats {
+    padding-bottom: 0.5rem !important;
+  }
+
+  .contact {
+    padding-top: 1.5rem !important;
+    transform: translateY(-2px);
+  }
 }
 
 @media (max-width: 480px) {
-    .github-stats {
-        padding-bottom: 0.25rem !important;
-    }
-    
-    .contact {
-        padding-top: 1rem !important;
-        transform: translateY(-3px);
-    }
+  .github-stats {
+    padding-bottom: 0.25rem !important;
+  }
+
+  .contact {
+    padding-top: 1rem !important;
+    transform: translateY(-3px);
+  }
 }
 
 /* Compact Layout Optimizations - Remove Excessive White Space */
 
 /* Global section padding reduction */
 section {
-    padding: 3rem 0 !important; /* Reduced from 6rem to 3rem */
+  padding: 3rem 0 !important; /* Reduced from 6rem to 3rem */
 }
 
 /* Specific section optimizations */
 .github-stats {
-    padding: 2rem 0 1rem 0 !important;
-    min-height: 0 !important;
+  padding: 2rem 0 1rem 0 !important;
+  min-height: 0 !important;
 }
 
 .github-stats .container {
-    padding: 0 !important;
-    margin-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .github-stats .section-heading {
-    margin-bottom: 3rem !important; /* Reduced from 10rem */
-    text-align: center;
+  margin-bottom: 3rem !important; /* Reduced from 10rem */
+  text-align: center;
 }
 
 /* Skills visualization compact styling */
 .skills-visualization {
-    margin: 2rem 0 !important;
-    padding: 1rem 0 !important;
+  margin: 2rem 0 !important;
+  padding: 1rem 0 !important;
 }
 
 .charts-container {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 1rem 0 !important;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0 !important;
+  flex-wrap: wrap;
 }
 
 .chart-item {
-    max-width: 300px;
-    height: auto !important;
-    margin: 0 !important;
+  max-width: 300px;
+  height: auto !important;
+  margin: 0 !important;
 }
 
 .chart-item canvas {
-    max-height: 250px !important;
-    width: 100% !important;
+  max-height: 250px !important;
+  width: 100% !important;
 }
 
 /* Stats grid compact layout */
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0 !important;
-    padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 !important;
+  padding: 0 !important;
 }
 
 .stat-card {
-    margin: 0 !important;
-    padding: 1.5rem !important;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 !important;
+  padding: 1.5rem !important;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stat-card h3 {
-    margin-bottom: 1rem !important;
-    font-size: 1.4rem !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.4rem !important;
 }
 
 .github-card {
-    margin: 0 !important;
-    padding: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .github-card img {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 8px;
-    margin: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 8px;
+  margin: 0 !important;
 }
 
 /* Contribution section compact */
 .contribution-section {
-    margin: 2rem 0 !important;
-    padding: 1rem 0 !important;
+  margin: 2rem 0 !important;
+  padding: 1rem 0 !important;
 }
 
 .contribution-section h3 {
-    margin-bottom: 1rem !important;
-    text-align: center;
-    font-size: 1.6rem !important;
+  margin-bottom: 1rem !important;
+  text-align: center;
+  font-size: 1.6rem !important;
 }
 
 .contribution-graph {
-    text-align: center;
-    margin: 1rem 0 !important;
+  text-align: center;
+  margin: 1rem 0 !important;
 }
 
 .contribution-graph img {
-    max-width: 100%;
-    height: auto !important;
-    border-radius: 8px;
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 8px;
 }
 
 /* Trophies section compact */
 .trophies-section {
-    margin: 2rem 0 !important;
-    padding: 1rem 0 !important;
+  margin: 2rem 0 !important;
+  padding: 1rem 0 !important;
 }
 
 .trophies-section h3 {
-    margin-bottom: 1rem !important;
-    text-align: center;
-    font-size: 1.6rem !important;
+  margin-bottom: 1rem !important;
+  text-align: center;
+  font-size: 1.6rem !important;
 }
 
 .trophies-container {
-    text-align: center;
-    margin: 1rem 0 !important;
+  text-align: center;
+  margin: 1rem 0 !important;
 }
 
 .trophies-container img {
-    max-width: 100%;
-    height: auto !important;
+  max-width: 100%;
+  height: auto !important;
 }
 
 /* GitHub activity compact */
 .github-activity {
-    margin: 2rem 0 0 0 !important;
-    padding: 2rem 1.5rem 1rem 1.5rem !important;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem 0 0 0 !important;
+  padding: 2rem 1.5rem 1rem 1.5rem !important;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .github-activity h3 {
-    margin-bottom: 1rem !important;
-    font-size: 1.6rem !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.6rem !important;
 }
 
 .github-activity p {
-    margin-bottom: 1.5rem !important;
-    line-height: 1.4 !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.4 !important;
 }
 
 .activity-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0 !important;
-    padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 !important;
+  padding: 0 !important;
 }
 
 .activity-item {
-    text-align: center;
-    padding: 1rem !important;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin: 0 !important;
+  text-align: center;
+  padding: 1rem !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin: 0 !important;
 }
 
 .activity-item i {
-    font-size: 2rem;
-    color: #f0c800;
-    margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #f0c800;
+  margin-bottom: 0.5rem;
 }
 
 .activity-item .counter {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #f0c800;
-    margin-bottom: 0.2rem;
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f0c800;
+  margin-bottom: 0.2rem;
 }
 
 .activity-item label {
-    font-size: 1rem;
-    color: #c9d1d9;
+  font-size: 1rem;
+  color: #c9d1d9;
 }
 
 /* Language progress compact */
 .language-progress {
-    margin-top: 1rem !important;
+  margin-top: 1rem !important;
 }
 
 .lang-item {
-    margin-bottom: 0.8rem !important;
+  margin-bottom: 0.8rem !important;
 }
 
 .lang-item span {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
 }
 
 /* Contact section adjustment */
 .contact {
-    padding: 2rem 0 3rem 0 !important;
-    margin-top: 0 !important;
+  padding: 2rem 0 3rem 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
-    section {
-        padding: 2rem 0 !important;
-    }
-    
-    .github-stats {
-        padding: 1.5rem 0 !important;
-    }
-    
-    .github-stats .section-heading {
-        margin-bottom: 2rem !important;
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .charts-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .chart-item {
-        max-width: 280px;
-    }
-    
-    .activity-stats {
-        grid-template-columns: 1fr;
-        gap: 0.8rem;
-    }
+  section {
+    padding: 2rem 0 !important;
+  }
+
+  .github-stats {
+    padding: 1.5rem 0 !important;
+  }
+
+  .github-stats .section-heading {
+    margin-bottom: 2rem !important;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .charts-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-item {
+    max-width: 280px;
+  }
+
+  .activity-stats {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
 }
 
 @media (max-width: 480px) {
-    section {
-        padding: 1.5rem 0 !important;
-    }
-    
-    .github-stats {
-        padding: 1rem 0 !important;
-    }
-    
-    .stat-card {
-        padding: 1rem !important;
-    }
-    
-    .github-activity {
-        padding: 1.5rem 1rem !important;
-    }
+  section {
+    padding: 1.5rem 0 !important;
+  }
+
+  .github-stats {
+    padding: 1rem 0 !important;
+  }
+
+  .stat-card {
+    padding: 1rem !important;
+  }
+
+  .github-activity {
+    padding: 1.5rem 1rem !important;
+  }
 }
 
 /* Additional Section Optimizations */
 
 /* About section compact */
 .about {
-    padding: 2rem 0 !important;
+  padding: 2rem 0 !important;
 }
 
 .about .section-heading {
-    margin-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
 /* Services/Achievements section compact */
 .services {
-    padding: 2rem 0 !important;
+  padding: 2rem 0 !important;
 }
 
 .services .section-heading {
-    margin-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
 .my-skills {
-    margin-top: 1rem !important;
+  margin-top: 1rem !important;
 }
 
 .skill {
-    margin-bottom: 2rem !important;
-    padding: 1.5rem !important;
+  margin-bottom: 2rem !important;
+  padding: 1.5rem !important;
 }
 
 /* Portfolio section compact */
 .portfolio {
-    padding: 2rem 0 !important;
+  padding: 2rem 0 !important;
 }
 
 .portfolio .section-heading {
-    margin-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
 .portfolio-swiper {
-    margin: 1rem 0 !important;
+  margin: 1rem 0 !important;
 }
 
 /* Experience section compact */
 .experience {
-    padding: 2rem 0 !important;
+  padding: 2rem 0 !important;
 }
 
 .experience .section-heading {
-    margin-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
 .timeline {
-    margin-top: 1rem !important;
+  margin-top: 1rem !important;
 }
 
 .timeline li {
-    margin-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
 /* Header optimization */
 header {
-    min-height: 0 !important;
-    padding: 1rem 0 !important;
+  min-height: 0 !important;
+  padding: 1rem 0 !important;
 }
 
 .landing-text {
-    padding: 2rem 0 !important;
+  padding: 2rem 0 !important;
 }
 
 /* Global container optimization */
 .container {
-    width: 95% !important;
-    max-width: 1200px !important;
-    padding: 0 1rem !important;
+  width: 95% !important;
+  max-width: 1200px !important;
+  padding: 0 1rem !important;
 }
 
 /* Remove excessive margins from all headings */
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 0 !important;
-    margin-bottom: 1rem !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
 }
 
 /* Optimize paragraph spacing */
 p {
-    margin-bottom: 1rem !important;
-    line-height: 1.4 !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.4 !important;
 }
 
 /* Image optimization */
 img {
-    max-width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
 }

@@ -1,6 +1,31 @@
-// Polyfills and Compatibility Fixes for older browsers
+/* ============================================================================
+   POLYFILLS AND COMPATIBILITY FIXES FOR OLDER BROWSERS
+   ============================================================================
+   
+   This module provides polyfills and compatibility fixes for APIs
+   used throughout the application, ensuring support for older browsers
+   like Internet Explorer 11 and earlier versions of other browsers.
+   
+   Polyfills Included:
+   - IntersectionObserver (fallback)
+   - Array.from() - IE11
+   - Object.assign() - IE11
+   - String.prototype.includes() - Older browsers
+   - Element.prototype.closest() - IE11
+   
+   All polyfills are non-intrusive and don't break existing functionality
+   
+   ============================================================================ */
 
-// 1. IntersectionObserver Polyfill Check
+// ============================================================================
+// INTERSECTION OBSERVER POLYFILL
+// ============================================================================
+
+/**
+ * IntersectionObserver Polyfill Check
+ * Provides a basic fallback for browsers without IntersectionObserver support
+ * Falls back to immediate execution of animations if not available
+ */
 if (!window.IntersectionObserver) {
     console.warn('IntersectionObserver not supported. Using fallback.');
     // Fallback: Execute animations immediately
@@ -10,7 +35,17 @@ if (!window.IntersectionObserver) {
     };
 }
 
-// 2. Array.from Polyfill for IE11
+// ============================================================================
+// ARRAY.FROM POLYFILL
+// ============================================================================
+
+/**
+ * Array.from() Polyfill for IE11
+ * Converts array-like objects to real arrays
+ * 
+ * @example
+ * Array.from(document.querySelectorAll('div')) // Works in IE11
+ */
 if (!Array.from) {
     Array.from = function(arrayLike) {
         if (arrayLike == null) {
@@ -25,7 +60,18 @@ if (!Array.from) {
     };
 }
 
-// 3. Object.assign Polyfill for IE11
+// ============================================================================
+// OBJECT.ASSIGN POLYFILL
+// ============================================================================
+
+/**
+ * Object.assign() Polyfill for IE11
+ * Copies all properties from source objects to target object
+ * Essential for modern JavaScript object composition patterns
+ * 
+ * @example
+ * Object.assign({}, defaultConfig, userConfig) // Works in IE11
+ */
 if (typeof Object.assign !== 'function') {
     Object.defineProperty(Object, 'assign', {
         value: function assign(target, varArgs) {
@@ -50,7 +96,18 @@ if (typeof Object.assign !== 'function') {
     });
 }
 
-// 4. String.includes Polyfill for older browsers
+// ============================================================================
+// STRING.INCLUDES POLYFILL
+// ============================================================================
+
+/**
+ * String.prototype.includes() Polyfill
+ * Checks if a string contains a specified substring
+ * Provides ES6 functionality in older browsers
+ * 
+ * @example
+ * 'hello world'.includes('world') // true in all browsers
+ */
 if (!String.prototype.includes) {
     String.prototype.includes = function(search, start) {
         'use strict';
@@ -62,7 +119,18 @@ if (!String.prototype.includes) {
     };
 }
 
-// 5. Element.closest Polyfill for IE11
+// ============================================================================
+// ELEMENT.CLOSEST POLYFILL
+// ============================================================================
+
+/**
+ * Element.prototype.closest() Polyfill for IE11
+ * Traverses the element's ancestors to find the closest node matching selector
+ * Essential for event delegation and DOM traversal
+ * 
+ * @example
+ * element.closest('.parent') // Works in IE11
+ */
 if (!Element.prototype.closest) {
     Element.prototype.closest = function(s) {
         var el = this;

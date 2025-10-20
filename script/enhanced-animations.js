@@ -1,27 +1,41 @@
-// Enhanced Portfolio Animations and Effects (Optimized)
-// ====================================================
-// Lightweight animation module for portfolio
-// - Scroll-triggered animations using AOS
-// - Portfolio item hover effects
-// - Magnetic button effects
-// - Background color transitions
-// 
-// Removed for performance:
-// - Custom cursor (decorative, not essential)
-// - Particle system (heavy on CPU, decorative)
-// - Text reveal animation (blocks page load)
-// - Skill bar animation (no .progress elements in HTML)
-// - Type writer effect (replaced with CSS)
-//
-// Browser Support: All modern browsers
-// Dependencies: AOS library
-// File size: ~8 KB (reduced from ~12 KB)
+/* ============================================================================
+   ENHANCED PORTFOLIO ANIMATIONS AND EFFECTS (OPTIMIZED)
+   ============================================================================
+   
+   Lightweight animation module for portfolio providing:
+   - Scroll-triggered animations using AOS
+   - Portfolio item hover effects with transforms
+   - Magnetic button effects following cursor
+   - Background color transitions based on scroll position
+   
+   Performance Optimizations:
+   - Removed custom cursor (decorative, not essential)
+   - Removed particle system (heavy on CPU)
+   - Removed text reveal animation (blocks page load)
+   - Removed skill bar animation (no .progress elements in HTML)
+   - Removed typewriter effect (replaced with CSS)
+   
+   Browser Support: All modern browsers
+   Dependencies: AOS library
+   File Size: ~8 KB (reduced from ~12 KB)
+   
+   ============================================================================ */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // ========================================================================
+    // SCROLL ANIMATIONS SETUP
+    // ========================================================================
+    // ========================================================================
+    // SCROLL ANIMATIONS SETUP
+    // ========================================================================
     
     /**
-     * Intersection Observer for scroll-triggered animations
-     * Adds 'animate-in' class to elements as they enter viewport
+     * Setup Scroll-Triggered Animations
+     * Uses Intersection Observer to add 'animate-in' class when elements enter viewport
+     * Provides fallback for AOS library animations
+     * 
+     * @function setupScrollAnimations
+     * @returns {void}
      */
     function setupScrollAnimations() {
         const observerOptions = {
@@ -43,10 +57,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ========================================================================
+    // PORTFOLIO EFFECTS
+    // ========================================================================
+    // ========================================================================
+    // PORTFOLIO EFFECTS
+    // ========================================================================
+    
     /**
-     * Enhanced Portfolio Item Hover Effects
-     * Applies transform and shadow effects on mouse events
-     * Uses CSS for smooth transitions
+     * Setup Portfolio Item Hover Effects
+     * Applies transform and shadow effects on mouse enter/leave events
+     * Smooth transitions handled by CSS for optimal performance
+     * 
+     * @function setupPortfolioEffects
+     * @returns {void}
      */
     function setupPortfolioEffects() {
         const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -64,10 +88,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ========================================================================
+    // MAGNETIC BUTTON EFFECTS
+    // ========================================================================
+    
     /**
-     * Magnetic Button Effect
-     * Buttons follow cursor with subtle offset
+     * Setup Magnetic Button Effect
+     * Buttons follow cursor movement with subtle offset
      * Improves interactivity without slowing page load
+     * 
+     * @function setupMagneticButtons
+     * @returns {void}
      */
     function setupMagneticButtons() {
         const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
@@ -87,10 +118,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // ========================================================================
+    // SCROLL COLOR CHANGE
+    // ========================================================================
+    
     /**
-     * Background Color Change on Scroll (Optimized)
-     * Changes body background based on active section
+     * Setup Background Color Change on Scroll (Optimized)
+     * Changes body background color based on active section in viewport
      * Uses passive event listener for better performance
+     * 
+     * @function setupScrollColorChange
+     * @returns {void}
      */
     function setupScrollColorChange() {
         const sections = document.querySelectorAll('section');
@@ -121,8 +159,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /**
-     * Initialize all effects
-     * Called once after DOM is ready
+     * Initialize Module
+     * Triggers all animation and effect setup functions
+     * Called once after a short delay to ensure DOM is fully ready
+     * 
+     * @function init
+     * @returns {void}
      */
     function init() {
         setupScrollAnimations();

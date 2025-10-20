@@ -1,27 +1,84 @@
-/* Cache static assets */
+# ============================================================================
+# NETLIFY CACHE CONTROL HEADERS
+# ============================================================================
+# 
+# This file configures cache control headers for different asset types:
+# - Static assets (images, fonts): 1 year (max-age=31536000)
+# - CSS/JS files: 1 month (max-age=2592000) with revalidation
+# - HTML pages: 1 hour (max-age=3600) for frequent updates
+# 
+# Security headers are also configured for protection against:
+# - MIME-type sniffing
+# - Clickjacking attacks
+# - XSS vulnerabilities
+# - Unintended camera/microphone/geolocation access
+#
+# ============================================================================
+
+# ============================================================================
+# STATIC ASSETS - IMAGES
+# ============================================================================
+# Cache images for 1 year with immutable flag
+# These should only change when renamed in HTML
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 
+# ============================================================================
+# STYLESHEETS
+# ============================================================================
+# Cache CSS for 1 month with revalidation
+# Must revalidate after expiration to check for updates
 /style/*
   Cache-Control: public, max-age=2592000, must-revalidate
 
+# ============================================================================
+# SCRIPTS
+# ============================================================================
+# Cache JavaScript for 1 month with revalidation
+# Must revalidate after expiration to check for updates
 /script/*
   Cache-Control: public, max-age=2592000, must-revalidate
 
+# ============================================================================
+# FONTS
+# ============================================================================
+# Cache fonts for 1 year with immutable flag
+# Fonts rarely change, perfect for long-term caching
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ============================================================================
+# FAVICON & MANIFEST
+# ============================================================================
+# Cache favicon and manifest for 1 year with immutable flag
 /favicon.ico
   Cache-Control: public, max-age=31536000, immutable
 
-/* Security headers */
+/manifest.json
+  Cache-Control: public, max-age=31536000, immutable
+
+# ============================================================================
+# HTML PAGES
+# ============================================================================
+# Cache HTML for 1 hour with revalidation
+# Short cache for frequent content updates in SPA
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# ============================================================================
+# SECURITY HEADERS - GLOBAL
+# ============================================================================
+# Applied to all responses
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-
-/* HTML compression */
-/*.html
-  Cache-Control: public, max-age=3600, must-revalidate
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'self'

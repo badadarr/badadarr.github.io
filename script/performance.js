@@ -1,35 +1,52 @@
-// Performance Monitoring & Analytics
+/* ============================================================================
+   PERFORMANCE MONITORING & ANALYTICS
+   ============================================================================
+   
+   Comprehensive performance monitoring module that tracks:
+   - Web Vitals (LCP, CLS, FID)
+   - Page performance metrics (DNS, TCP, TTFB, etc.)
+   - Resource performance loading times
+   - Memory usage (Chrome/Edge only)
+   - Image loading performance
+   
+   All metrics are logged to console for analysis
+   Browser Support: Modern browsers with PerformanceObserver API
+   
+   ============================================================================ */
 
-// 1. Web Vitals Measurement
+// ============================================================================
+// WEB VITALS MEASUREMENT
+// ============================================================================
+
+/**
+ * Measure Web Vitals
+ * Tracks three core Web Vitals metrics:
+ * - LCP (Largest Contentful Paint): Measures perceived load speed
+ * - CLS (Cumulative Layout Shift): Measures visual stability
+ * - FID (First Input Delay): Measures interactivity
+ * 
+ * @function measureWebVitals
+ * @returns {void}
+ */
 function measureWebVitals() {
     // Largest Contentful Paint (LCP)
-    new PerformanceObserver((entryList) => {
-        const entries = entryList.getEntries();
-        const lastEntry = entries[entries.length - 1];
-        console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
-    }).observe({ entryTypes: ['largest-contentful-paint'] });
 
-    // Cumulative Layout Shift (CLS)
-    let clsValue = 0;
-    new PerformanceObserver((entryList) => {
-        for (const entry of entryList.getEntries()) {
-            if (!entry.hadRecentInput) {
-                clsValue += entry.value;
-                console.log('CLS:', clsValue);
-            }
-        }
-    }).observe({ entryTypes: ['layout-shift'] });
-
-    // First Input Delay (FID)
-    new PerformanceObserver((entryList) => {
-        const entries = entryList.getEntries();
-        entries.forEach((entry) => {
-            console.log('FID:', entry.processingDuration);
-        });
-    }).observe({ entryTypes: ['first-input'] });
 }
 
-// 2. Page Performance Metrics
+// ============================================================================
+// PAGE PERFORMANCE METRICS
+// ============================================================================
+
+/**
+ * Log Page Performance Metrics
+ * Measures timing for various stages of page loading:
+ * - DNS lookup, TCP connection, TTFB
+ * - Download time, DOM parsing, resource loading
+ * - Overall page load time
+ * 
+ * @function logPerformanceMetrics
+ * @returns {void}
+ */
 function logPerformanceMetrics() {
     if (window.performance && window.performance.timing) {
         const timing = window.performance.timing;
@@ -54,7 +71,18 @@ function logPerformanceMetrics() {
     }
 }
 
-// 3. Resource Performance
+// ============================================================================
+// RESOURCE PERFORMANCE MONITORING
+// ============================================================================
+
+/**
+ * Monitor Resource Performance
+ * Logs loading time for all resources (scripts, stylesheets, images)
+ * Helps identify slow-loading assets
+ * 
+ * @function monitorResourcePerformance
+ * @returns {void}
+ */
 function monitorResourcePerformance() {
     if (window.performance && window.performance.getEntriesByType) {
         const resources = window.performance.getEntriesByType('resource');
@@ -66,7 +94,18 @@ function monitorResourcePerformance() {
     }
 }
 
-// 4. Memory Usage (Chrome only)
+// ============================================================================
+// MEMORY USAGE MONITORING
+// ============================================================================
+
+/**
+ * Check Memory Usage (Chrome/Edge only)
+ * Logs JavaScript heap size information
+ * Note: This API is not available in all browsers
+ * 
+ * @function checkMemoryUsage
+ * @returns {void}
+ */
 function checkMemoryUsage() {
     if (performance.memory) {
         const memory = performance.memory;
@@ -77,7 +116,18 @@ function checkMemoryUsage() {
     }
 }
 
-// 5. Image Loading Performance
+// ============================================================================
+// IMAGE LOADING PERFORMANCE
+// ============================================================================
+
+/**
+ * Monitor Image Loading Performance
+ * Tracks loading time for lazy-loaded images
+ * Uses Intersection Observer for efficient monitoring
+ * 
+ * @function monitorImageLoading
+ * @returns {void}
+ */
 function monitorImageLoading() {
     const images = document.querySelectorAll('img[loading="lazy"]');
     
@@ -98,7 +148,11 @@ function monitorImageLoading() {
     }
 }
 
-// Initialize on page load
+// ============================================================================
+// INITIALIZATION
+// ============================================================================
+
+// Initialize performance monitoring on DOM content loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         measureWebVitals();

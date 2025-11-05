@@ -47,7 +47,7 @@ const App = {
       "click",
       this.toggleMobileNav.bind(this)
     );
-    this.elements.backToTopButton?.addEventListener("click", this.scrollToTop);
+    // Back to top button handled by back-to-top.js
     this.elements.contactForm?.addEventListener(
       "submit",
       this.handleFormSubmit.bind(this)
@@ -65,7 +65,6 @@ const App = {
   handleScroll() {
     const scrollY = window.scrollY;
     this.updateScrollProgress(scrollY);
-    this.toggleBackToTopButton(scrollY);
     this.applyParallaxEffect(scrollY);
   },
 
@@ -108,12 +107,6 @@ const App = {
     this.elements.scrollProgress.style.width = `${scrollPercent}%`;
   },
 
-  // Menampilkan/menyembunyikan tombol back-to-top
-  toggleBackToTopButton(scrollY) {
-    if (!this.elements.backToTopButton) return;
-    this.elements.backToTopButton.classList.toggle("visible", scrollY > 300);
-  },
-
   // Menerapkan efek parallax pada hero section
   applyParallaxEffect(scrollY) {
     if (!this.elements.heroSection) return;
@@ -136,11 +129,6 @@ const App = {
         this.toggleMobileNav();
       }
     }
-  },
-
-  // Kembali ke atas halaman
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   },
 
   // Menangani logika pengiriman form

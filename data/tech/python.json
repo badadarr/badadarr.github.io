@@ -1,0 +1,7 @@
+{
+  "name": "Python",
+  "category": "Programming Languages",
+  "icon": "fab fa-python",
+  "description": "Backend & AI/ML",
+  "order": 1
+}

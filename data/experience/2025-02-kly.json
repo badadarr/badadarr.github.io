@@ -1,0 +1,23 @@
+{
+  "position": "Software Developer (SEO)",
+  "company": "KapanLagi Youniverse",
+  "duration": "Februari 2025 - May 2025 | 3 Month",
+  "status": "Completed",
+  "description": "Assisted in development of SEO tools and content management systems. Supported implementation of automated solutions for digital content analysis.",
+  "icon": "fa-laptop-code",
+  "achievements": [
+    {
+      "title": "Lyrics Management System",
+      "description": "Assisted with backend development using Express.js for content scraping and data management features"
+    },
+    {
+      "title": "Google Trends Integration",
+      "description": "Helped implement Express.js integration with Google Sheets for trend monitoring and WhatsApp notifications"
+    },
+    {
+      "title": "SEO Tools",
+      "description": "Supported development of SEO analysis tools and contributed to website performance testing"
+    }
+  ],
+  "order": 1
+}

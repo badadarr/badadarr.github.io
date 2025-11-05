@@ -1,0 +1,7 @@
+{
+  "title": "Akademis App",
+  "description": "Educational mobile application built with Flutter, featuring student management and course tracking capabilities.",
+  "image": "/assets/images/Akademisapp ui.png",
+  "tags": ["Flutter", "Dart", "Firebase"],
+  "order": 1
+}

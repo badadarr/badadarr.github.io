@@ -48,26 +48,24 @@ function measureWebVitals() {
  * @returns {void}
  */
 function logPerformanceMetrics() {
-    if (window.performance && window.performance.timing) {
-        const timing = window.performance.timing;
-        
+    const navTiming = performance.getEntriesByType('navigation')[0];
+    if (navTiming) {
         setTimeout(() => {
             const metrics = {
-                'DNS Lookup': timing.domainLookupEnd - timing.domainLookupStart,
-                'TCP Connection': timing.connectEnd - timing.connectStart,
-                'Time to First Byte': timing.responseStart - timing.requestStart,
-                'Download Time': timing.responseEnd - timing.responseStart,
-                'DOM Parsing': timing.domInteractive - timing.domLoading,
-                'Resources Loading': timing.loadEventStart - timing.domInteractive,
-                'DOM Content Loaded': timing.domContentLoadedEventEnd - timing.domContentLoadedEventStart,
-                'Page Load Time': timing.loadEventEnd - timing.navigationStart
+                'DNS Lookup': Math.round(navTiming.domainLookupEnd - navTiming.domainLookupStart),
+                'TCP Connection': Math.round(navTiming.connectEnd - navTiming.connectStart),
+                'Time to First Byte': Math.round(navTiming.responseStart - navTiming.requestStart),
+                'Download Time': Math.round(navTiming.responseEnd - navTiming.responseStart),
+                'DOM Parsing': Math.round(navTiming.domInteractive - navTiming.domLoading),
+                'DOM Content Loaded': Math.round(navTiming.domContentLoadedEventEnd - navTiming.domContentLoadedEventStart),
+                'Page Load Time': Math.round(navTiming.loadEventEnd - navTiming.fetchStart)
             };
 
             console.log('=== Page Performance Metrics ===');
             Object.entries(metrics).forEach(([key, value]) => {
-                console.log(`${key}: ${Math.round(value)}ms`);
+                console.log(`${key}: ${value}ms`);
             });
-        }, 0);
+        }, 100);
     }
 }
 

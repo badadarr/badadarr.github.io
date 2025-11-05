@@ -1,0 +1,83 @@
+backend:
+  name: github
+  repo: badadarr/badadarr.github.io
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Personal Info"
+        name: "personal"
+        file: "data/personal.json"
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Bio", name: "bio", widget: "text"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "GitHub", name: "github", widget: "string"}
+          - {label: "LinkedIn", name: "linkedin", widget: "string"}
+          - {label: "Profile Image", name: "image", widget: "image"}
+          - {label: "CV File", name: "cv", widget: "file"}
+
+  - name: "about"
+    label: "About Section"
+    files:
+      - label: "About Stats"
+        name: "stats"
+        file: "data/stats.json"
+        fields:
+          - label: "Stats"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Number", name: "number", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+
+  - name: "experience"
+    label: "Experience"
+    folder: "data/experience"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - {label: "Position", name: "position", widget: "string"}
+      - {label: "Company", name: "company", widget: "string"}
+      - {label: "Duration", name: "duration", widget: "string"}
+      - {label: "Status", name: "status", widget: "select", options: ["Completed", "In Progress"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Icon", name: "icon", widget: "select", options: ["fa-laptop-code", "fa-code", "fa-users", "fa-graduation-cap", "fa-mobile-alt"]}
+      - label: "Achievements"
+        name: "achievements"
+        widget: "list"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+
+  - name: "projects"
+    label: "Portfolio Projects"
+    folder: "data/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Order", name: "order", widget: "number", default: 0}
+
+  - name: "tech"
+    label: "Tech Stack"
+    folder: "data/tech"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["Programming Languages", "Frameworks & Architecture", "Database & Services"]}
+      - {label: "Icon", name: "icon", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Order", name: "order", widget: "number", default: 0}

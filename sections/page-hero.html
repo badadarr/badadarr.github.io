@@ -1,0 +1,24 @@
+<!-- Page Hero Banner — Title is injected by page-loader.js via data-page-title/data-page-sub -->
+<section class="page-hero" id="page-hero" aria-label="Page Header">
+  <div class="container">
+    <div class="page-hero-content" data-aos="fade-up">
+      <h1 id="page-hero-title"></h1>
+      <p id="page-hero-sub"></p>
+      <a href="index.html" class="page-hero-back">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Fill in the title/sub from loader attributes
+  document.addEventListener("sectionsLoaded", () => {
+    const title = document.documentElement.getAttribute("data-page-title");
+    const sub = document.documentElement.getAttribute("data-page-sub");
+    const titleEl = document.getElementById("page-hero-title");
+    const subEl = document.getElementById("page-hero-sub");
+    if (titleEl && title) titleEl.textContent = title;
+    if (subEl && sub) subEl.textContent = sub;
+  });
+</script>

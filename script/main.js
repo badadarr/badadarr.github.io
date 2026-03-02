@@ -75,6 +75,9 @@ const App = {
 
     // Experience accordion
     this.initExpAccordion();
+
+    // Experience stats calculation
+    this.initExpStats();
   },
 
   // --- EVENT HANDLERS & METHODS ---
@@ -156,6 +159,53 @@ const App = {
         this.toggleMobileNav();
       }
     }
+  },
+
+  // Calculate and display total experience stats + per-item duration chips
+  initExpStats() {
+    function parseYM(str) {
+      if (!str || str === "now") return new Date();
+      var parts = str.split("-");
+      return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, 1);
+    }
+    function monthDiff(start, end) {
+      return Math.max(
+        0,
+        (end.getFullYear() - start.getFullYear()) * 12 +
+          (end.getMonth() - start.getMonth()),
+      );
+    }
+    function formatDuration(totalMonths) {
+      if (totalMonths <= 0) return "< 1 mo";
+      var yrs = Math.floor(totalMonths / 12);
+      var mos = totalMonths % 12;
+      var parts = [];
+      if (yrs > 0) parts.push(yrs + " yr" + (yrs > 1 ? "s" : ""));
+      if (mos > 0) parts.push(mos + " mo" + (mos > 1 ? "s" : ""));
+      return parts.join(" ");
+    }
+
+    const items = document.querySelectorAll(".exp-item[data-start]");
+    if (!items.length) return;
+
+    let totalMonths = 0;
+    items.forEach((item) => {
+      const start = parseYM(item.dataset.start);
+      const end = parseYM(item.dataset.end);
+      const months = monthDiff(start, end);
+      totalMonths += months;
+
+      const badge = item.querySelector(".badge");
+      if (badge && months > 0 && !item.querySelector(".exp-duration-chip")) {
+        const chip = document.createElement("span");
+        chip.className = "exp-duration-chip";
+        chip.textContent = formatDuration(months);
+        badge.insertAdjacentElement("afterend", chip);
+      }
+    });
+
+    const statEl = document.getElementById("stat-total-exp");
+    if (statEl) statEl.textContent = formatDuration(totalMonths);
   },
 
   // Inisialisasi accordion untuk bagian Experience

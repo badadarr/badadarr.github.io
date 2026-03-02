@@ -20,11 +20,12 @@ const App = {
 
   // --- INITIALIZATION ---
   init() {
-    // Tunggu hingga DOM siap
-    document.addEventListener("DOMContentLoaded", () => {
+    // Tunggu hingga semua section dimuat oleh loader.js
+    // loader.js akan dispatch 'sectionsLoaded' setelah semua section di-inject ke #app
+    document.addEventListener("sectionsLoaded", () => {
       this.cacheDOMElements(); // 1. Simpan referensi elemen DOM
       this.bindEvents(); // 2. Pasang semua event listener
-      this.initAOS(); // 3. Inisialisasi library pihak ketiga
+      // AOS sudah diinisialisasi oleh loader.js, tidak perlu diulang di sini
     });
   },
 
@@ -93,23 +94,16 @@ const App = {
     }
   },
 
-  // Inisialisasi Animate on Scroll (AOS) dengan error handling
+  // AOS diinisialisasi oleh loader.js setelah semua section dimuat.
+  // Fungsi ini dipertahankan sebagai fallback manual jika diperlukan.
   initAOS() {
-    try {
+    if (typeof AOS !== "undefined") {
       AOS.init({
         duration: 800,
         easing: "ease-in-out",
         once: true,
         offset: 100,
         disable: window.innerWidth < 768,
-      });
-    } catch (error) {
-      console.warn("AOS initialization failed:", error);
-      // Fallback jika AOS gagal: pastikan semua elemen tetap terlihat.
-      document.querySelectorAll("[data-aos]").forEach((el) => {
-        el.style.opacity = "1";
-        el.style.transform = "none";
-        el.style.visibility = "visible";
       });
     }
   },

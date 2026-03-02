@@ -72,6 +72,9 @@ const App = {
         this.toggleMobileNav();
       }
     });
+
+    // Experience accordion
+    this.initExpAccordion();
   },
 
   // --- EVENT HANDLERS & METHODS ---
@@ -153,6 +156,23 @@ const App = {
         this.toggleMobileNav();
       }
     }
+  },
+
+  // Inisialisasi accordion untuk bagian Experience
+  initExpAccordion() {
+    const headers = document.querySelectorAll(".exp-header");
+    if (!headers.length) return;
+
+    headers.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".exp-item");
+        const isOpen = item.classList.contains("is-open");
+
+        // Toggle item yang diklik
+        item.classList.toggle("is-open", !isOpen);
+        btn.setAttribute("aria-expanded", String(!isOpen));
+      });
+    });
   },
 
   // Menangani logika pengiriman form

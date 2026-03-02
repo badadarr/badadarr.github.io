@@ -5,17 +5,35 @@
       <p>My academic background and professional certifications</p>
     </div>
 
-    <!-- Education -->
-    <div class="education-content">
-      <div class="education-timeline">
-        <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-          <div class="timeline-dot">
-            <i class="fas fa-university"></i>
-          </div>
-          <div class="timeline-content">
-            <h3>S1 - Computer Science</h3>
-            <div class="company">Universitas Presiden</div>
-            <div class="duration">Final Semester | GPA: 3.33</div>
+    <!-- ── Education accordion ── -->
+    <div class="edu-block" data-aos="fade-up" data-aos-delay="100">
+      <p class="edu-block-label">
+        <i class="fas fa-graduation-cap"></i> Education
+      </p>
+      <div class="exp-accordion">
+        <!-- S1 -->
+        <div class="exp-item">
+          <button class="exp-header" aria-expanded="false">
+            <div class="exp-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-top">
+                <span class="exp-title">S1 — Computer Science</span>
+                <span class="badge in-progress">Active</span>
+              </div>
+              <div class="exp-sub">
+                <span class="exp-company"
+                  ><i class="fas fa-building"></i> Universitas Presiden</span
+                >
+                <span class="exp-duration"
+                  ><i class="fas fa-star"></i> GPA: 3.33 · Final Semester</span
+                >
+              </div>
+            </div>
+            <div class="exp-chevron"><i class="fas fa-chevron-down"></i></div>
+          </button>
+          <div class="exp-body">
             <p>
               Specializing in Internet of Things (IoT). Currently in final
               semester with focus on IoT systems, cross-platform application
@@ -24,110 +42,115 @@
           </div>
         </div>
 
-        <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
-          <div class="timeline-dot">
-            <i class="fas fa-school"></i>
-          </div>
-          <div class="timeline-content">
-            <h3>Rekayasa Perangkat Lunak</h3>
-            <div class="company">SMK MADINATULQURAN</div>
-            <div class="duration">Graduated July 2022 | Average Score: 8.5</div>
+        <!-- SMK -->
+        <div class="exp-item">
+          <button class="exp-header" aria-expanded="false">
+            <div class="exp-icon">
+              <i class="fas fa-school"></i>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-top">
+                <span class="exp-title">Rekayasa Perangkat Lunak</span>
+                <span class="badge completed">Graduated</span>
+              </div>
+              <div class="exp-sub">
+                <span class="exp-company"
+                  ><i class="fas fa-building"></i> SMK MADINATULQURAN</span
+                >
+                <span class="exp-duration"
+                  ><i class="fas fa-star"></i> Avg Score: 8.5 · July 2022</span
+                >
+              </div>
+            </div>
+            <div class="exp-chevron"><i class="fas fa-chevron-down"></i></div>
+          </button>
+          <div class="exp-body">
             <p>
-              Vocational education in Software Engineering with strong
-              foundation in programming and software development.
+              Vocational education in Software Engineering with a strong
+              foundation in programming and software development methodologies.
             </p>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Certifications -->
-      <h3 class="certifications-title" data-aos="fade-up" data-aos-delay="400">
-        Professional Certifications
-      </h3>
-      <div class="certifications-grid">
-        <div class="cert-item" data-aos="flip-up" data-aos-delay="500">
-          <div class="cert-icon">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <div class="cert-content">
-            <h4>Flutter Development for Beginners</h4>
-            <p><strong>Dicoding</strong> - January 2022</p>
-            <p>
-              Completed with creating simple applications with elegant UI design
-            </p>
-            <a
-              href="https://dicoding.com/certificates/53XE0NNOVXRN"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cert-link"
+    <!-- ── Certifications ── -->
+    <div class="edu-block" data-aos="fade-up" data-aos-delay="200">
+      <p class="edu-block-label">
+        <i class="fas fa-certificate"></i> Certifications
+      </p>
+      <div class="cert-list">
+        <a
+          href="https://dicoding.com/certificates/53XE0NNOVXRN"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cert-row"
+        >
+          <div class="cert-row-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div class="cert-row-meta">
+            <span class="cert-row-title"
+              >Flutter Development for Beginners</span
             >
-              <i class="fas fa-external-link-alt"></i> View Certificate
-            </a>
+            <span class="cert-row-sub">Dicoding · January 2022</span>
           </div>
-        </div>
+          <div class="cert-row-link">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
 
-        <div class="cert-item" data-aos="flip-up" data-aos-delay="600">
-          <div class="cert-icon">
-            <i class="fas fa-brain"></i>
+        <a
+          href="https://www.dicoding.com/certificates/72ZD2NER6ZYW"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cert-row"
+        >
+          <div class="cert-row-icon"><i class="fas fa-brain"></i></div>
+          <div class="cert-row-meta">
+            <span class="cert-row-title">Machine Learning for Beginners</span>
+            <span class="cert-row-sub">Dicoding · January 2021</span>
           </div>
-          <div class="cert-content">
-            <h4>Machine Learning for Beginners</h4>
-            <p><strong>Dicoding</strong> - January 2021</p>
-            <p>
-              Created rock-paper-scissors classifier with data visualization
-              using machine learning
-            </p>
-            <a
-              href="https://www.dicoding.com/certificates/72ZD2NER6ZYW"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cert-link"
+          <div class="cert-row-link">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
+
+        <a
+          href="https://www.dicoding.com/users/573369/academies"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cert-row"
+        >
+          <div class="cert-row-icon"><i class="fab fa-android"></i></div>
+          <div class="cert-row-meta">
+            <span class="cert-row-title"
+              >Android Development for Beginners</span
             >
-              <i class="fas fa-external-link-alt"></i> View Certificate
-            </a>
+            <span class="cert-row-sub">Dicoding · January 2019</span>
           </div>
-        </div>
+          <div class="cert-row-link">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </div>
+        </a>
 
-        <div class="cert-item" data-aos="flip-up" data-aos-delay="700">
-          <div class="cert-icon">
-            <i class="fab fa-android"></i>
-          </div>
-          <div class="cert-content">
-            <h4>Android Development for Beginners</h4>
-            <p><strong>Dicoding</strong> - January 2019</p>
-            <p>Created simple book purchasing application using dummy data</p>
-            <a
-              href="https://www.dicoding.com/users/573369/academies"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cert-link"
+        <div class="cert-row cert-row--no-link">
+          <div class="cert-row-icon"><i class="fab fa-html5"></i></div>
+          <div class="cert-row-meta">
+            <span class="cert-row-title">HTML Fundamental Course</span>
+            <span class="cert-row-sub"
+              >SoloLearn · October 2019 ·
+              <span class="cert-id">ID: 1014-16060515</span></span
             >
-              <i class="fas fa-external-link-alt"></i> View Certificate
-            </a>
           </div>
         </div>
 
-        <div class="cert-item" data-aos="flip-up" data-aos-delay="800">
-          <div class="cert-icon">
-            <i class="fab fa-html5"></i>
-          </div>
-          <div class="cert-content">
-            <h4>HTML Fundamental Course</h4>
-            <p><strong>SoloLearn</strong> - October 2019</p>
-            <p>Learned HTML fundamentals and basic layout creation</p>
-            <span class="cert-id">Certificate ID: 1014-16060515</span>
-          </div>
-        </div>
-
-        <div class="cert-item" data-aos="flip-up" data-aos-delay="900">
-          <div class="cert-icon">
-            <i class="fab fa-java"></i>
-          </div>
-          <div class="cert-content">
-            <h4>Java Tutorial Course</h4>
-            <p><strong>SoloLearn</strong> - October 2019</p>
-            <p>Basic learning about Java programming fundamentals</p>
-            <span class="cert-id">Certificate ID: 1068-16060515</span>
+        <div class="cert-row cert-row--no-link">
+          <div class="cert-row-icon"><i class="fab fa-java"></i></div>
+          <div class="cert-row-meta">
+            <span class="cert-row-title">Java Tutorial Course</span>
+            <span class="cert-row-sub"
+              >SoloLearn · October 2019 ·
+              <span class="cert-id">ID: 1068-16060515</span></span
+            >
           </div>
         </div>
       </div>

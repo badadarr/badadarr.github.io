@@ -10,6 +10,10 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="canonical" href="https://badadarr.github.io/" />
     <meta name="google-site-verification" content="googleb42e1d5e054357f1" />
+    <meta
+      name="description"
+      content="Badar Maulana — Full Stack Developer specializing in Flutter, Swift, Laravel, Next.js, and Python. Based in Indonesia."
+    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org/",
@@ -37,7 +41,6 @@
     <!-- ============================================================================
          STYLESHEETS
          ============================================================================ -->
-    <!-- Library CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -50,8 +53,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style/simple-layout.css" />
     <link rel="stylesheet" href="style/animations.css" />
   </head>
@@ -60,25 +61,22 @@
     <div class="scroll-progress"></div>
 
     <!-- ============================================================================
-         APP CONTAINER — Semua section dimuat di sini oleh loader.js
+         APP CONTAINER
          ============================================================================ -->
     <div id="app"></div>
 
     <!-- ============================================================================
          SCRIPTS
          ============================================================================ -->
-    <!-- Library Scripts (dimuat lebih dulu) -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.2/dist/lottie-player.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Custom Scripts -->
     <script src="script/polyfills.js"></script>
     <script src="script/performance.js"></script>
     <script src="script/enhanced-animations.js"></script>
-    <!-- loader.js: fetch & inject semua section, lalu trigger 'sectionsLoaded' -->
-    <script src="script/loader.js"></script>
-    <!-- Script berikut dijalankan setelah event 'sectionsLoaded' -->
+    <!-- page-loader detects current page and fetches only relevant sections -->
+    <script src="script/page-loader.js"></script>
     <script src="script/back-to-top.js" defer></script>
     <script src="script/main.js" defer></script>
   </body>

@@ -11,6 +11,7 @@ const App = {
   elements: {
     navToggle: null,
     navMenu: null,
+    navbar: null,
     scrollProgress: null,
     backToTopButton: null,
     heroSection: null,
@@ -31,6 +32,7 @@ const App = {
   cacheDOMElements() {
     this.elements.navToggle = document.querySelector(".nav-toggle");
     this.elements.navMenu = document.querySelector(".nav-menu");
+    this.elements.navbar = document.querySelector(".navbar");
     this.elements.scrollProgress = document.querySelector(".scroll-progress");
     this.elements.backToTopButton = document.querySelector(".back-to-top");
     this.elements.heroSection = document.querySelector(".hero");
@@ -45,17 +47,29 @@ const App = {
     // Event listener untuk elemen spesifik
     this.elements.navToggle?.addEventListener(
       "click",
-      this.toggleMobileNav.bind(this)
+      this.toggleMobileNav.bind(this),
     );
     // Back to top button handled by back-to-top.js
     this.elements.contactForm?.addEventListener(
       "submit",
-      this.handleFormSubmit.bind(this)
+      this.handleFormSubmit.bind(this),
     );
 
     // Smooth scrolling untuk semua link anchor
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", this.smoothScroll.bind(this));
+    });
+
+    // Tutup mobile menu jika klik di luar area menu
+    document.addEventListener("click", (e) => {
+      const { navMenu, navToggle } = this.elements;
+      if (
+        navMenu?.classList.contains("nav-menu-active") &&
+        !navMenu.contains(e.target) &&
+        !navToggle?.contains(e.target)
+      ) {
+        this.toggleMobileNav();
+      }
     });
   },
 
@@ -65,7 +79,18 @@ const App = {
   handleScroll() {
     const scrollY = window.scrollY;
     this.updateScrollProgress(scrollY);
+    this.applyNavbarScroll(scrollY);
     this.applyParallaxEffect(scrollY);
+  },
+
+  // Menerapkan class 'scrolled' pada navbar saat halaman di-scroll
+  applyNavbarScroll(scrollY) {
+    if (!this.elements.navbar) return;
+    if (scrollY > 50) {
+      this.elements.navbar.classList.add("scrolled");
+    } else {
+      this.elements.navbar.classList.remove("scrolled");
+    }
   },
 
   // Inisialisasi Animate on Scroll (AOS) dengan error handling
@@ -107,11 +132,16 @@ const App = {
     this.elements.scrollProgress.style.width = `${scrollPercent}%`;
   },
 
-  // Menerapkan efek parallax pada hero section
+  // Menerapkan efek parallax pada hero section (dinonaktifkan di mobile)
   applyParallaxEffect(scrollY) {
     if (!this.elements.heroSection) return;
+    // Nonaktifkan parallax di layar mobile untuk performa & mencegah overflow
+    if (window.innerWidth <= 768) {
+      this.elements.heroSection.style.transform = "none";
+      return;
+    }
     this.elements.heroSection.style.transform = `translateY(${
-      scrollY * 0.4
+      scrollY * 0.15
     }px)`;
   },
 

@@ -266,6 +266,36 @@ body {
   box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
 }
 
+/* Ghost / outline button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 2px solid #667eea;
+  background: transparent;
+  color: #667eea;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.35);
+}
+
 /* ============================================================================
    SECTION BASE STYLES
    ============================================================================ */

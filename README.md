@@ -1,4 +1,4 @@
-# 🚀 Badar Maulana - Full Stack Developer Portfolio
+# 🚀 Badar Maulana - Developer Portfolio
 
 [![Live Demo](https://img.shields.io/badge/Live-Portfolio-blue?style=flat-square&logo=github)](https://badadarr.github.io)
 [![GitHub](https://img.shields.io/badge/GitHub-badadarr-black?style=flat-square&logo=github)](https://github.com/badadarr)

@@ -32,6 +32,7 @@ const PAGE_SECTIONS = {
     "sections/hero.html",
     "sections/about-home.html",
     "sections/portfolio-featured.html",
+    "sections/dev-log.html",
     "sections/contact.html",
     "sections/footer.html",
   ],

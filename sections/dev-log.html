@@ -1,0 +1,61 @@
+<!-- Dev Journal Section -->
+<section id="dev-journal" class="dev-journal">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>Dev Journal</h2>
+      <p>A self-updating log of my daily developer activity — powered by GitHub Actions</p>
+    </div>
+
+    <!-- Header Stats Bar -->
+    <div class="dj-stats-bar" data-aos="fade-up" data-aos-delay="100">
+      <div class="dj-stat">
+        <span class="dj-stat-icon">🔥</span>
+        <div>
+          <span class="dj-stat-value" id="dj-total-days">—</span>
+          <span class="dj-stat-label">Days Active</span>
+        </div>
+      </div>
+      <div class="dj-stat">
+        <span class="dj-stat-icon">📅</span>
+        <div>
+          <span class="dj-stat-value" id="dj-last-updated">—</span>
+          <span class="dj-stat-label">Last Updated</span>
+        </div>
+      </div>
+      <div class="dj-stat">
+        <span class="dj-stat-icon">⚡</span>
+        <div>
+          <span class="dj-stat-value">Daily</span>
+          <span class="dj-stat-label">Commit Cadence</span>
+        </div>
+      </div>
+      <div class="dj-powered">
+        <i class="fab fa-github"></i>
+        <span>Automated via GitHub Actions</span>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="dj-timeline" id="dj-timeline" data-aos="fade-up" data-aos-delay="200">
+      <!-- Entries injected by dev-log.js -->
+      <div class="dj-loading">
+        <div class="dj-spinner"></div>
+        <span>Loading journal…</span>
+      </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="dj-footer" data-aos="fade-up" data-aos-delay="300">
+      <a
+        href="https://github.com/badadarr/badadarr.github.io/commits/main"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="dj-view-all"
+      >
+        <i class="fab fa-github"></i>
+        View all commits on GitHub
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>

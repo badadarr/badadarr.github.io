@@ -1,0 +1,109 @@
+/**
+ * dev-log.js
+ * Fetches data/dev-log.json and renders the Dev Journal section.
+ */
+
+(function () {
+  const BASE_PATH = (() => {
+    // Determine base URL regardless of deploy path
+    const scripts = document.querySelectorAll('script[src]');
+    for (const s of scripts) {
+      const src = s.getAttribute('src') || '';
+      if (src.includes('dev-log.js')) {
+        return src.replace(/script\/dev-log\.js.*$/, '');
+      }
+    }
+    return '';
+  })();
+
+  const MAX_ENTRIES = 7; // how many to show in the timeline
+
+  // Tag colour map — maps tag names to accent colours
+  const TAG_COLORS = {
+    Setup:         { color: '#58a6ff', bg: 'rgba(88,166,255,0.12)'  },
+    Learning:      { color: '#d2a8ff', bg: 'rgba(210,168,255,0.12)' },
+    Git:           { color: '#ffa657', bg: 'rgba(255,166,87,0.12)'  },
+    Backend:       { color: '#79c0ff', bg: 'rgba(121,192,255,0.12)' },
+    Frontend:      { color: '#56d364', bg: 'rgba(86,211,100,0.12)'  },
+    Database:      { color: '#e3b341', bg: 'rgba(227,179,65,0.12)'  },
+    DevOps:        { color: '#ff7b72', bg: 'rgba(255,123,114,0.12)' },
+    Architecture:  { color: '#d2a8ff', bg: 'rgba(210,168,255,0.12)' },
+    Testing:       { color: '#56d364', bg: 'rgba(86,211,100,0.12)'  },
+    Security:      { color: '#ff7b72', bg: 'rgba(255,123,114,0.12)' },
+    Performance:   { color: '#e3b341', bg: 'rgba(227,179,65,0.12)'  },
+    DSA:           { color: '#79c0ff', bg: 'rgba(121,192,255,0.12)' },
+    Mindset:       { color: '#ffa657', bg: 'rgba(255,166,87,0.12)'  },
+    Reflection:    { color: '#d2a8ff', bg: 'rgba(210,168,255,0.12)' },
+    'Best Practices': { color: '#56d364', bg: 'rgba(86,211,100,0.12)' },
+  };
+
+  function formatDate(dateStr) {
+    // dateStr is 'YYYY-MM-DD'
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    return date.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  function buildEntryHTML(entry, isLatest) {
+    const tagStyle = TAG_COLORS[entry.tag] || { color: 'rgba(255,255,255,0.5)', bg: 'rgba(255,255,255,0.06)' };
+    const latestClass = isLatest ? ' dj-latest' : '';
+
+    return `
+      <div class="dj-entry${latestClass}" data-aos="fade-left" data-aos-delay="${isLatest ? 0 : 50}">
+        <div class="dj-entry-header">
+          <span class="dj-day-badge">Day ${entry.day}</span>
+          <span class="dj-date">${formatDate(entry.date)}</span>
+          <span class="dj-tag"
+            style="color:${tagStyle.color};background:${tagStyle.bg};border-color:${tagStyle.color}40">
+            ${entry.tag}
+          </span>
+        </div>
+        <p class="dj-note">${entry.note}</p>
+      </div>
+    `;
+  }
+
+  async function initDevJournal() {
+    const timeline  = document.getElementById('dj-timeline');
+    const totalEl   = document.getElementById('dj-total-days');
+    const updatedEl = document.getElementById('dj-last-updated');
+
+    if (!timeline) return; // section not on this page
+
+    try {
+      const res = await fetch(`${BASE_PATH}data/dev-log.json?v=${Date.now()}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json();
+      const logs = (data.logs || []).slice().reverse(); // newest first
+      const shown = logs.slice(0, MAX_ENTRIES);
+
+      // Update stats
+      if (totalEl) totalEl.textContent = data.total_days ?? logs.length;
+      if (updatedEl && data.last_updated) updatedEl.textContent = formatDate(data.last_updated);
+
+      // Render timeline
+      timeline.innerHTML = shown
+        .map((entry, i) => buildEntryHTML(entry, i === 0))
+        .join('');
+
+      // Re-init AOS on new elements (in case AOS already ran)
+      if (typeof AOS !== 'undefined') AOS.refreshHard();
+
+    } catch (err) {
+      console.warn('[dev-log.js] Could not load dev log:', err);
+      timeline.innerHTML = `
+        <div class="dj-loading" style="color:rgba(255,123,114,0.7)">
+          <i class="fas fa-exclamation-circle" style="font-size:1rem"></i>
+          <span>Could not load journal data.</span>
+        </div>`;
+    }
+  }
+
+  // Run after sections are injected by page-loader
+  document.addEventListener('sectionsLoaded', initDevJournal);
+  // Fallback: if section is already present in DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('dj-timeline')) initDevJournal();
+  });
+})();

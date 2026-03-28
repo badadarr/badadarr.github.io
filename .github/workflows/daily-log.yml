@@ -1,0 +1,32 @@
+name: Daily Dev Log
+
+on:
+  schedule:
+    - cron: '1 17 * * *' # 00:01 WIB (UTC+7) every day
+  workflow_dispatch: # allow manual trigger from Actions tab
+
+jobs:
+  update-log:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Append daily log entry
+        run: python3 scripts/append_log.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/dev-log.json
+          git diff --staged --quiet || git commit -m "chore: daily dev log update $(date +'%Y-%m-%d')"
+          git push

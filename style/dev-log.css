@@ -41,8 +41,12 @@
 }
 
 .dj-stat-icon {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   line-height: 1;
+  color: #58a6ff;
+  width: 24px;
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .dj-stat-value {

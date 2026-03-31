@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-31",
-  "total_days": 4,
+  "last_updated": "2026-04-01",
+  "total_days": 5,
   "logs": [
     {
       "date": "2026-03-28",
@@ -25,6 +25,12 @@
       "day": 4,
       "note": "Belajar git commit message yang lebih jelas dan konsisten.",
       "tag": "Git"
+    },
+    {
+      "date": "2026-04-01",
+      "day": 5,
+      "note": "Coba pecah function panjang jadi function kecil biar lebih mudah dibaca.",
+      "tag": "Refactor"
     }
   ]
 }

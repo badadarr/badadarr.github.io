@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-04",
-  "total_days": 8,
+  "last_updated": "2026-04-05",
+  "total_days": 9,
   "logs": [
     {
       "date": "2026-03-28",
@@ -49,6 +49,12 @@
       "day": 8,
       "note": "Belajar pakai .env dengan benar untuk simpan config.",
       "tag": "Learning"
+    },
+    {
+      "date": "2026-04-05",
+      "day": 9,
+      "note": "Nambah 1-2 unit test sederhana untuk function penting.",
+      "tag": "Testing"
     }
   ]
 }

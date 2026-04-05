@@ -35,27 +35,52 @@
       </div>
     </div>
 
-    <!-- Timeline -->
-    <div class="dj-timeline" id="dj-timeline" data-aos="fade-up" data-aos-delay="200">
-      <!-- Entries injected by dev-log.js -->
-      <div class="dj-loading">
-        <div class="dj-spinner"></div>
-        <span>Loading journal…</span>
+    <!-- Content / Grid -->
+    <div class="dj-content">
+      <!-- Timeline (Left Column) -->
+      <div class="dj-timeline-wrapper">
+        <div class="dj-timeline" id="dj-timeline" data-aos="fade-up" data-aos-delay="200">
+          <div class="dj-loading">
+            <div class="dj-spinner"></div>
+            <span>Loading journal…</span>
+          </div>
+        </div>
+        
+        <!-- Footer CTA -->
+        <div class="dj-footer" data-aos="fade-up" data-aos-delay="300">
+          <a
+            href="https://github.com/badadarr/badadarr.github.io/commits/main"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="dj-view-all"
+          >
+            <i class="fab fa-github"></i>
+            View all commits on GitHub
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <!-- Footer CTA -->
-    <div class="dj-footer" data-aos="fade-up" data-aos-delay="300">
-      <a
-        href="https://github.com/badadarr/badadarr.github.io/commits/main"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="dj-view-all"
-      >
-        <i class="fab fa-github"></i>
-        View all commits on GitHub
-        <i class="fas fa-arrow-right"></i>
-      </a>
+      <!-- Insights Sidebar (Right Column) -->
+      <aside class="dj-insights" id="dj-insights" data-aos="fade-left" data-aos-delay="300">
+        <h3 class="dj-insights-title"><i class="fas fa-chart-pie"></i> Journal Insights</h3>
+        
+        <!-- Activity Type Breakdown -->
+        <div class="dj-insight-card">
+          <h4>Activity Source</h4>
+          <div class="dj-type-distribution" id="dj-type-stats">
+             <!-- injected via JS -->
+          </div>
+        </div>
+
+        <!-- Top Tags -->
+        <div class="dj-insight-card">
+          <h4>Top Focus Areas</h4>
+          <ul class="dj-top-tags" id="dj-top-tags">
+            <!-- injected via JS -->
+          </ul>
+        </div>
+      </aside>
     </div>
   </div>
 </section>

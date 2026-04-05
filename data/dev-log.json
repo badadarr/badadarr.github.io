@@ -6,55 +6,82 @@
       "date": "2026-03-28",
       "day": 1,
       "note": "Launched the self-updating Dev Journal — automated daily logging system powered by GitHub Actions.",
-      "tag": "Setup"
+      "tag": "Setup",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-03-29",
       "day": 2,
       "note": "Baca ulang code sendiri dan ganti nama variabel yang kurang jelas.",
-      "tag": "Clean Code"
+      "tag": "Clean Code",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-03-30",
       "day": 3,
       "note": "Perbaiki typo di README dan tambah langkah run yang kurang.",
-      "tag": "Documentation"
+      "tag": "Documentation",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-03-31",
       "day": 4,
       "note": "Belajar git commit message yang lebih jelas dan konsisten.",
-      "tag": "Git"
+      "tag": "Git",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-04-01",
       "day": 5,
       "note": "Coba pecah function panjang jadi function kecil biar lebih mudah dibaca.",
-      "tag": "Refactor"
+      "tag": "Refactor",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-04-02",
       "day": 6,
       "note": "Tambah validasi input sederhana di form/API biar lebih aman.",
-      "tag": "Backend"
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-04-03",
       "day": 7,
       "note": "Perbaiki style UI kecil (spacing, font size, alignment).",
-      "tag": "Frontend"
+      "tag": "Frontend",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-04-04",
       "day": 8,
       "note": "Belajar pakai .env dengan benar untuk simpan config.",
-      "tag": "Learning"
+      "tag": "Learning",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     },
     {
       "date": "2026-04-05",
       "day": 9,
       "note": "Nambah 1-2 unit test sederhana untuk function penting.",
-      "tag": "Testing"
+      "tag": "Testing",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
     }
   ]
 }

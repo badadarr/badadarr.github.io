@@ -60,6 +60,9 @@ def main():
         "day": day_number,
         "note": pool_item["note"],
         "tag": pool_item["tag"],
+        "type": "auto",
+        "source": "github-actions",
+        "duration": "30m"
     }
 
     logs.append(new_entry)

@@ -48,19 +48,81 @@
     const tagStyle = TAG_COLORS[entry.tag] || { color: 'rgba(255,255,255,0.5)', bg: 'rgba(255,255,255,0.06)' };
     const latestClass = isLatest ? ' dj-latest' : '';
 
+    const typeIcon = entry.type === 'manual' ? 'fa-user-edit' : 'fa-robot';
+    const typeLabel = entry.type === 'manual' ? 'Manual' : 'System';
+    const duration = entry.duration || 'N/A';
+    const sourceIcon = entry.source === 'github-actions' ? 'fab fa-github' : 'fas fa-laptop-code';
+
     return `
       <div class="dj-entry${latestClass}" data-aos="fade-left" data-aos-delay="${isLatest ? 0 : 50}">
         <div class="dj-entry-header">
           <span class="dj-day-badge">Day ${entry.day}</span>
           <span class="dj-date">${formatDate(entry.date)}</span>
-          <span class="dj-tag"
-            style="color:${tagStyle.color};background:${tagStyle.bg};border-color:${tagStyle.color}40">
-            ${entry.tag}
-          </span>
+          <div class="dj-meta-badges">
+            <span class="dj-meta-badge"><i class="fas fa-clock"></i> ${duration}</span>
+            <span class="dj-meta-badge"><i class="fas ${typeIcon}"></i> ${typeLabel}</span>
+            <span class="dj-meta-badge"><i class="${sourceIcon}"></i></span>
+            <span class="dj-tag" style="color:${tagStyle.color};background:${tagStyle.bg};border-color:${tagStyle.color}40">${entry.tag}</span>
+          </div>
         </div>
         <p class="dj-note">${entry.note}</p>
       </div>
     `;
+  }
+
+  function renderInsights(logs) {
+    const tagCounts = {};
+    const typeCounts = { auto: 0, manual: 0 };
+
+    logs.forEach(log => {
+      // Tags
+      if (log.tag) {
+        tagCounts[log.tag] = (tagCounts[log.tag] || 0) + 1;
+      }
+      // Types
+      if (log.type === 'manual') typeCounts.manual++;
+      else typeCounts.auto++;
+    });
+
+    // Sort top tags
+    const sortedTags = Object.entries(tagCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5); // top 5
+
+    // Render type stats
+    const typeStatsContainer = document.getElementById('dj-type-stats');
+    if (typeStatsContainer) {
+      const autoPercent = Math.round((typeCounts.auto / logs.length) * 100) || 0;
+      const manualPercent = Math.round((typeCounts.manual / logs.length) * 100) || 0;
+
+      typeStatsContainer.innerHTML = `
+        <div class="dj-type-stat">
+          <span><i class="fas fa-robot" style="color: #58a6ff"></i> Automated</span>
+          <span>${autoPercent}% (${typeCounts.auto})</span>
+        </div>
+        <div class="dj-type-stat">
+          <span><i class="fas fa-user-edit" style="color: #3fb950"></i> Manual Log</span>
+          <span>${manualPercent}% (${typeCounts.manual})</span>
+        </div>
+      `;
+    }
+
+    // Render top tags
+    const topTagsContainer = document.getElementById('dj-top-tags');
+    if (topTagsContainer) {
+      topTagsContainer.innerHTML = sortedTags.map(([tag, count]) => {
+        const style = TAG_COLORS[tag] || { color: '#8b949e' };
+        return `
+          <li class="dj-tag-stat">
+            <span style="color: ${style.color}; display: flex; align-items: center; gap: 8px;">
+              <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:${style.color}"></span>
+              ${tag}
+            </span>
+            <span class="dj-tag-count">${count}</span>
+          </li>
+        `;
+      }).join('');
+    }
   }
 
   async function initDevJournal() {
@@ -75,17 +137,21 @@
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       const data = await res.json();
-      const logs = (data.logs || []).slice().reverse(); // newest first
-      const shown = logs.slice(0, MAX_ENTRIES);
+      const allLogs = data.logs || [];
+      const logsDesc = allLogs.slice().reverse(); // newest first
+      const shown = logsDesc.slice(0, MAX_ENTRIES);
 
       // Update stats
-      if (totalEl) totalEl.textContent = data.total_days ?? logs.length;
+      if (totalEl) totalEl.textContent = data.total_days ?? allLogs.length;
       if (updatedEl && data.last_updated) updatedEl.textContent = formatDate(data.last_updated);
 
       // Render timeline
       timeline.innerHTML = shown
         .map((entry, i) => buildEntryHTML(entry, i === 0))
         .join('');
+
+      // Render Insights
+      renderInsights(allLogs);
 
       // Re-init AOS on new elements (in case AOS already ran)
       if (typeof AOS !== 'undefined') AOS.refreshHard();

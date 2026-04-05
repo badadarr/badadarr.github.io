@@ -81,6 +81,14 @@
   font-size: 1rem;
 }
 
+/* ── Content Layout (Grid) ───────────────────────────────────── */
+.dj-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
 /* ── Timeline ────────────────────────────────────────────────── */
 .dj-timeline {
   position: relative;
@@ -155,8 +163,33 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
+}
+
+.dj-meta-badges {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dj-meta-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dj-meta-badge i {
+  font-size: 0.7rem;
 }
 
 .dj-day-badge {
@@ -183,7 +216,7 @@
 }
 
 .dj-tag {
-  margin-left: auto;
+
   font-size: 0.68rem;
   font-weight: 600;
   padding: 2px 9px;
@@ -261,6 +294,87 @@
   transform: translateX(3px);
 }
 
+/* ── Insights Sidebar ────────────────────────────────────────── */
+.dj-insights {
+  position: sticky;
+  top: 100px;
+}
+
+.dj-insights-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dj-insights-title i {
+  color: #58a6ff;
+}
+
+.dj-insight-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.dj-insight-card h4 {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.dj-top-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dj-tag-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.dj-tag-count {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.dj-type-distribution {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dj-type-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dj-type-stat i {
+  margin-right: 6px;
+  width: 14px;
+  text-align: center;
+}
+
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 640px) {
   .dj-stats-bar {
@@ -279,5 +393,22 @@
 
   .dj-entry::before {
     left: -26px;
+  }
+}
+
+@media (max-width: 992px) {
+  .dj-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .dj-insights {
+    position: static;
+  }
+  
+  .dj-meta-badges {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 4px;
   }
 }

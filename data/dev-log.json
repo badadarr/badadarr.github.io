@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-08",
-  "total_days": 12,
+  "last_updated": "2026-04-09",
+  "total_days": 13,
   "logs": [
     {
       "date": "2026-03-28",
@@ -106,6 +106,15 @@
       "day": 12,
       "note": "Rapikan import yang tidak dipakai dan bersihkan warning linter.",
       "tag": "Maintenance",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-09",
+      "day": 13,
+      "note": "Belajar satu konsep JavaScript/Python kecil lalu langsung dipraktikkan di code.",
+      "tag": "Learning",
       "type": "auto",
       "source": "github-actions",
       "duration": "30m"

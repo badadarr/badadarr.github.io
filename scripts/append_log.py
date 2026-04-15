@@ -71,7 +71,7 @@ NOTES_REPO = [
     {"note": "Tambah request logging sederhana untuk debug error tertentu.", "tag": "Backend"},
     {"note": "Benerin bug upload file kecil (validasi mime/size dan path storage).", "tag": "Bugfix"},
     {"note": "Tambahkan preview file/gambar di halaman edit (kalau ada upload).", "tag": "UI"},
-    {"note": "Rapikan storage link dan dokumentasikan langkah `php artisan storage:link`., "tag": "DevOps"},
+    {"note": "Rapikan storage link dan dokumentasikan langkah `php artisan storage:link`.", "tag": "DevOps"},
     {"note": "Perbaiki error 500: tampilkan message yang aman untuk user, detail di log.", "tag": "Bugfix"},
     {"note": "Bikin alert UI untuk error umum (session expired / unauthorized).", "tag": "UI"},
     {"note": "Tambahkan export sederhana (CSV) untuk data list (kalau dibutuhkan).", "tag": "Backend"},

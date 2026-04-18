@@ -147,7 +147,7 @@ const App = {
   },
 
   handleViewportResize() {
-    if (window.innerWidth > MOBILE_BREAKPOINT) {
+    if (window.matchMedia(`(min-width: ${MOBILE_BREAKPOINT + 1}px)`).matches) {
       this.closeMobileNav();
     }
   },

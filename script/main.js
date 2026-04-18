@@ -1,6 +1,8 @@
 // Gunakan "strict mode" untuk penulisan kode yang lebih aman
 "use strict";
 
+const MOBILE_BREAKPOINT = 768;
+
 /**
  * App Module
  * Mengenkapsulasi semua fungsionalitas portofolio dalam satu objek
@@ -145,7 +147,7 @@ const App = {
   },
 
   handleViewportResize() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > MOBILE_BREAKPOINT) {
       this.closeMobileNav();
     }
   },

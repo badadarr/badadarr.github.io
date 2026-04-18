@@ -1718,7 +1718,7 @@ section {
   /* --- Nav --- */
   .nav-menu {
     position: fixed;
-    right: -110%;
+    right: -100%;
     top: 0;
     left: auto;
     padding: 88px 1rem 1.5rem;

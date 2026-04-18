@@ -50,6 +50,8 @@ const App = {
       "click",
       this.toggleMobileNav.bind(this),
     );
+    window.addEventListener("resize", this.handleViewportResize.bind(this));
+    document.addEventListener("keydown", this.handleGlobalKeydown.bind(this));
     // Back to top button handled by back-to-top.js
     this.elements.contactForm?.addEventListener(
       "submit",
@@ -69,7 +71,7 @@ const App = {
         !navMenu.contains(e.target) &&
         !navToggle?.contains(e.target)
       ) {
-        this.toggleMobileNav();
+        this.closeMobileNav();
       }
     });
 
@@ -115,12 +117,37 @@ const App = {
   },
 
   // Mengatur buka/tutup navigasi mobile
-  toggleMobileNav() {
-    this.elements.navMenu?.classList.toggle("nav-menu-active");
-    this.elements.navToggle?.classList.toggle("active");
-    const isExpanded =
-      this.elements.navToggle.getAttribute("aria-expanded") === "true";
-    this.elements.navToggle.setAttribute("aria-expanded", !isExpanded);
+  toggleMobileNav(forceState) {
+    const { navMenu, navToggle } = this.elements;
+    if (!navMenu || !navToggle) return;
+
+    const shouldOpen =
+      typeof forceState === "boolean"
+        ? forceState
+        : !navMenu.classList.contains("nav-menu-active");
+
+    navMenu.classList.toggle("nav-menu-active", shouldOpen);
+    navToggle.classList.toggle("active", shouldOpen);
+    navToggle.setAttribute("aria-expanded", String(shouldOpen));
+    document.body.classList.toggle("nav-open", shouldOpen);
+  },
+
+  closeMobileNav() {
+    if (this.elements.navMenu?.classList.contains("nav-menu-active")) {
+      this.toggleMobileNav(false);
+    }
+  },
+
+  handleGlobalKeydown(e) {
+    if (e.key === "Escape") {
+      this.closeMobileNav();
+    }
+  },
+
+  handleViewportResize() {
+    if (window.innerWidth > 768) {
+      this.closeMobileNav();
+    }
   },
 
   // Memperbarui lebar progress bar
@@ -156,7 +183,7 @@ const App = {
 
       // Tutup menu mobile jika sedang terbuka setelah link diklik
       if (this.elements.navMenu?.classList.contains("nav-menu-active")) {
-        this.toggleMobileNav();
+        this.closeMobileNav();
       }
     }
   },

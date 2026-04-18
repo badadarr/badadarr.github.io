@@ -2,6 +2,7 @@
 "use strict";
 
 const MOBILE_BREAKPOINT = 768;
+// Harus sinkron dengan breakpoint CSS di simple-layout.css: @media (max-width: 768px)
 const DESKTOP_NAV_QUERY = `(min-width: ${MOBILE_BREAKPOINT + 1}px)`;
 
 /**
@@ -55,7 +56,15 @@ const App = {
       "click",
       this.toggleMobileNav.bind(this),
     );
-    window.addEventListener("resize", this.handleViewportResize.bind(this));
+    const viewportChangeHandler = this.handleViewportResize.bind(this);
+    if (this.elements.navDesktopMediaQuery?.addEventListener) {
+      this.elements.navDesktopMediaQuery.addEventListener(
+        "change",
+        viewportChangeHandler,
+      );
+    } else if (this.elements.navDesktopMediaQuery?.addListener) {
+      this.elements.navDesktopMediaQuery.addListener(viewportChangeHandler);
+    }
     document.addEventListener("keydown", this.handleGlobalKeydown.bind(this));
     // Back to top button handled by back-to-top.js
     this.elements.contactForm?.addEventListener(
@@ -149,8 +158,8 @@ const App = {
     }
   },
 
-  handleViewportResize() {
-    if (this.elements.navDesktopMediaQuery?.matches) {
+  handleViewportResize(e) {
+    if (e?.matches || this.elements.navDesktopMediaQuery?.matches) {
       this.closeMobileNav();
     }
   },

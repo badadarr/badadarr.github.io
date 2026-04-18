@@ -2,6 +2,7 @@
 "use strict";
 
 const MOBILE_BREAKPOINT = 768;
+const DESKTOP_NAV_QUERY = `(min-width: ${MOBILE_BREAKPOINT + 1}px)`;
 
 /**
  * App Module
@@ -14,6 +15,7 @@ const App = {
     navToggle: null,
     navMenu: null,
     navbar: null,
+    navDesktopMediaQuery: null,
     scrollProgress: null,
     backToTopButton: null,
     heroSection: null,
@@ -36,6 +38,7 @@ const App = {
     this.elements.navToggle = document.querySelector(".nav-toggle");
     this.elements.navMenu = document.querySelector(".nav-menu");
     this.elements.navbar = document.querySelector(".navbar");
+    this.elements.navDesktopMediaQuery = window.matchMedia(DESKTOP_NAV_QUERY);
     this.elements.scrollProgress = document.querySelector(".scroll-progress");
     this.elements.backToTopButton = document.querySelector(".back-to-top");
     this.elements.heroSection = document.querySelector(".hero");
@@ -147,7 +150,7 @@ const App = {
   },
 
   handleViewportResize() {
-    if (window.matchMedia(`(min-width: ${MOBILE_BREAKPOINT + 1}px)`).matches) {
+    if (this.elements.navDesktopMediaQuery?.matches) {
       this.closeMobileNav();
     }
   },

@@ -1,6 +1,10 @@
 // Gunakan "strict mode" untuk penulisan kode yang lebih aman
 "use strict";
 
+const MOBILE_BREAKPOINT = 768;
+// Harus sinkron dengan breakpoint CSS di simple-layout.css: @media (max-width: 768px)
+const DESKTOP_NAV_QUERY = `(min-width: ${MOBILE_BREAKPOINT + 1}px)`;
+
 /**
  * App Module
  * Mengenkapsulasi semua fungsionalitas portofolio dalam satu objek
@@ -12,6 +16,7 @@ const App = {
     navToggle: null,
     navMenu: null,
     navbar: null,
+    navDesktopMediaQuery: null,
     scrollProgress: null,
     backToTopButton: null,
     heroSection: null,
@@ -34,6 +39,7 @@ const App = {
     this.elements.navToggle = document.querySelector(".nav-toggle");
     this.elements.navMenu = document.querySelector(".nav-menu");
     this.elements.navbar = document.querySelector(".navbar");
+    this.elements.navDesktopMediaQuery = window.matchMedia(DESKTOP_NAV_QUERY);
     this.elements.scrollProgress = document.querySelector(".scroll-progress");
     this.elements.backToTopButton = document.querySelector(".back-to-top");
     this.elements.heroSection = document.querySelector(".hero");
@@ -50,6 +56,16 @@ const App = {
       "click",
       this.toggleMobileNav.bind(this),
     );
+    const viewportChangeHandler = this.handleViewportResize.bind(this);
+    if (this.elements.navDesktopMediaQuery?.addEventListener) {
+      this.elements.navDesktopMediaQuery.addEventListener(
+        "change",
+        viewportChangeHandler,
+      );
+    } else if (this.elements.navDesktopMediaQuery?.addListener) {
+      this.elements.navDesktopMediaQuery.addListener(viewportChangeHandler);
+    }
+    document.addEventListener("keydown", this.handleGlobalKeydown.bind(this));
     // Back to top button handled by back-to-top.js
     this.elements.contactForm?.addEventListener(
       "submit",
@@ -69,7 +85,7 @@ const App = {
         !navMenu.contains(e.target) &&
         !navToggle?.contains(e.target)
       ) {
-        this.toggleMobileNav();
+        this.closeMobileNav();
       }
     });
 
@@ -115,12 +131,37 @@ const App = {
   },
 
   // Mengatur buka/tutup navigasi mobile
-  toggleMobileNav() {
-    this.elements.navMenu?.classList.toggle("nav-menu-active");
-    this.elements.navToggle?.classList.toggle("active");
-    const isExpanded =
-      this.elements.navToggle.getAttribute("aria-expanded") === "true";
-    this.elements.navToggle.setAttribute("aria-expanded", !isExpanded);
+  toggleMobileNav(forceState) {
+    const { navMenu, navToggle } = this.elements;
+    if (!navMenu || !navToggle) return;
+
+    const shouldOpen =
+      typeof forceState === "boolean"
+        ? forceState
+        : !navMenu.classList.contains("nav-menu-active");
+
+    navMenu.classList.toggle("nav-menu-active", shouldOpen);
+    navToggle.classList.toggle("active", shouldOpen);
+    navToggle.setAttribute("aria-expanded", String(shouldOpen));
+    document.body.classList.toggle("nav-open", shouldOpen);
+  },
+
+  closeMobileNav() {
+    if (this.elements.navMenu?.classList.contains("nav-menu-active")) {
+      this.toggleMobileNav(false);
+    }
+  },
+
+  handleGlobalKeydown(e) {
+    if (e.key === "Escape") {
+      this.closeMobileNav();
+    }
+  },
+
+  handleViewportResize(e) {
+    if (e?.matches || this.elements.navDesktopMediaQuery?.matches) {
+      this.closeMobileNav();
+    }
   },
 
   // Memperbarui lebar progress bar
@@ -156,7 +197,7 @@ const App = {
 
       // Tutup menu mobile jika sedang terbuka setelah link diklik
       if (this.elements.navMenu?.classList.contains("nav-menu-active")) {
-        this.toggleMobileNav();
+        this.closeMobileNav();
       }
     }
   },

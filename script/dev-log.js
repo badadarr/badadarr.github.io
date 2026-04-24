@@ -35,6 +35,19 @@
     Mindset:       { color: '#ffa657', bg: 'rgba(255,166,87,0.12)'  },
     Reflection:    { color: '#d2a8ff', bg: 'rgba(210,168,255,0.12)' },
     'Best Practices': { color: '#56d364', bg: 'rgba(86,211,100,0.12)' },
+    // Additional tags used in the journal
+    UI:            { color: '#79c0ff', bg: 'rgba(121,192,255,0.12)' },
+    Node:          { color: '#56d364', bg: 'rgba(86,211,100,0.12)'  },
+    Bugfix:        { color: '#ff7b72', bg: 'rgba(255,123,114,0.12)' },
+    Refactor:      { color: '#ffa657', bg: 'rgba(255,166,87,0.12)'  },
+    Maintenance:   { color: '#8b949e', bg: 'rgba(139,148,158,0.12)' },
+    Documentation: { color: '#e3b341', bg: 'rgba(227,179,65,0.12)'  },
+    'Clean Code':  { color: '#56d364', bg: 'rgba(86,211,100,0.12)'  },
+    Productivity:  { color: '#58a6ff', bg: 'rgba(88,166,255,0.12)'  },
+    Planning:      { color: '#d2a8ff', bg: 'rgba(210,168,255,0.12)' },
+    Flutter:       { color: '#79c0ff', bg: 'rgba(121,192,255,0.12)' },
+    Laravel:       { color: '#ff7b72', bg: 'rgba(255,123,114,0.12)' },
+    AI:            { color: '#a78bfa', bg: 'rgba(167,139,250,0.12)' },
   };
 
   function formatDate(dateStr) {

@@ -149,6 +149,15 @@ NOTES_LEARNING = [
     {"note": "Node/Express: pelajari basic security (helmet, rate limit) secara bertahap.", "tag": "Node"},
     {"note": "Node/Express: latihan logging request/response untuk debug.", "tag": "Node"},
     {"note": "Node/Express: buat dokumentasi endpoint (ringkas) untuk 1 service.", "tag": "Documentation"},
+    {"note": "AI Orchestrator: pahami perbedaan antara 'developer pakai AI' vs 'AI orchestrator yang atur kapan AI berpikir dan kapan AI bekerja'.", "tag": "AI"},
+    {"note": "AI Orchestrator: latihan workflow Think → Align → Plan → Execute → Adjust dan petakan ke tool masing-masing.", "tag": "AI"},
+    {"note": "AI Orchestrator: gunakan Continue.dev untuk translate kebutuhan PM jadi requirement jelas, expected output, dan edge case.", "tag": "AI"},
+    {"note": "AI Orchestrator: plan dulu di Copilot Plan Mode sebelum execute — hemat limit dan minim revisi PM.", "tag": "AI"},
+    {"note": "AI Orchestrator: agent hanya untuk eksekusi (batch/modular), bukan untuk berpikir — jangan pakai agent untuk mikir.", "tag": "AI"},
+    {"note": "AI Orchestrator: terapkan rule '1 konteks = 1 tool utama' — jangan aktifkan banyak AI agent bersamaan.", "tag": "AI"},
+    {"note": "AI Orchestrator: simpan intent PM ke pm-intent.md sebelum mulai translate — jangan nebak requirement.", "tag": "AI"},
+    {"note": "AI Orchestrator: heavy agent hanya kalau multi-file, refactor besar, atau stuck lama — selain itu, jangan.", "tag": "AI"},
+    {"note": "AI Orchestrator: ukuran sukses = limit hemat, revisi PM turun, output stabil, dan tetap cepat seperti workflow lama.", "tag": "AI"},
     {"note": "Flutter: review widget dasar dan latihan bikin reusable button/input.", "tag": "Flutter"},
     {"note": "Flutter: latihan state management sederhana (Cubit/BLoC) untuk 1 screen.", "tag": "Flutter"},
     {"note": "Flutter: implement loading/empty/error state yang konsisten.", "tag": "Flutter"},
@@ -183,6 +192,8 @@ NOTES_SUNDAY = [
     {"note": "Latihan komunikasi: tulis ringkasan perubahan minggu ini (2-3 kalimat).", "tag": "Reflection"},
     {"note": "Self-check: pastikan tidak ada secret/token yang pernah ke-commit.", "tag": "Security"},
     {"note": "Istirahat juga bagian dari produktivitas: jaga pace biar konsisten.", "tag": "Mindset"},
+    {"note": "AI Orchestrator: refleksi mingguan — apakah workflow Think→Plan→Execute sudah dijalankan dengan benar atau masih overlap antar tool?", "tag": "AI"},
+    {"note": "AI Orchestrator: evaluasi 1 sesi coding kemarin — kapan seharusnya pakai agent dan kapan seharusnya tidak.", "tag": "AI"},
 ]
 
 

@@ -3,11 +3,11 @@
 [![Live](https://img.shields.io/badge/Live-badadarr.github.io-blue?style=flat-square&logo=github)](https://badadarr.github.io)
 [![Repo](https://img.shields.io/badge/GitHub-badadarr-black?style=flat-square&logo=github)](https://github.com/badadarr/badadarr.github.io)
 
-Website portofolio statis berbasis HTML, CSS, dan JavaScript vanilla.
+Website portfolio statis berbasis HTML, CSS, dan JavaScript vanilla.
 
 ## Ringkasan
 
-Project ini menampilkan profil, pengalaman, project, serta **Dev Journal** yang diperbarui otomatis setiap hari via GitHub Actions.
+Project ini menampilkan profil, pengalaman, proyek, serta **Dev Journal** yang diperbarui otomatis setiap hari via GitHub Actions.
 
 ## Halaman Utama
 

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-12",
-  "total_days": 45,
+  "last_updated": "2026-05-13",
+  "total_days": 46,
   "logs": [
     {
       "date": "2026-03-28",
@@ -402,6 +402,15 @@
       "date": "2026-05-12",
       "day": 45,
       "note": "Rapikan controller: kurangi duplikasi dengan method private kecil.",
+      "tag": "Refactor",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-13",
+      "day": 46,
+      "note": "Pisahkan logic query list ke scope model (scopeSearch/scopeFilter).",
       "tag": "Refactor",
       "type": "auto",
       "source": "github-actions:repo",

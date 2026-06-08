@@ -89,10 +89,51 @@
   align-items: start;
 }
 
+/* ── Scroll Wrapper (contains timeline + gradient fade) ──────── */
+.dj-timeline-scroll-wrapper {
+  position: relative;
+}
+
+.dj-timeline-scroll-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(to bottom, transparent, var(--bg-dark, #0d1117));
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* ── Timeline ────────────────────────────────────────────────── */
 .dj-timeline {
   position: relative;
   padding-left: 28px;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.dj-timeline::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dj-timeline::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 2px;
+}
+
+.dj-timeline::-webkit-scrollbar-thumb {
+  background: rgba(88, 166, 255, 0.25);
+  border-radius: 2px;
+}
+
+.dj-timeline::-webkit-scrollbar-thumb:hover {
+  background: rgba(88, 166, 255, 0.5);
 }
 
 .dj-timeline::before {
@@ -389,6 +430,7 @@
 
   .dj-timeline {
     padding-left: 20px;
+    max-height: 420px;
   }
 
   .dj-entry::before {

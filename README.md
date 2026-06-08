@@ -1,292 +1,101 @@
-# 🚀 Badar Maulana - Developer Portfolio
+# Badar Maulana — Portfolio Website
 
-[![Live Demo](https://img.shields.io/badge/Live-Portfolio-blue?style=flat-square&logo=github)](https://badadarr.github.io)
-[![GitHub](https://img.shields.io/badge/GitHub-badadarr-black?style=flat-square&logo=github)](https://github.com/badadarr)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-BadarMaulana-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/badadarrs)
+[![Live](https://img.shields.io/badge/Live-badadarr.github.io-blue?style=flat-square&logo=github)](https://badadarr.github.io)
+[![Repo](https://img.shields.io/badge/GitHub-badadarr-black?style=flat-square&logo=github)](https://github.com/badadarr/badadarr.github.io)
 
-A modern, responsive, and SEO-optimized portfolio website showcasing my skills, experience, and projects as a Full Stack Developer.
+Website portfolio statis berbasis HTML, CSS, dan JavaScript vanilla.
 
-## 📋 Table of Contents
+## Ringkasan
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Performance](#performance)
-- [SEO Optimization](#seo-optimization)
-- [Browser Support](#browser-support)
-- [Accessibility](#accessibility)
-- [License](#license)
+Project ini menampilkan profil, pengalaman, proyek, serta **Dev Journal** yang diperbarui otomatis setiap hari via GitHub Actions.
 
-## ✨ Features
+## Halaman Utama
 
-### 🎨 User Experience
-- **Responsive Design** - Works perfectly on desktop, tablet, and mobile devices
-- **Smooth Animations** - AOS (Animate On Scroll) for engaging scroll animations
-- **Lottie Animations** - Interactive JSON animations for dynamic visual appeal
-- **Lazy Loading** - Images load only when needed for better performance
-- **Custom Cursor** - Smooth cursor effects on desktop browsers
+- `/` (Home)
+- `/projects.html`
+- `/experience.html`
 
-### ⚡ Performance
-- **Web Vitals Monitoring** - Tracks LCP, CLS, FID metrics
-- **GZIP Compression** - Enabled for all static assets
-- **Browser Caching** - Optimized cache headers for different file types
-- **DNS Prefetch** - Pre-resolves DNS for CDN resources
-- **Preconnect** - Establishes early connection to external domains
+## Arsitektur Saat Ini
 
-### 🔍 SEO Optimization
-- **XML Sitemap** - Complete sitemap for search engine crawling
-- **robots.txt** - Configured for optimal crawler behavior
-- **Structured Data** - JSON-LD schema for rich snippets
-- **Meta Tags** - OpenGraph, Twitter cards, canonical links
-- **Mobile Friendly** - Mobile-first responsive design
+- **Static multi-page site** (tanpa framework frontend)
+- Tiap halaman memuat section HTML dari folder `sections/` menggunakan `script/page-loader.js`
+- Interaksi UI utama ditangani di `script/main.js`
+- Data Dev Journal dibaca dari `data/dev-log.json` dan dirender oleh `script/dev-log.js`
 
-### ♿ Accessibility
-- **ARIA Labels** - Semantic navigation with ARIA attributes
-- **Keyboard Navigation** - Full keyboard support for all interactive elements
-- **Form Labels** - Proper label associations for all form inputs
-- **Color Contrast** - WCAG compliant color ratios
-- **Alt Text** - Descriptive alt text for all images
+## Fitur yang Benar-Benar Ada
 
-### 🛡️ Browser Compatibility
-- **Polyfills** - For ES6 features (Array.from, Object.assign, etc.)
-- **Vendor Prefixes** - CSS prefixes for older browser support
-- **IE11 Support** - Graceful degradation for older browsers
-- **Cross-browser Testing** - Verified on major browsers
+- Layout responsif + navigasi mobile
+- Scroll progress bar dan back-to-top button
+- Animasi AOS dan Lottie pada hero section
+- Lazy loading gambar pada section portfolio
+- Meta SEO dasar (title, description, canonical, JSON-LD person schema)
+- Section-based composition (reusable section HTML)
+- Dev Journal dengan ringkasan timeline + insight tag/source
+- Otomasi harian Dev Journal via GitHub Actions (`.github/workflows/daily-log.yml`)
 
-## 🛠️ Tech Stack
+## Teknologi
 
-### Frontend
-- **HTML5** - Semantic markup structure
-- **CSS3** - Modern styling with animations
-- **Vanilla JavaScript** - No framework dependencies
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- Python (script automation untuk update log harian)
 
-### Libraries & Services
-- **Font Awesome** - Icon library
-- **Google Fonts** - Inter typeface
-- **AOS (Animate On Scroll)** - Scroll animations
-- **Lottie Player** - JSON animations
-- **EmailJS** - Client-side form handling
-- **Formspree** - Server-side form handling
+Library/CDN yang digunakan:
+- Font Awesome
+- Google Fonts (Inter)
+- AOS
+- Lottie Player
+- EmailJS (script tersedia di halaman home)
 
-### Performance & SEO
-- **GZIP Compression** - .htaccess configuration
-- **Browser Caching** - Cache control headers
-- **Lazy Loading** - Native image lazy loading
-- **XML Sitemap** - Complete URL listing
-- **robots.txt** - Crawler configuration
+## Struktur Direktori
 
-## 📁 Project Structure
-
-```
+```text
 badadarr.github.io/
-├── index.html                 # Main HTML file
-├── favicon.ico               # Website icon
-├── robots.txt                # Search engine crawlers config
-├── sitemap.xml               # URL sitemap for SEO
-├── .htaccess                 # Server configuration
-├── _headers                  # Netlify/GitHub Pages headers
-├── _redirects                # URL redirect rules
-├── README.md                 # This file
-├── LICENSE                   # Project license
-├── app.js                    # Main application script
-│
-├── style/
-│   ├── simple-layout.css     # Main layout styles
-│   └── animations.css        # Animation styles
-│
-├── script/
-│   ├── polyfills.js          # Browser compatibility polyfills
-│   ├── enhanced-animations.js # Custom animations & effects
-│   └── performance.js        # Web Vitals monitoring
-│
-└── images/
-    ├── badarimageformal.png  # Profile image
-    ├── Akademisapp ui.png    # Project screenshots
-    ├── cozyapp ui.png
-    ├── futurejobs ui.png
-    ├── gojekapp ui.png
-    ├── Watchapp ui.png
-    └── ... (other images)
+├── index.html
+├── projects.html
+├── experience.html
+├── sections/              # potongan section HTML per area
+├── script/                # logic frontend (loader, main, dev-log, dll)
+├── style/                 # stylesheet utama
+├── assets/
+│   ├── images/
+│   └── cv/
+├── data/
+│   ├── dev-log.json
+│   ├── personal.json
+│   ├── stats.json
+│   ├── projects/
+│   ├── experience/
+│   └── tech/
+├── scripts/
+│   └── append_log.py      # updater log harian
+└── .github/workflows/
+    └── daily-log.yml
 ```
 
-## 🚀 Installation & Setup
+## Menjalankan Secara Lokal
 
-### Prerequisites
-- Modern web browser with JavaScript enabled
-- Optional: Local web server for testing (Python, Node.js, etc.)
+Karena ini static site, cukup jalankan web server sederhana:
 
-### Local Development
-
-1. **Clone the repository**
 ```bash
-git clone https://github.com/badadarr/badadarr.github.io.git
 cd badadarr.github.io
+python3 -m http.server 8000
 ```
 
-2. **Start a local server** (Python)
-```bash
-python -m http.server 8000
-```
+Lalu buka `http://localhost:8000`.
 
-Or with Node.js (http-server):
-```bash
-npx http-server
-```
+## Otomasi Dev Journal
 
-3. **Open in browser**
-```
-http://localhost:8000
-```
+Workflow `Daily Dev Log`:
+- Terjadwal harian (cron)
+- Menjalankan `python3 scripts/append_log.py`
+- Mengupdate `data/dev-log.json`
+- Commit & push otomatis jika ada entry baru
 
-## ⚡ Performance Metrics
+## Catatan Deployment
 
-### Web Vitals Targets
-- **LCP (Largest Contentful Paint)** < 2.5s ✅
-- **FID (First Input Delay)** < 100ms ✅
-- **CLS (Cumulative Layout Shift)** < 0.1 ✅
+Project dipublikasikan ke GitHub Pages. File konfigurasi seperti `.htaccess`, `_headers`, dan `_redirects` tersedia di repo sebagai konfigurasi server/CDN tambahan jika dideploy di platform lain.
 
-### Asset Sizes (Optimized)
-- HTML: ~50KB (minified)
-- CSS: ~25KB (minified)
-- JavaScript: ~15KB (minified)
-- Images: Optimized with lazy loading
+## License
 
-### Caching Strategy
-- **Images**: 1 year (immutable)
-- **CSS/JS**: 1 month (with revalidation)
-- **HTML**: 2 hours (must revalidate)
-- **Fonts**: 1 year (immutable)
-
-## 🔍 SEO Optimization
-
-### Meta Tags
-- Description & keywords
-- OpenGraph tags (Facebook)
-- Twitter Card tags
-- Canonical link
-- Theme color
-
-### Structured Data
-- Schema.org Person markup
-- JSON-LD format
-- Rich snippet compatibility
-
-### Sitemap & Robots
-- Auto-generated XML sitemap
-- Crawl delay configuration
-- Browser-specific rules
-
-### Mobile & Core Web Vitals
-- Mobile-first responsive design
-- Image lazy loading
-- Performance monitoring
-
-## ♿ Accessibility Features
-
-### ARIA Implementation
-```html
-<nav aria-label="Main navigation">
-  <button aria-label="Toggle navigation menu" aria-expanded="false">
-    Menu
-  </button>
-</nav>
-```
-
-### Form Accessibility
-```html
-<label for="name">Name</label>
-<input id="name" type="text" required>
-```
-
-### Dynamic Content
-```html
-<div role="alert" aria-live="polite" aria-atomic="true">
-  Form submission status
-</div>
-```
-
-### Keyboard Navigation
-- Tab through all interactive elements
-- Enter/Space to activate buttons
-- Escape to close menus
-
-## 🌐 Browser Support
-
-| Browser | Status | Minimum Version |
-|---------|--------|-----------------|
-| Chrome | ✅ Supported | 60+ |
-| Firefox | ✅ Supported | 55+ |
-| Safari | ✅ Supported | 12+ |
-| Edge | ✅ Supported | 79+ |
-| IE | ⚠️ Graceful Degradation | 11 |
-| Mobile (iOS) | ✅ Supported | Safari 12+ |
-| Mobile (Android) | ✅ Supported | Chrome 60+ |
-
-### Polyfill Support
-- Array.from (IE11)
-- Object.assign (IE11)
-- String.includes (Older browsers)
-- Element.closest (IE11)
-- IntersectionObserver fallback
-
-## 📊 Performance Optimization Checklist
-
-- [x] Lazy loading images
-- [x] GZIP compression enabled
-- [x] Browser caching configured
-- [x] DNS prefetch for CDN
-- [x] Minified CSS & JavaScript
-- [x] Optimized images
-- [x] Remove unused CSS/JS
-- [x] Performance monitoring
-- [x] Web Vitals tracking
-- [x] Mobile-first responsive
-
-## 🔐 Security Features
-
-- [x] Content Security Policy headers
-- [x] X-Frame-Options protection
-- [x] X-Content-Type-Options set to nosniff
-- [x] XSS protection headers
-- [x] Referrer-Policy configured
-- [x] Sensitive files protected (.env, .json blocked)
-
-## 📝 Development Notes
-
-### Code Style
-- Semantic HTML5 structure
-- CSS following BEM methodology
-- Vanilla JavaScript (ES6+)
-- Comments for complex logic
-
-### Best Practices
-- Progressive enhancement
-- Mobile-first approach
-- Graceful degradation
-- Accessibility-first design
-
-## 🤝 Contributing
-
-Suggestions and improvements are welcome! Please feel free to:
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 📧 Contact
-
-- **Email**: badar.maulana.techno@gmail.com
-- **Phone**: 087788997971
-- **LinkedIn**: [BadarMaulana](https://www.linkedin.com/in/badadarrs)
-- **GitHub**: [badadarr](https://github.com/badadarr)
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-**Last Updated**: October 20, 2025  
-**Version**: 2.0 (Optimized & Enhanced)
+MIT — lihat file [LICENSE](LICENSE).

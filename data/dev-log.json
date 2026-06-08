@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-05",
-  "total_days": 9,
+  "last_updated": "2026-06-08",
+  "total_days": 72,
   "logs": [
     {
       "date": "2026-03-28",
@@ -81,6 +81,573 @@
       "tag": "Testing",
       "type": "auto",
       "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-06",
+      "day": 10,
+      "note": "Review PR/commit lama untuk lihat pola error yang sering keulang.",
+      "tag": "Reflection",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-07",
+      "day": 11,
+      "note": "Perbaiki handling error biar message ke user lebih jelas.",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-08",
+      "day": 12,
+      "note": "Rapikan import yang tidak dipakai dan bersihkan warning linter.",
+      "tag": "Maintenance",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-09",
+      "day": 13,
+      "note": "Belajar satu konsep JavaScript/Python kecil lalu langsung dipraktikkan di code.",
+      "tag": "Learning",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-10",
+      "day": 14,
+      "note": "Bikin helper function kecil untuk mengurangi duplikasi kode.",
+      "tag": "Refactor",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-11",
+      "day": 15,
+      "note": "Update dokumentasi endpoint/function yang baru diubah.",
+      "tag": "Documentation",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-12",
+      "day": 16,
+      "note": "Perbaiki bug kecil dari hasil testing manual hari ini.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-13",
+      "day": 17,
+      "note": "Coba improve query/proses yang terasa lambat di bagian kecil.",
+      "tag": "Performance",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-14",
+      "day": 18,
+      "note": "Benerin edge case sederhana yang kemarin belum ketangani.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-15",
+      "day": 19,
+      "note": "Belajar shortcut editor/IDE biar kerja harian lebih cepat.",
+      "tag": "Productivity",
+      "type": "auto",
+      "source": "github-actions",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-17",
+      "day": 20,
+      "note": "Rapikan model fillable/guarded untuk menghindari mass assignment error.",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-18",
+      "day": 21,
+      "note": "Node/Express: review struktur controller-service dan bedakan responsibility.",
+      "tag": "Node",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-19",
+      "day": 22,
+      "note": "Rapikan workspace: hapus file tidak terpakai dan pastikan struktur folder jelas.",
+      "tag": "Maintenance",
+      "type": "auto",
+      "source": "github-actions:sunday",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-20",
+      "day": 23,
+      "note": "Bikin helper kecil untuk format rupiah/angka biar konsisten di semua view.",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-21",
+      "day": 24,
+      "note": "Perbaiki form input number: step/min dan validasi biar tidak minus.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-22",
+      "day": 25,
+      "note": "Benerin bug kecil: nilai lama (old()) tidak kebaca di form setelah error.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-23",
+      "day": 26,
+      "note": "Perbaiki handling checkbox/radio agar tersimpan dan tampil benar saat edit.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-24",
+      "day": 27,
+      "note": "Rapikan halaman edit: isi default value dan tampilkan field wajib/opsional.",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-25",
+      "day": 28,
+      "note": "Node/Express: pelajari basic security (helmet, rate limit) secara bertahap.",
+      "tag": "Node",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-26",
+      "day": 29,
+      "note": "Milestone: mulai belajar sebagai AI Native Orchestrator — bukan lagi 'developer pakai AI', tapi yang mengatur kapan AI berpikir dan kapan AI bekerja. Workflow: Think (Continue.dev) → Align (PM) → Plan (Copilot) → Execute (Agent) → Adjust (Codeium).",
+      "tag": "AI",
+      "type": "manual",
+      "source": "personal",
+      "duration": "2h"
+    },
+    {
+      "date": "2026-04-27",
+      "day": 30,
+      "note": "Tambahkan seeder sederhana untuk data dummy (biar gampang testing).",
+      "tag": "Testing",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-28",
+      "day": 31,
+      "note": "Benerin file migration yang urutannya bikin error di fresh migrate.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-29",
+      "day": 32,
+      "note": "Tambahkan constraint sederhana (nullable/unique) untuk field penting.",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-04-30",
+      "day": 33,
+      "note": "Tambah index untuk kolom yang sering dipakai search/filter.",
+      "tag": "Performance",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-01",
+      "day": 34,
+      "note": "Bikin middleware untuk proteksi halaman tertentu (auth).",
+      "tag": "Security",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-02",
+      "day": 35,
+      "note": "AI Orchestrator: agent hanya untuk eksekusi (batch/modular), bukan untuk berpikir — jangan pakai agent untuk mikir.",
+      "tag": "AI",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-03",
+      "day": 36,
+      "note": "Rapikan 1 technical debt kecil yang paling sering ganggu saat develop.",
+      "tag": "Reflection",
+      "type": "auto",
+      "source": "github-actions:sunday",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-04",
+      "day": 37,
+      "note": "Tambah halaman 403/404 custom biar user tidak bingung.",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-05",
+      "day": 38,
+      "note": "Benerin authorization sederhana: user role A tidak bisa akses menu B.",
+      "tag": "Security",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-06",
+      "day": 39,
+      "note": "Tambahkan guard/menu visibility berdasarkan role (di Blade).",
+      "tag": "Security",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-07",
+      "day": 40,
+      "note": "Bikin halaman profile sederhana untuk update nama/email (jika ada).",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-08",
+      "day": 41,
+      "note": "Tambahkan validasi update profile (unique email except current user).",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-09",
+      "day": 42,
+      "note": "Flutter: implement loading/empty/error state yang konsisten.",
+      "tag": "Flutter",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-10",
+      "day": 43,
+      "note": "Review UI/UX: pilih 1 halaman dan cari 1 perbaikan kecil yang berdampak.",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:sunday",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-11",
+      "day": 44,
+      "note": "Bersihin komentar code yang tidak relevan dan rapikan penamaan method.",
+      "tag": "Clean Code",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-12",
+      "day": 45,
+      "note": "Rapikan controller: kurangi duplikasi dengan method private kecil.",
+      "tag": "Refactor",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-13",
+      "day": 46,
+      "note": "Pisahkan logic query list ke scope model (scopeSearch/scopeFilter).",
+      "tag": "Refactor",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-14",
+      "day": 47,
+      "note": "Bikin service kecil untuk proses bisnis sederhana biar controller tipis.",
+      "tag": "Refactor",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-15",
+      "day": 48,
+      "note": "Tambah request logging sederhana untuk debug error tertentu.",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-16",
+      "day": 49,
+      "note": "Flutter: tulis README run instruction + screenshot untuk 1 app.",
+      "tag": "Documentation",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-17",
+      "day": 50,
+      "note": "AI Orchestrator: refleksi mingguan — apakah workflow Think→Plan→Execute sudah dijalankan dengan benar atau masih overlap antar tool?",
+      "tag": "AI",
+      "type": "auto",
+      "source": "github-actions:sunday",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-18",
+      "day": 51,
+      "note": "Rapikan storage link dan dokumentasikan langkah `php artisan storage:link`.",
+      "tag": "DevOps",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-19",
+      "day": 52,
+      "note": "Perbaiki error 500: tampilkan message yang aman untuk user, detail di log.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-20",
+      "day": 53,
+      "note": "Bikin alert UI untuk error umum (session expired / unauthorized).",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-21",
+      "day": 54,
+      "note": "Tambahkan export sederhana (CSV) untuk data list (kalau dibutuhkan).",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-22",
+      "day": 55,
+      "note": "Tambahkan import sederhana dari CSV (dengan validasi minimal).",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-23",
+      "day": 56,
+      "note": "Laravel: latihan bikin CRUD sederhana (index/create/store/edit/update/destroy).",
+      "tag": "Laravel",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-24",
+      "day": 57,
+      "note": "Belajar dari bug: catat root cause + cara mencegahnya ke depannya.",
+      "tag": "Reflection",
+      "type": "auto",
+      "source": "github-actions:sunday",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-25",
+      "day": 58,
+      "note": "Lyricsweb: perbaiki tampilan halaman pencarian (input + button + result).",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-26",
+      "day": 59,
+      "note": "Lyricsweb: benerin edge case query kosong (jangan request, tampilkan hint).",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-27",
+      "day": 60,
+      "note": "Lyricsweb: tambah loading indicator saat fetch hasil pencarian.",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-28",
+      "day": 61,
+      "note": "Lyricsweb: tambah empty state saat tidak ada hasil.",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-29",
+      "day": 62,
+      "note": "Lyricsweb: rapikan card/list hasil biar lebih enak dibaca.",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-30",
+      "day": 63,
+      "note": "Laravel: latihan middleware auth + redirect login yang rapi.",
+      "tag": "Laravel",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-05-31",
+      "day": 64,
+      "note": "Latihan komunikasi: tulis ringkasan perubahan minggu ini (2-3 kalimat).",
+      "tag": "Reflection",
+      "type": "auto",
+      "source": "github-actions:sunday",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-01",
+      "day": 65,
+      "note": "Lyricsweb: benerin XSS kecil dengan escaping output yang benar di Blade.",
+      "tag": "Security",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-02",
+      "day": 66,
+      "note": "RideShareApp: rapikan halaman list data (tabel + aksi edit/hapus).",
+      "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-03",
+      "day": 67,
+      "note": "RideShareApp: tambah validasi form tambah data (required & format).",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-04",
+      "day": 68,
+      "note": "RideShareApp: benerin route model binding untuk detail/edit.",
+      "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-05",
+      "day": 69,
+      "note": "Inventory-Management: rapikan komponen Vue kecil (props, naming, emit).",
+      "tag": "Frontend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-06",
+      "day": 70,
+      "note": "Testing Laravel: bikin 1 feature test untuk halaman create->store flow.",
+      "tag": "Testing",
+      "type": "auto",
+      "source": "github-actions:learning",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-07",
+      "day": 71,
+      "note": "Review 1 commit minggu ini: apa yang bagus, apa yang bisa lebih rapi.",
+      "tag": "Reflection",
+      "type": "auto",
+      "source": "github-actions:sunday",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-06-08",
+      "day": 72,
+      "note": "Inventory-Management: rapikan state sederhana di Vue (loading/disabled).",
+      "tag": "Frontend",
+      "type": "auto",
+      "source": "github-actions:repo",
       "duration": "30m"
     }
   ]

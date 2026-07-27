@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-07-27",
-  "total_days": 121,
+  "last_updated": "2026-07-28",
+  "total_days": 122,
   "logs": [
     {
       "date": "2026-03-28",
@@ -1087,6 +1087,15 @@
       "day": 121,
       "note": "Rapikan halaman edit: isi default value dan tampilkan field wajib/opsional.",
       "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-07-28",
+      "day": 122,
+      "note": "Tambah relasi Eloquent sederhana dan tampilkan di halaman detail.",
+      "tag": "Backend",
       "type": "auto",
       "source": "github-actions:repo",
       "duration": "30m"

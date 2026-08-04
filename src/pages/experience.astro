@@ -6,24 +6,51 @@ import { experience } from "../data/experience";
 import { education, certifications } from "../data/education";
 import { monthsBetween, formatDuration, formatYM } from "../lib/dates";
 
-// Durations are computed at build time; the daily dev-log commit keeps
-// rebuilding the site, so "Present" durations stay accurate.
-const items = experience.map((e) => {
-  const months = monthsBetween(e.start, e.end);
+const items = experience.map((c) => {
+  const roles = c.roles.map((r) => ({
+    ...r,
+    ongoing: r.end === null,
+    duration: formatDuration(monthsBetween(r.start, r.end)),
+    range: `${formatYM(r.start)} – ${formatYM(r.end)}`,
+  }));
+
+  const ongoing = roles.some((r) => r.ongoing);
+  const start = roles.map((r) => r.start).sort()[0];
+  const ends = roles
+    .map((r) => r.end)
+    .filter((e): e is string => e !== null)
+    .sort();
+  const end = ongoing ? null : (ends[ends.length - 1] ?? null);
+  const months = monthsBetween(start, end);
+
   return {
-    ...e,
-    ongoing: e.end === null,
-    duration: formatDuration(months),
-    range: `${formatYM(e.start)} – ${formatYM(e.end)}`,
+    company: c.company,
+    roles,
+    ongoing,
+    multi: roles.length > 1,
     months,
+    duration: formatDuration(months),
+    range: `${formatYM(start)} – ${formatYM(end)}`,
   };
 });
 
 const totalMonths = items.reduce((sum, e) => sum + e.months, 0);
 const stats = [
-  { icon: "briefcase" as const, value: formatDuration(totalMonths), label: "total experience" },
-  { icon: "terminal" as const, value: String(items.length), label: "companies" },
-  { icon: "zap" as const, value: String(items.filter((e) => e.ongoing).length), label: "ongoing" },
+  {
+    icon: "briefcase" as const,
+    value: formatDuration(totalMonths),
+    label: "total experience",
+  },
+  {
+    icon: "terminal" as const,
+    value: String(items.length),
+    label: "companies",
+  },
+  {
+    icon: "zap" as const,
+    value: String(items.filter((e) => e.ongoing).length),
+    label: "ongoing",
+  },
 ];
 ---
 
@@ -59,28 +86,77 @@ const stats = [
             <article class:list={["tl-item reveal", { ongoing: e.ongoing }]}>
               <div class="tl-dot" />
               <div class="tl-card card">
-                <div class="tl-head">
-                  <h2>
-                    {e.role}
-                    {e.note && <span class="tl-note mono">{e.note}</span>}
-                  </h2>
-                  <span class:list={["chip", { "chip--accent": e.ongoing }]}>
-                    {e.ongoing ? "ongoing" : "completed"}
-                  </span>
-                  <span class="chip">{e.duration}</span>
-                </div>
-                <p class="tl-sub mono">
-                  <span class="tl-company">{e.company}</span>
-                  <span class="tl-range">{e.range}</span>
-                </p>
-                <p class="tl-summary">{e.summary}</p>
-                <ul class="tl-bullets">
-                  {e.bullets.map((b) => (
-                    <li>
-                      <strong>{b.label}:</strong> {b.text}
-                    </li>
-                  ))}
-                </ul>
+                {e.multi ? (
+                  <Fragment>
+                    <div class="tl-head">
+                      <h2>{e.company}</h2>
+                      <span
+                        class:list={["chip", { "chip--accent": e.ongoing }]}
+                      >
+                        {e.ongoing ? "ongoing" : "completed"}
+                      </span>
+                      <span class="chip">{e.duration}</span>
+                    </div>
+                    <p class="tl-sub mono">
+                      <span class="tl-range">{e.range}</span>
+                      <span class="tl-rolecount">{e.roles.length} roles</span>
+                    </p>
+                    <div class="tl-roles">
+                      {e.roles.map((r) => (
+                        <div class:list={["tl-role", { ongoing: r.ongoing }]}>
+                          <div class="tl-role-head">
+                            <h3>
+                              {r.title}
+                              {r.note && (
+                                <span class="tl-note mono">{r.note}</span>
+                              )}
+                            </h3>
+                            <span class="tl-role-range mono">
+                              {r.range} · {r.duration}
+                            </span>
+                          </div>
+                          <p class="tl-summary">{r.summary}</p>
+                          <ul class="tl-bullets">
+                            {r.bullets.map((b) => (
+                              <li>
+                                <strong>{b.label}:</strong> {b.text}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </Fragment>
+                ) : (
+                  <Fragment>
+                    <div class="tl-head">
+                      <h2>
+                        {e.roles[0].title}
+                        {e.roles[0].note && (
+                          <span class="tl-note mono">{e.roles[0].note}</span>
+                        )}
+                      </h2>
+                      <span
+                        class:list={["chip", { "chip--accent": e.ongoing }]}
+                      >
+                        {e.ongoing ? "ongoing" : "completed"}
+                      </span>
+                      <span class="chip">{e.duration}</span>
+                    </div>
+                    <p class="tl-sub mono">
+                      <span class="tl-company">{e.company}</span>
+                      <span class="tl-range">{e.range}</span>
+                    </p>
+                    <p class="tl-summary">{e.roles[0].summary}</p>
+                    <ul class="tl-bullets">
+                      {e.roles[0].bullets.map((b) => (
+                        <li>
+                          <strong>{b.label}:</strong> {b.text}
+                        </li>
+                      ))}
+                    </ul>
+                  </Fragment>
+                )}
               </div>
             </article>
           ))
@@ -291,6 +367,64 @@ const stats = [
 
   .tl-range {
     color: var(--text-faint);
+  }
+
+  .tl-rolecount {
+    color: var(--text-faint);
+  }
+
+  /* nested roles within one company */
+  .tl-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    margin-top: 1.1rem;
+    padding-left: 1.15rem;
+    border-left: 1px solid var(--border);
+  }
+
+  .tl-role {
+    position: relative;
+  }
+
+  .tl-role::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.15rem - 4.5px);
+    top: 0.4rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    border: 2px solid var(--border-strong);
+  }
+
+  .tl-role.ongoing::before {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .tl-role-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .tl-role-head h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .tl-role.ongoing .tl-role-head h3 {
+    color: var(--accent-bright);
+  }
+
+  .tl-role-range {
+    font-size: 0.74rem;
+    color: var(--text-faint);
+    margin-left: auto;
   }
 
   .tl-summary {

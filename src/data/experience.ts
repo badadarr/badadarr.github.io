@@ -10,7 +10,7 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Full Stack Developer Intern",
+    role: "Mobile Developer",
     company: "PT. Spero Mahakarya Nusantara",
     start: "2025-12",
     end: null,

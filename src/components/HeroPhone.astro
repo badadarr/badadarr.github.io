@@ -1,0 +1,277 @@
+---
+// CSS-only phone mockup for the hero — a tiny "profile app" whose
+// notification shows the latest dev-journal entry (build-time data).
+import { Image } from "astro:assets";
+import Icon from "./Icon.astro";
+import { formatDate } from "../lib/dates";
+import devLog from "../../data/dev-log.json";
+import portrait from "../assets/images/badar.jpg";
+
+const latest = devLog.logs[devLog.logs.length - 1];
+---
+
+<div class="phone-wrap reveal" aria-hidden="true">
+  <div class="phone">
+    <div class="screen">
+      <!-- status bar -->
+      <div class="status mono">
+        <span>09:41</span>
+        <span class="camera"></span>
+        <span class="battery"><span class="battery-level"></span></span>
+      </div>
+
+      <!-- app bar -->
+      <div class="appbar mono">
+        <span class="tilde">~/</span>badadarr
+        <span class="online"></span>
+      </div>
+
+      <!-- profile -->
+      <div class="profile">
+        <Image
+          class="avatar"
+          src={portrait}
+          alt=""
+          width={96}
+          format="webp"
+          quality={75}
+        />
+        <div>
+          <p class="name">Badar Maulana</p>
+          <p class="role mono">mobile developer</p>
+        </div>
+      </div>
+
+      <div class="stack mono">
+        <span>Flutter</span>
+        <span>Swift</span>
+        <span>Laravel</span>
+      </div>
+
+      <!-- notification: latest dev journal entry -->
+      <div class="notif">
+        <div class="notif-head mono">
+          <Icon name="bot" size={12} />
+          <span>dev journal · day {latest.day}</span>
+          <span class="notif-date">{formatDate(latest.date)}</span>
+        </div>
+        <p class="notif-body">{latest.note}</p>
+      </div>
+
+      <div class="streak mono">
+        <Icon name="flame" size={13} />
+        {devLog.total_days} day commit streak
+      </div>
+
+      <!-- bottom nav -->
+      <div class="navbar-app">
+        <span class="nav-active"><Icon name="home" size={16} /></span>
+        <span><Icon name="grid" size={16} /></span>
+        <span><Icon name="user" size={16} /></span>
+      </div>
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .phone-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .phone {
+    width: 250px;
+    border-radius: 38px;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-raised);
+    padding: 9px;
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.45),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    transform: rotate(2deg);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .phone {
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: rotate(2deg) translateY(0);
+      }
+      50% {
+        transform: rotate(2deg) translateY(-9px);
+      }
+    }
+  }
+
+  .screen {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 0.7rem 0.85rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    overflow: hidden;
+  }
+
+  /* status bar */
+  .status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.62rem;
+    color: var(--text-muted);
+  }
+
+  .camera {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #000;
+    border: 1px solid var(--border-strong);
+  }
+
+  .battery {
+    width: 20px;
+    height: 10px;
+    border: 1px solid var(--text-faint);
+    border-radius: 3px;
+    padding: 1.5px;
+    display: inline-flex;
+  }
+
+  .battery-level {
+    width: 70%;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+
+  /* app bar */
+  .appbar {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .tilde {
+    color: var(--accent);
+  }
+
+  .online {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent-bright);
+    margin-left: auto;
+  }
+
+  /* profile */
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .profile :global(.avatar) {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+  }
+
+  .name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .role {
+    font-size: 0.64rem;
+    color: var(--accent-bright);
+  }
+
+  .stack {
+    display: flex;
+    gap: 0.35rem;
+  }
+
+  .stack span {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.12rem 0.5rem;
+    background: var(--bg-soft);
+  }
+
+  /* notification */
+  .notif {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    background: var(--bg-soft);
+    padding: 0.5rem 0.6rem;
+  }
+
+  .notif-head {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.58rem;
+    color: var(--accent-bright);
+    margin-bottom: 0.25rem;
+  }
+
+  .notif-date {
+    margin-left: auto;
+    color: var(--text-faint);
+  }
+
+  .notif-body {
+    font-size: 0.68rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .streak {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.62rem;
+    color: var(--amber);
+  }
+
+  /* bottom nav */
+  .navbar-app {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid var(--border);
+    padding-top: 0.5rem;
+    margin-top: 0.1rem;
+    color: var(--text-faint);
+  }
+
+  .nav-active {
+    color: var(--accent-bright);
+  }
+
+  .home-indicator {
+    width: 72px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border-strong);
+    margin: 0.35rem auto 0.1rem;
+  }
+</style>

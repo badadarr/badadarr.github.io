@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Icon from "./Icon.astro";
 import type { Project } from "../data/projects";
 
 interface Props {
@@ -22,6 +23,10 @@ const { project, eager = false } = Astro.props;
       quality={78}
       loading={eager ? "eager" : "lazy"}
     />
+    <span class="platform mono">
+      <Icon name={project.platform.icon} size={13} />
+      {project.platform.label}
+    </span>
   </div>
   <div class="project-body">
     <h3 class="mono">{project.title}</h3>
@@ -45,10 +50,33 @@ const { project, eager = false } = Astro.props;
   }
 
   .project-shot {
+    position: relative;
     aspect-ratio: 4 / 3;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
     background: var(--bg-raised);
+  }
+
+  .platform {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #dbe2ea;
+    background: rgba(11, 14, 20, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    padding: 0.22rem 0.6rem;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .platform svg {
+    color: var(--accent-bright);
   }
 
   .project-shot :global(img) {

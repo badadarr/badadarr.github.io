@@ -5,6 +5,7 @@ import Icon from "../components/Icon.astro";
 import SectionHead from "../components/SectionHead.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import DevLog from "../components/DevLog.astro";
+import HeroPhone from "../components/HeroPhone.astro";
 import { site } from "../data/site";
 import { projects } from "../data/projects";
 import portrait from "../assets/images/badar.jpg";
@@ -58,30 +59,36 @@ const contacts = [
 ---
 
 <Base
-  title="Badar Maulana — Full Stack Developer"
-  description="Badar Maulana — Full Stack Developer specializing in Flutter, Swift, Laravel, Next.js, and Python. Based in Indonesia."
+  title="Badar Maulana — Mobile & Full Stack Developer"
+  description="Badar Maulana — Mobile & Full Stack Developer specializing in Flutter, Swift, Laravel, Next.js, and Python. Based in Indonesia."
 >
   <!-- ================= HERO ================= -->
   <section class="hero" id="home">
-    <div class="container">
-      <p class="mono prompt"><span class="dollar">$</span> whoami</p>
-      <h1>Badar Maulana</h1>
-      <p class="mono role">full-stack developer<span class="cursor">▍</span></p>
-      <p class="hero-desc">
-        I build mobile & web products with <strong>Laravel</strong>,
-        <strong>Flutter</strong>, and <strong>Next.js</strong> — currently
-        developing ERP systems at PT. Spero Mahakarya Nusantara and finishing a
-        CS degree at President University.
-      </p>
-      <div class="hero-actions">
-        <span class="status mono"><span class="pulse"></span>open to opportunities</span>
-        <a href="/projects.html" class="btn btn--solid">
-          view work <Icon name="arrow-right" />
-        </a>
-        <a href={site.cv} target="_blank" rel="noopener noreferrer" class="btn">
-          <Icon name="download" /> download cv
-        </a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="mono prompt"><span class="dollar">$</span> whoami</p>
+        <h1>Badar Maulana</h1>
+        <p class="mono role">
+          mobile & full-stack developer<span class="cursor">▍</span>
+        </p>
+        <p class="hero-desc">
+          I build mobile apps with <strong>Flutter</strong> and
+          <strong>Swift</strong>, backed by <strong>Laravel</strong> and
+          <strong>Next.js</strong> — currently developing ERP systems at PT.
+          Spero Mahakarya Nusantara and finishing a CS degree at President
+          University.
+        </p>
+        <div class="hero-actions">
+          <span class="status mono"><span class="pulse"></span>open to opportunities</span>
+          <a href="/projects.html" class="btn btn--solid">
+            view work <Icon name="arrow-right" />
+          </a>
+          <a href={site.cv} target="_blank" rel="noopener noreferrer" class="btn">
+            <Icon name="download" /> download cv
+          </a>
+        </div>
       </div>
+      <HeroPhone />
     </div>
   </section>
 
@@ -201,9 +208,27 @@ const contacts = [
 <style>
   /* ---------- hero ---------- */
   .hero {
-    padding: 7rem 0 5.5rem;
+    padding: 6rem 0 5rem;
     background-image: radial-gradient(var(--border) 1px, transparent 1px);
     background-size: 26px 26px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      padding: 4.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
   }
 
   .prompt {

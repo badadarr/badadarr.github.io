@@ -1,0 +1,144 @@
+---
+import Base from "../layouts/Base.astro";
+import SectionHead from "../components/SectionHead.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
+import { techStack } from "../data/tech";
+---
+
+<Base
+  title="Projects — Badar Maulana"
+  description="A showcase of mobile apps, web platforms, and UI/UX work by Badar Maulana — Flutter, Swift, Laravel, and Next.js projects."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="mono prompt"><span class="dollar">$</span> ls ~/projects</p>
+      <h1 class="mono">projects</h1>
+      <p class="muted">A showcase of recent work & experiments.</p>
+    </div>
+  </section>
+
+  <section id="all-projects">
+    <div class="container">
+      <div class="projects-grid">
+        {projects.map((p, i) => <ProjectCard project={p} eager={i < 3} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="tech-stack">
+    <div class="container">
+      <SectionHead title="tech stack" />
+      <div class="tech-cols">
+        {
+          techStack.map((cat) => (
+            <div class="tech-col reveal">
+              <h3 class="mono">{cat.title}</h3>
+              <ul>
+                {cat.items.map((t) => (
+                  <li>
+                    <span class="tech-name">{t.name}</span>
+                    <span class="tech-note mono">{t.note}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding: 4.5rem 0 1rem;
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .prompt {
+    color: var(--text-faint);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dollar {
+    color: var(--accent);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  #all-projects {
+    padding-top: 2rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .tech-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .tech-col {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+    padding: 1.2rem 1.3rem;
+  }
+
+  .tech-col h3 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.85rem;
+  }
+
+  .tech-col h3::before {
+    content: "## ";
+    color: var(--accent);
+  }
+
+  .tech-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .tech-col li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 0.55rem;
+  }
+
+  .tech-col li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .tech-name {
+    font-weight: 500;
+    font-size: 0.92rem;
+  }
+
+  .tech-note {
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    text-align: right;
+  }
+</style>

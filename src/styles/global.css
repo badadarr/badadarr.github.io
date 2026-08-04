@@ -1,0 +1,273 @@
+/* ============================================================
+   Design tokens — technical dark theme (default) + light theme
+   ============================================================ */
+
+:root {
+  --bg: #0b0e14;
+  --bg-soft: #10141d;
+  --bg-raised: #161c27;
+  --border: #1f2733;
+  --border-strong: #2e3949;
+  --text: #dbe2ea;
+  --text-muted: #8a94a3;
+  --text-faint: #5f6975;
+  --accent: #3fb950;
+  --accent-bright: #56d364;
+  --accent-dim: rgba(63, 185, 80, 0.12);
+  --amber: #e3b341;
+  --blue: #58a6ff;
+  --red: #ff7b72;
+  --purple: #d2a8ff;
+  --radius: 8px;
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  --font-mono:
+    ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas,
+    "Liberation Mono", monospace;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #fafbfc;
+  --bg-soft: #ffffff;
+  --bg-raised: #f2f4f7;
+  --border: #e2e6eb;
+  --border-strong: #c9d1d9;
+  --text: #1c232d;
+  --text-muted: #57616e;
+  --text-faint: #8a94a3;
+  --accent: #1a7f37;
+  --accent-bright: #2da44e;
+  --accent-dim: rgba(26, 127, 55, 0.1);
+  --amber: #9a6700;
+  --blue: #0969da;
+  --red: #cf222e;
+  --purple: #8250df;
+  color-scheme: light;
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--accent-bright);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent-bright);
+}
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+section {
+  padding: 4.5rem 0;
+}
+
+/* Section heading — mono, numbered, with rule line */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.section-head h2 {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.section-head h2 .hash {
+  color: var(--accent);
+  margin-right: 0.4rem;
+}
+
+.section-head .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  transform: translateY(-0.35rem);
+}
+
+/* ============================================================
+   Buttons & chips
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  color: var(--accent-bright);
+  background: var(--accent-dim);
+}
+
+.btn--solid {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+:root[data-theme="light"] .btn--solid {
+  color: #fff;
+}
+
+.btn--solid:hover {
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
+  color: #fff;
+}
+
+.btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chip--accent {
+  color: var(--accent-bright);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  background: var(--accent-dim);
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+
+.card {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+/* ============================================================
+   Scroll reveal (JS adds .in-view; motion-safe only)
+   ============================================================ */
+
+/* Hidden state only applies when JS is running (html.js), so content
+   is never invisible for no-JS visitors or crawlers. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s ease;
+  }
+
+  html.js .reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   Misc
+   ============================================================ */
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

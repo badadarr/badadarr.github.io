@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  eager?: boolean;
+}
+
+const { project, eager = false } = Astro.props;
+---
+
+<article class="card project reveal">
+  <div class="project-shot">
+    <Image
+      src={project.image}
+      alt={`${project.title} — UI screenshot`}
+      width={640}
+      widths={[420, 640, 840]}
+      sizes="(max-width: 700px) 92vw, 420px"
+      format="webp"
+      quality={78}
+      loading={eager ? "eager" : "lazy"}
+    />
+  </div>
+  <div class="project-body">
+    <h3 class="mono">{project.title}</h3>
+    <p>{project.description}</p>
+    <div class="project-tags">
+      {project.tags.map((t) => <span class="chip">{t}</span>)}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .project:hover {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+    transform: translateY(-3px);
+  }
+
+  .project-shot {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-raised);
+  }
+
+  .project-shot :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .project:hover .project-shot :global(img) {
+    transform: scale(1.03);
+  }
+
+  .project-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.1rem 1.2rem 1.3rem;
+    flex: 1;
+  }
+
+  .project-body h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .project-body h3::before {
+    content: "> ";
+    color: var(--accent);
+  }
+
+  .project-body p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    flex: 1;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+</style>

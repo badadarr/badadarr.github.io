@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented here.
 
+## [3.0.0] - 2026-08-04 - Astro Rewrite
+
+### Changed
+- Full redesign: technical dev-flavored dark theme (light theme via toggle), monospace accents, no purple-gradient template look
+- Migrated from vanilla multi-page + client-side section loader to **Astro** — all pages pre-rendered at build time (no more blank page + 7 sequential fetches)
+- Dev Journal now rendered at build time from `data/dev-log.json`; daily cron commit triggers a rebuild, so no client-side fetch/spinner
+- Experience timeline, education, certifications, projects, and tech stack moved to typed data files in `src/data/`
+- Images optimized to responsive WebP at build via `astro:assets` (multi-MB PNGs no longer shipped)
+- Deployed via GitHub Actions (`deploy.yml`) instead of serving the repo root
+
+### Removed
+- AOS, Lottie, EmailJS, Font Awesome CDN dependencies (icons now inline SVG)
+- Dead code: `app.js`, `script/` modules, `sections/` HTML fragments, `_headers`, `_redirects`, `.htaccess`
+
 ## [2.0.0] - 2025-10-20 - Major Optimization Release
 
 ### 🎉 Added

@@ -1,0 +1,456 @@
+---
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import SectionHead from "../components/SectionHead.astro";
+import { experience } from "../data/experience";
+import { education, certifications } from "../data/education";
+import { monthsBetween, formatDuration, formatYM } from "../lib/dates";
+
+// Durations are computed at build time; the daily dev-log commit keeps
+// rebuilding the site, so "Present" durations stay accurate.
+const items = experience.map((e) => {
+  const months = monthsBetween(e.start, e.end);
+  return {
+    ...e,
+    ongoing: e.end === null,
+    duration: formatDuration(months),
+    range: `${formatYM(e.start)} – ${formatYM(e.end)}`,
+    months,
+  };
+});
+
+const totalMonths = items.reduce((sum, e) => sum + e.months, 0);
+const stats = [
+  { icon: "briefcase" as const, value: formatDuration(totalMonths), label: "total experience" },
+  { icon: "terminal" as const, value: String(items.length), label: "companies" },
+  { icon: "zap" as const, value: String(items.filter((e) => e.ongoing).length), label: "ongoing" },
+];
+---
+
+<Base
+  title="Experience & Education — Badar Maulana"
+  description="Career journey and academic background of Badar Maulana — full-stack roles across ERP, SEO tooling, mobile development, and government systems."
+>
+  <section class="page-hero">
+    <div class="container">
+      <p class="mono prompt"><span class="dollar">$</span> git log --career</p>
+      <h1 class="mono">experience</h1>
+      <p class="muted">My career journey and academic background.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="exp-stats mono reveal">
+        {
+          stats.map((s) => (
+            <div class="exp-stat">
+              <Icon name={s.icon} size={15} />
+              <strong>{s.value}</strong>
+              <span>{s.label}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="timeline">
+        {
+          items.map((e) => (
+            <article class:list={["tl-item reveal", { ongoing: e.ongoing }]}>
+              <div class="tl-dot" />
+              <div class="tl-card card">
+                <div class="tl-head">
+                  <h2>
+                    {e.role}
+                    {e.note && <span class="tl-note mono">{e.note}</span>}
+                  </h2>
+                  <span class:list={["chip", { "chip--accent": e.ongoing }]}>
+                    {e.ongoing ? "ongoing" : "completed"}
+                  </span>
+                  <span class="chip">{e.duration}</span>
+                </div>
+                <p class="tl-sub mono">
+                  <span class="tl-company">{e.company}</span>
+                  <span class="tl-range">{e.range}</span>
+                </p>
+                <p class="tl-summary">{e.summary}</p>
+                <ul class="tl-bullets">
+                  {e.bullets.map((b) => (
+                    <li>
+                      <strong>{b.label}:</strong> {b.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <SectionHead title="education" />
+      <div class="edu-list">
+        {
+          education.map((ed) => (
+            <details class="card edu-item reveal">
+              <summary>
+                <span class="edu-icon">
+                  <Icon name="graduation-cap" size={17} />
+                </span>
+                <span class="edu-meta">
+                  <span class="edu-title">
+                    {ed.title}
+                    <span
+                      class:list={[
+                        "chip",
+                        { "chip--accent": ed.status === "Active" },
+                      ]}
+                    >
+                      {ed.status.toLowerCase()}
+                    </span>
+                  </span>
+                  <span class="edu-sub mono">
+                    {ed.institution} · {ed.detail}
+                  </span>
+                </span>
+                <span class="edu-chevron mono">+</span>
+              </summary>
+              <p class="edu-body">{ed.description}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <SectionHead title="certifications" />
+      <div class="cert-list">
+        {
+          certifications.map((c) => {
+            const Tag = c.url ? "a" : "div";
+            return (
+              <Tag
+                class="cert-row reveal"
+                href={c.url}
+                target={c.url ? "_blank" : undefined}
+                rel={c.url ? "noopener noreferrer" : undefined}
+              >
+                <span class="cert-icon">
+                  <Icon name="award" size={16} />
+                </span>
+                <span class="cert-meta">
+                  <span class="cert-title">{c.title}</span>
+                  <span class="cert-sub mono">
+                    {c.issuer} · {c.date}
+                    {c.credentialId && ` · ID: ${c.credentialId}`}
+                  </span>
+                </span>
+                {c.url && <Icon name="external" size={14} class="cert-ext" />}
+              </Tag>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero {
+    padding: 4.5rem 0 1rem;
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .prompt {
+    color: var(--text-faint);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dollar {
+    color: var(--accent);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  #experience {
+    padding-top: 2rem;
+  }
+
+  .exp-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .exp-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.5rem 0.85rem;
+    background: var(--bg-soft);
+  }
+
+  .exp-stat svg {
+    color: var(--accent);
+  }
+
+  .exp-stat strong {
+    color: var(--text);
+  }
+
+  /* ---------- timeline ---------- */
+  .timeline {
+    position: relative;
+    padding-left: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: var(--border-strong);
+  }
+
+  .tl-item {
+    position: relative;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: -1.4rem;
+    top: 1.35rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--border-strong);
+  }
+
+  .tl-item.ongoing .tl-dot {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .tl-card {
+    padding: 1.2rem 1.4rem 1.3rem;
+  }
+
+  .tl-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .tl-head h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-right: auto;
+  }
+
+  .tl-note {
+    font-size: 0.75rem;
+    color: var(--text-faint);
+    font-weight: 400;
+  }
+
+  .tl-sub {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin: 0.35rem 0 0.75rem;
+  }
+
+  .tl-company {
+    color: var(--accent-bright);
+  }
+
+  .tl-range {
+    color: var(--text-faint);
+  }
+
+  .tl-summary {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .tl-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .tl-bullets li {
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .tl-bullets li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .tl-bullets strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ---------- education ---------- */
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .edu-item summary {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .edu-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .edu-icon {
+    display: inline-flex;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--accent-bright);
+    background: var(--bg-raised);
+    flex-shrink: 0;
+  }
+
+  .edu-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .edu-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .edu-sub {
+    font-size: 0.76rem;
+    color: var(--text-faint);
+  }
+
+  .edu-chevron {
+    margin-left: auto;
+    color: var(--text-faint);
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .edu-item[open] .edu-chevron {
+    transform: rotate(45deg);
+  }
+
+  .edu-body {
+    padding: 0 1.2rem 1.1rem 4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 560px) {
+    .edu-body {
+      padding-left: 1.2rem;
+    }
+  }
+
+  /* ---------- certifications ---------- */
+  .cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .cert-row {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.8rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+    color: var(--text);
+  }
+
+  a.cert-row:hover {
+    text-decoration: none;
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  }
+
+  .cert-icon {
+    display: inline-flex;
+    color: var(--amber);
+    flex-shrink: 0;
+  }
+
+  .cert-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .cert-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .cert-sub {
+    font-size: 0.73rem;
+    color: var(--text-faint);
+  }
+
+  :global(.cert-ext) {
+    margin-left: auto;
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+
+  a.cert-row:hover :global(.cert-ext) {
+    color: var(--accent-bright);
+  }
+</style>

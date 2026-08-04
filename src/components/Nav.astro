@@ -1,0 +1,156 @@
+---
+import Icon from "./Icon.astro";
+import { site } from "../data/site";
+
+const links = [
+  { href: "/index.html#about", label: "about" },
+  { href: "/experience.html", label: "experience" },
+  { href: "/projects.html", label: "projects" },
+  { href: "/index.html#contact", label: "contact" },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  !href.includes("#") && path.startsWith(href.replace(".html", ""));
+---
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="/" class="nav-logo" aria-label={`${site.name} — home`}>
+      <span class="tilde">~/</span>{site.handle}
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      {
+        links.map((l) => (
+          <a href={l.href} class:list={["nav-link", { active: isActive(l.href) }]}>
+            {l.label}
+          </a>
+        ))
+      }
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme">
+        <span class="icon-moon"><Icon name="moon" size={16} /></span>
+        <span class="icon-sun"><Icon name="sun" size={16} /></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .nav-logo:hover {
+    text-decoration: none;
+    color: var(--accent-bright);
+  }
+
+  .tilde {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+    background: var(--bg-raised);
+    text-decoration: none;
+  }
+
+  .nav-link.active {
+    color: var(--accent-bright);
+  }
+
+  .nav-link.active::before {
+    content: "./";
+    opacity: 0.7;
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-left: 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+
+  /* Show sun in dark mode (click = go light), moon in light mode */
+  .icon-moon {
+    display: none;
+  }
+
+  :global([data-theme="light"]) .icon-moon {
+    display: inline-flex;
+  }
+
+  :global([data-theme="light"]) .icon-sun {
+    display: none;
+  }
+
+  .icon-sun {
+    display: inline-flex;
+  }
+
+  @media (max-width: 480px) {
+    .nav-link {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.45rem;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("theme-toggle");
+  btn?.addEventListener("click", () => {
+    const root = document.documentElement;
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = next;
+    localStorage.setItem("theme", next);
+  });
+</script>

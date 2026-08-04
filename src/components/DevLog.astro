@@ -1,0 +1,338 @@
+---
+// Dev Journal — rendered at build time from data/dev-log.json.
+// The daily GitHub Actions cron commits a new entry, which triggers a
+// site rebuild, so this stays fresh without any client-side fetching.
+import Icon from "./Icon.astro";
+import SectionHead from "./SectionHead.astro";
+import { formatDate } from "../lib/dates";
+import devLog from "../../data/dev-log.json";
+
+const MAX_ENTRIES = 6;
+
+const TAG_COLORS: Record<string, string> = {
+  Setup: "var(--blue)",
+  Learning: "var(--purple)",
+  Git: "var(--amber)",
+  Backend: "var(--blue)",
+  Frontend: "var(--accent-bright)",
+  Database: "var(--amber)",
+  DevOps: "var(--red)",
+  Architecture: "var(--purple)",
+  Testing: "var(--accent-bright)",
+  Security: "var(--red)",
+  Performance: "var(--amber)",
+  DSA: "var(--blue)",
+  Mindset: "var(--amber)",
+  Reflection: "var(--purple)",
+  "Best Practices": "var(--accent-bright)",
+  UI: "var(--blue)",
+  Node: "var(--accent-bright)",
+  Bugfix: "var(--red)",
+  Refactor: "var(--amber)",
+  Maintenance: "var(--text-muted)",
+  Documentation: "var(--amber)",
+  "Clean Code": "var(--accent-bright)",
+  Productivity: "var(--blue)",
+  Planning: "var(--purple)",
+  Flutter: "var(--blue)",
+  Laravel: "var(--red)",
+  AI: "var(--purple)",
+};
+
+const logs = devLog.logs ?? [];
+const latest = [...logs].reverse().slice(0, MAX_ENTRIES);
+
+const tagCounts: Record<string, number> = {};
+let autoCount = 0;
+let manualCount = 0;
+for (const l of logs) {
+  if (l.tag) tagCounts[l.tag] = (tagCounts[l.tag] ?? 0) + 1;
+  if (l.type === "manual") manualCount++;
+  else autoCount++;
+}
+const topTags = Object.entries(tagCounts)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 5);
+const autoPct = Math.round((autoCount / (logs.length || 1)) * 100);
+---
+
+<section id="dev-journal">
+  <div class="container">
+    <SectionHead title="dev journal" />
+    <p class="dj-intro muted reveal">
+      A self-updating log of daily developer activity — a Python script runs on a
+      GitHub Actions cron, commits an entry, and the site rebuilds itself.
+    </p>
+
+    <div class="dj-stats mono reveal">
+      <div class="dj-stat">
+        <Icon name="flame" size={15} />
+        <strong>{devLog.total_days ?? logs.length}</strong>
+        <span>days active</span>
+      </div>
+      <div class="dj-stat">
+        <Icon name="calendar" size={15} />
+        <strong>{formatDate(devLog.last_updated)}</strong>
+        <span>last entry</span>
+      </div>
+      <div class="dj-stat">
+        <Icon name="zap" size={15} />
+        <strong>daily</strong>
+        <span>cadence</span>
+      </div>
+    </div>
+
+    <div class="dj-grid">
+      <div class="dj-timeline reveal">
+        {
+          latest.map((entry, i) => (
+            <div class:list={["dj-entry", { latest: i === 0 }]}>
+              <div class="dj-entry-head mono">
+                <span class="dj-day">day {entry.day}</span>
+                <span class="dj-date">{formatDate(entry.date)}</span>
+                <span
+                  class="dj-tag"
+                  style={`--tag: ${TAG_COLORS[entry.tag] ?? "var(--text-muted)"}`}
+                >
+                  {entry.tag}
+                </span>
+              </div>
+              <p class="dj-note">{entry.note}</p>
+            </div>
+          ))
+        }
+        <a
+          class="dj-all mono"
+          href="https://github.com/badadarr/badadarr.github.io/commits/main"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="github" size={15} /> view all commits
+          <Icon name="arrow-right" size={14} />
+        </a>
+      </div>
+
+      <aside class="dj-insights reveal">
+        <div class="dj-card">
+          <h3 class="mono">top focus areas</h3>
+          <ul class="mono">
+            {
+              topTags.map(([tag, count]) => (
+                <li>
+                  <span
+                    class="dot"
+                    style={`--tag: ${TAG_COLORS[tag] ?? "var(--text-muted)"}`}
+                  />
+                  <span class="tag-name">{tag}</span>
+                  <span class="tag-count">{count}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="dj-card">
+          <h3 class="mono">source</h3>
+          <div class="dj-source mono">
+            <p><Icon name="bot" size={14} /> automated <span>{autoPct}% ({autoCount})</span></p>
+            <p><Icon name="user" size={14} /> manual <span>{100 - autoPct}% ({manualCount})</span></p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dj-intro {
+    max-width: 40rem;
+    margin: -1rem 0 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .dj-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dj-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.5rem 0.85rem;
+    background: var(--bg-soft);
+  }
+
+  .dj-stat svg {
+    color: var(--accent);
+  }
+
+  .dj-stat strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .dj-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .dj-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .dj-entry {
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--border-strong);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+    padding: 0.85rem 1rem;
+  }
+
+  .dj-entry.latest {
+    border-left-color: var(--accent);
+  }
+
+  .dj-entry-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .dj-day {
+    color: var(--accent-bright);
+    font-weight: 600;
+  }
+
+  .dj-date {
+    color: var(--text-faint);
+  }
+
+  .dj-tag {
+    margin-left: auto;
+    color: var(--tag);
+    border: 1px solid color-mix(in srgb, var(--tag) 40%, transparent);
+    background: color-mix(in srgb, var(--tag) 10%, transparent);
+    border-radius: 999px;
+    padding: 0.05rem 0.55rem;
+  }
+
+  .dj-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .dj-entry.latest .dj-note {
+    color: var(--text);
+  }
+
+  .dj-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  .dj-all:hover {
+    color: var(--accent-bright);
+    text-decoration: none;
+  }
+
+  .dj-insights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: sticky;
+    top: 5rem;
+  }
+
+  .dj-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+    padding: 1rem 1.1rem;
+  }
+
+  .dj-card h3 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.7rem;
+  }
+
+  .dj-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+  }
+
+  .dj-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--tag);
+    flex-shrink: 0;
+  }
+
+  .tag-name {
+    color: var(--text-muted);
+  }
+
+  .tag-count {
+    margin-left: auto;
+    color: var(--text-faint);
+  }
+
+  .dj-source {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .dj-source p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dj-source span {
+    margin-left: auto;
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 800px) {
+    .dj-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dj-insights {
+      position: static;
+    }
+  }
+</style>

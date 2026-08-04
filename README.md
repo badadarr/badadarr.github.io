@@ -1,101 +1,44 @@
-# Badar Maulana — Portfolio Website
+# Badar Maulana — Portfolio
 
 [![Live](https://img.shields.io/badge/Live-badadarr.github.io-blue?style=flat-square&logo=github)](https://badadarr.github.io)
-[![Repo](https://img.shields.io/badge/GitHub-badadarr-black?style=flat-square&logo=github)](https://github.com/badadarr/badadarr.github.io)
+[![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-ff5d01?style=flat-square&logo=astro)](https://astro.build)
 
-Website portfolio statis berbasis HTML, CSS, dan JavaScript vanilla.
+Personal portfolio — fully static, built with [Astro](https://astro.build) and deployed to GitHub Pages via GitHub Actions.
 
-## Ringkasan
+## Features
 
-Project ini menampilkan profil, pengalaman, proyek, serta **Dev Journal** yang diperbarui otomatis setiap hari via GitHub Actions.
+- **Zero-JS-by-default** — pages are pre-rendered HTML; the only client-side JS is the theme toggle and a small scroll-reveal observer
+- **Dark/light theme** with system-safe defaults and no flash on load
+- **Self-updating Dev Journal** — a Python script runs on a daily GitHub Actions cron, appends an entry to `data/dev-log.json`, and the resulting commit triggers a site rebuild
+- **Optimized images** — responsive WebP generated at build time via `astro:assets`
+- **SEO** — sitemap, canonical URLs, OpenGraph, and JSON-LD structured data
 
-## Halaman Utama
+## Structure
 
-- `/` (Home)
-- `/projects.html`
-- `/experience.html`
-
-## Arsitektur Saat Ini
-
-- **Static multi-page site** (tanpa framework frontend)
-- Tiap halaman memuat section HTML dari folder `sections/` menggunakan `script/page-loader.js`
-- Interaksi UI utama ditangani di `script/main.js`
-- Data Dev Journal dibaca dari `data/dev-log.json` dan dirender oleh `script/dev-log.js`
-
-## Fitur yang Benar-Benar Ada
-
-- Layout responsif + navigasi mobile
-- Scroll progress bar dan back-to-top button
-- Animasi AOS dan Lottie pada hero section
-- Lazy loading gambar pada section portfolio
-- Meta SEO dasar (title, description, canonical, JSON-LD person schema)
-- Section-based composition (reusable section HTML)
-- Dev Journal dengan ringkasan timeline + insight tag/source
-- Otomasi harian Dev Journal via GitHub Actions (`.github/workflows/daily-log.yml`)
-
-## Teknologi
-
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-- Python (script automation untuk update log harian)
-
-Library/CDN yang digunakan:
-- Font Awesome
-- Google Fonts (Inter)
-- AOS
-- Lottie Player
-- EmailJS (script tersedia di halaman home)
-
-## Struktur Direktori
-
-```text
-badadarr.github.io/
-├── index.html
-├── projects.html
-├── experience.html
-├── sections/              # potongan section HTML per area
-├── script/                # logic frontend (loader, main, dev-log, dll)
-├── style/                 # stylesheet utama
-├── assets/
-│   ├── images/
-│   └── cv/
-├── data/
-│   ├── dev-log.json
-│   ├── personal.json
-│   ├── stats.json
-│   ├── projects/
-│   ├── experience/
-│   └── tech/
-├── scripts/
-│   └── append_log.py      # updater log harian
-└── .github/workflows/
-    └── daily-log.yml
+```
+├─ src/
+│  ├─ pages/          index, projects, experience, 404
+│  ├─ layouts/        Base.astro (head, nav, footer, reveal script)
+│  ├─ components/     Nav, Footer, Icon, ProjectCard, DevLog, SectionHead
+│  ├─ data/           site, projects, experience, education, tech (typed)
+│  ├─ lib/            date/duration helpers
+│  ├─ styles/         global.css (design tokens + base)
+│  └─ assets/images/  source images (optimized at build)
+├─ public/            favicon, robots.txt, CV, verification file
+├─ data/dev-log.json  dev journal entries (written by cron)
+├─ scripts/           append_log.py (daily journal cron)
+└─ .github/workflows/ deploy.yml, daily dev log
 ```
 
-## Menjalankan Secara Lokal
-
-Karena ini static site, cukup jalankan web server sederhana:
+## Development
 
 ```bash
-cd badadarr.github.io
-python3 -m http.server 8000
+npm install
+npm run dev       # local dev server
+npm run build     # static build to dist/
+npm run preview   # preview the build
 ```
 
-Lalu buka `http://localhost:8000`.
+## Deployment
 
-## Otomasi Dev Journal
-
-Workflow `Daily Dev Log`:
-- Terjadwal harian (cron)
-- Menjalankan `python3 scripts/append_log.py`
-- Mengupdate `data/dev-log.json`
-- Commit & push otomatis jika ada entry baru
-
-## Catatan Deployment
-
-Project dipublikasikan ke GitHub Pages. File konfigurasi seperti `.htaccess`, `_headers`, dan `_redirects` tersedia di repo sebagai konfigurasi server/CDN tambahan jika dideploy di platform lain.
-
-## License
-
-MIT — lihat file [LICENSE](LICENSE).
+Every push to `main` triggers `.github/workflows/deploy.yml`, which builds the site and deploys it to GitHub Pages. The daily dev-log commit keeps build-time data (journal, "Present" durations) fresh automatically.

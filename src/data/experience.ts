@@ -22,8 +22,8 @@ export const experience: ExperienceItem[] = [
         text: "Led development of an internal ERP system utilizing Laravel and Inertia.js, delivering key features that significantly boosted team productivity",
       },
       {
-        label: "MPR ICC Quiz App",
-        text: "Built a quiz-competition (cerdas cermat) application for MPR ICC, handling the buzzer feature with group answer ordering",
+        label: "MPR LCC Quiz App",
+        text: "Built a quiz-competition (cerdas cermat) application for MPR LCC, handling the buzzer feature with group answer ordering",
       },
       {
         label: "Nexxuz Applications",

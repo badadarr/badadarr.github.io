@@ -74,16 +74,24 @@ const contacts = [
         <p class="hero-desc">
           I build mobile apps with <strong>Flutter</strong> and
           <strong>Swift</strong>, backed by <strong>Laravel</strong> and
-          <strong>Next.js</strong> — currently developing ERP systems at PT.
-          Spero Mahakarya Nusantara and finishing a CS degree at President
-          University.
+          <strong>Next.js</strong> — currently full-time Mobile App Developer at PT.
+          Spero Mahakarya Nusantara and finishing a CS degree at President University.
+        </p>
+        <p class="hero-status">
+          <span class="status mono"
+            ><span class="pulse"></span>open to collaboration</span
+          >
         </p>
         <div class="hero-actions">
-          <span class="status mono"><span class="pulse"></span>open to opportunities</span>
           <a href="/projects.html" class="btn btn--solid">
             view work <Icon name="arrow-right" />
           </a>
-          <a href={site.cv} target="_blank" rel="noopener noreferrer" class="btn">
+          <a
+            href={site.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn"
+          >
             <Icon name="download" /> download cv
           </a>
         </div>
@@ -110,10 +118,9 @@ const contacts = [
         </div>
         <div class="about-text">
           <p class="reveal">
-            A full-stack developer concentrating in <strong>IoT</strong> at
-            President University. I care about clean code, honest UX, and
-            shipping things that actually get used — from hospital apps to
-            government portals to ERP systems.
+            A full-stack developer concentrating in <strong>IoT</strong> at President
+            University. I care about clean code, honest UX, and shipping things that
+            actually get used — from hospital apps to government portals to ERP systems.
           </p>
           <div class="about-stats mono reveal">
             <div class="stat">
@@ -283,12 +290,16 @@ const contacts = [
     font-weight: 600;
   }
 
+  .hero-status {
+    margin-top: 1.5rem;
+  }
+
   .hero-actions {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.9rem;
-    margin-top: 1.75rem;
+    margin-top: 1rem;
   }
 
   .status {

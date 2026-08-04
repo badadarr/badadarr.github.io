@@ -22,6 +22,22 @@ export const experience: ExperienceItem[] = [
         text: "Led development of an internal ERP system utilizing Laravel and Inertia.js, delivering key features that significantly boosted team productivity",
       },
       {
+        label: "MPR ICC Quiz App",
+        text: "Built a quiz-competition (cerdas cermat) application for MPR ICC, handling the buzzer feature with group answer ordering",
+      },
+      {
+        label: "Nexxuz Applications",
+        text: "Maintained several applications within the Nexxuz ecosystem — Vcomm, BLM, and BMS — covering network discovery and application configuration options",
+      },
+      {
+        label: "Onelito KOI Auction",
+        text: "Developed a Flutter-based real-time live auction application for Onelito KOI",
+      },
+      {
+        label: "Lora Website",
+        text: "Designed and built the Lora website",
+      },
+      {
         label: "Field Operations",
         text: "Conducted on-site field operations for client Nexxuz, providing hands-on technical support and facilitating installation of required client systems",
       },

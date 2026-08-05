@@ -37,8 +37,8 @@ export const experience: ExperienceItem[] = [
             text: "Developed a Flutter-based real-time live auction application for Onelito KOI",
           },
           {
-            label: "Lora Website",
-            text: "Designed and built the Lora website",
+            label: "LoRa IoT Website",
+            text: "Built the web interface for a LoRa-based IoT system, where devices scan for one another to pair a transmitter with its receiver and report link status",
           },
         ],
       },
@@ -149,14 +149,14 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    company: "Kementerian Dalam Negeri RI",
+    company: "Inspektorat Jenderal Kementerian Dalam Negeri",
     roles: [
       {
         title: "Software Engineer Intern",
         start: "2024-09",
         end: "2025-01",
         summary:
-          "Contributed to internal information systems and digitalization initiatives within the Indonesian Ministry of Home Affairs.",
+          "Contributed to internal information systems and digitalization initiatives within the Inspectorate General of the Indonesian Ministry of Home Affairs.",
         bullets: [
           {
             label: "Laravel Development",

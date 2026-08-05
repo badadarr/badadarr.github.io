@@ -22,6 +22,7 @@ export const techStack: TechCategory[] = [
       { name: "ESP32", note: "WiFi/BLE Microcontroller" },
       { name: "Arduino Uno", note: "Prototyping" },
       { name: "Raspberry Pi", note: "Edge Computing" },
+      { name: "LoRa", note: "Long-range Radio" },
       { name: "MQTT", note: "IoT Messaging" },
     ],
   },

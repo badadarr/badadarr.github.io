@@ -13,6 +13,8 @@ export interface Mock {
   rows?: { label: string; meta?: string }[];
   chips?: string[];
   action?: string;
+  /** Browser only: show an admin sidebar rail. */
+  sidebar?: boolean;
 }
 
 interface Props {
@@ -20,7 +22,17 @@ interface Props {
 }
 
 const { mock } = Astro.props;
-const { device, accent, title, subtitle, highlight, rows = [], chips = [], action } = mock;
+const {
+  device,
+  accent,
+  title,
+  subtitle,
+  highlight,
+  rows = [],
+  chips = [],
+  action,
+  sidebar = false,
+} = mock;
 ---
 
 <div class:list={["mock", `mock--${device}`]} style={`--mk: ${accent}`} aria-hidden="true">
@@ -33,33 +45,43 @@ const { device, accent, title, subtitle, highlight, rows = [], chips = [], actio
           <span class="dot" />
           <span class="url mono">{subtitle ?? "app.local"}</span>
         </div>
-        <div class="win-body">
-          <p class="mk-title">{title}</p>
-          {(highlight || chips.length > 0) && (
-            <div class="mk-meta mono">
-              {highlight && (
-                <div class="mk-stat">
-                  <span class="v">{highlight.value}</span>
-                  <span class="l">{highlight.label}</span>
-                </div>
-              )}
-              {chips.length > 0 && (
-                <div class="mk-chips">
-                  {chips.map((c) => (
-                    <span>{c}</span>
-                  ))}
-                </div>
-              )}
+        <div class:list={["win-body", { "win-body--app": sidebar }]}>
+          {sidebar && (
+            <div class="win-rail">
+              <span class="rail-item on" />
+              <span class="rail-item" />
+              <span class="rail-item" />
+              <span class="rail-item" />
             </div>
           )}
-          <div class="mk-rows mono">
-            {rows.map((r) => (
-              <div class="mk-row">
-                <span class="bar" />
-                <span class="label">{r.label}</span>
-                {r.meta && <span class="meta">{r.meta}</span>}
+          <div class="win-main">
+            <p class="mk-title">{title}</p>
+            {(highlight || chips.length > 0) && (
+              <div class="mk-meta mono">
+                {highlight && (
+                  <div class="mk-stat">
+                    <span class="v">{highlight.value}</span>
+                    <span class="l">{highlight.label}</span>
+                  </div>
+                )}
+                {chips.length > 0 && (
+                  <div class="mk-chips">
+                    {chips.map((c) => (
+                      <span>{c}</span>
+                    ))}
+                  </div>
+                )}
               </div>
-            ))}
+            )}
+            <div class="mk-rows mono">
+              {rows.map((r) => (
+                <div class="mk-row">
+                  <span class="bar" />
+                  <span class="label">{r.label}</span>
+                  {r.meta && <span class="meta">{r.meta}</span>}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -430,10 +452,39 @@ const { device, accent, title, subtitle, highlight, rows = [], chips = [], actio
 
   .win-body {
     padding: 0.6rem 0.7rem 0.7rem;
+    background: var(--bg);
+  }
+
+  .win-body--app {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 0.55rem;
+    padding-left: 0.5rem;
+  }
+
+  .win-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.32rem;
+    padding: 0.15rem 0.45rem 0 0;
+    border-right: 1px solid var(--border);
+  }
+
+  .rail-item {
+    height: 5px;
+    border-radius: 2px;
+    background: var(--border-strong);
+  }
+
+  .rail-item.on {
+    background: var(--mk);
+  }
+
+  .win-main {
     display: flex;
     flex-direction: column;
     gap: 0.45rem;
-    background: var(--bg);
+    min-width: 0;
   }
 
   .mk-title {

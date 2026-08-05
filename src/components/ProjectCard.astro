@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "./Icon.astro";
+import ProjectMock from "./ProjectMock.astro";
 import type { Project } from "../data/projects";
 
 interface Props {
@@ -13,16 +14,22 @@ const { project, eager = false } = Astro.props;
 
 <article class="card project reveal">
   <div class="project-shot">
-    <Image
-      src={project.image}
-      alt={`${project.title} — UI screenshot`}
-      width={640}
-      widths={[420, 640, 840]}
-      sizes="(max-width: 700px) 92vw, 420px"
-      format="webp"
-      quality={78}
-      loading={eager ? "eager" : "lazy"}
-    />
+    {
+      project.image ? (
+        <Image
+          src={project.image}
+          alt={`${project.title} — UI screenshot`}
+          width={640}
+          widths={[420, 640, 840]}
+          sizes="(max-width: 700px) 92vw, 420px"
+          format="webp"
+          quality={78}
+          loading={eager ? "eager" : "lazy"}
+        />
+      ) : (
+        project.mock && <ProjectMock mock={project.mock} />
+      )
+    }
     <span class="platform mono">
       <Icon name={project.platform.icon} size={13} />
       {project.platform.label}

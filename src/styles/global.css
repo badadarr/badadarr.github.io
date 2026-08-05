@@ -28,22 +28,23 @@
   color-scheme: dark;
 }
 
+/* Light theme — Flutter-blue accent (#0175C2 family) on a cool white */
 :root[data-theme="light"] {
-  --bg: #fafbfc;
+  --bg: #f8fafd;
   --bg-soft: #ffffff;
-  --bg-raised: #f2f4f7;
-  --border: #e2e6eb;
-  --border-strong: #c9d1d9;
-  --text: #1c232d;
-  --text-muted: #57616e;
-  --text-faint: #8a94a3;
-  --accent: #1a7f37;
-  --accent-bright: #2da44e;
-  --accent-dim: rgba(26, 127, 55, 0.1);
+  --bg-raised: #eef3f9;
+  --border: #dfe7ef;
+  --border-strong: #c3d0dd;
+  --text: #1b2733;
+  --text-muted: #536270;
+  --text-faint: #8695a5;
+  --accent: #02569b;
+  --accent-bright: #0175c2;
+  --accent-dim: rgba(1, 117, 194, 0.09);
   --amber: #9a6700;
   --blue: #0969da;
   --red: #cf222e;
-  --purple: #8250df;
+  --purple: #7f52ff;
   color-scheme: light;
 }
 

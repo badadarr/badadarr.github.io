@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-08-20",
-  "total_days": 144,
+  "last_updated": "2026-08-21",
+  "total_days": 145,
   "logs": [
     {
       "date": "2026-03-28",
@@ -1294,6 +1294,15 @@
       "day": 144,
       "note": "Tambahkan preview file/gambar di halaman edit (kalau ada upload).",
       "tag": "UI",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-08-21",
+      "day": 145,
+      "note": "Rapikan storage link dan dokumentasikan langkah `php artisan storage:link`.",
+      "tag": "DevOps",
       "type": "auto",
       "source": "github-actions:repo",
       "duration": "30m"

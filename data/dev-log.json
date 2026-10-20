@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-20",
-  "total_days": 205,
+  "last_updated": "2026-10-21",
+  "total_days": 206,
   "logs": [
     {
       "date": "2026-03-28",
@@ -1843,6 +1843,15 @@
       "day": 205,
       "note": "Tambah sorting sederhana untuk kolom tertentu di tabel.",
       "tag": "Backend",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-10-21",
+      "day": 206,
+      "note": "Optimasi query list: pilih kolom yang perlu saja + eager load relasi kalau ada.",
+      "tag": "Performance",
       "type": "auto",
       "source": "github-actions:repo",
       "duration": "30m"

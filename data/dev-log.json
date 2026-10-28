@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-28",
-  "total_days": 213,
+  "last_updated": "2026-10-29",
+  "total_days": 214,
   "logs": [
     {
       "date": "2026-03-28",
@@ -1914,6 +1914,15 @@
       "date": "2026-10-28",
       "day": 213,
       "note": "Benerin bug kecil: nilai lama (old()) tidak kebaca di form setelah error.",
+      "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-10-29",
+      "day": 214,
+      "note": "Perbaiki handling checkbox/radio agar tersimpan dan tampil benar saat edit.",
       "tag": "Bugfix",
       "type": "auto",
       "source": "github-actions:repo",

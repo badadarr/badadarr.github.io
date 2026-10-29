@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-10-29",
-  "total_days": 214,
+  "last_updated": "2026-10-30",
+  "total_days": 215,
   "logs": [
     {
       "date": "2026-03-28",
@@ -1924,6 +1924,15 @@
       "day": 214,
       "note": "Perbaiki handling checkbox/radio agar tersimpan dan tampil benar saat edit.",
       "tag": "Bugfix",
+      "type": "auto",
+      "source": "github-actions:repo",
+      "duration": "30m"
+    },
+    {
+      "date": "2026-10-30",
+      "day": 215,
+      "note": "Rapikan halaman edit: isi default value dan tampilkan field wajib/opsional.",
+      "tag": "UI",
       "type": "auto",
       "source": "github-actions:repo",
       "duration": "30m"
